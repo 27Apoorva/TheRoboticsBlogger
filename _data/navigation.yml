@@ -1,0 +1,15 @@
+main:
+  # - title: "Home"
+  #   url: /home/
+  - title: "Home"
+    url: /posts/
+  - title: "About"
+    url: /about/
+  - title: "Portfolio"
+    url: /portfolio/
+  - title: "Contact"
+    url: /contact/       
+  # - title: "Tags"
+  #   url: /tags/ 
+  # - title: "Categories"
+  #   url: /categories/         

@@ -1,0 +1,13 @@
+current directory: /Users/navneetarora/Desktop/blog-robotics-1/vendor/bundle/ruby/3.0.0/gems/json-2.6.3/ext/json
+/opt/homebrew/opt/ruby@3.0/bin/ruby -I /opt/homebrew/Cellar/ruby@3.0/3.0.5/lib/ruby/3.0.0 extconf.rb
+creating Makefile
+
+current directory: /Users/navneetarora/Desktop/blog-robotics-1/vendor/bundle/ruby/3.0.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230111-30177-3zvosk sitelibdir\=./.gem.20230111-30177-3zvosk clean
+
+current directory: /Users/navneetarora/Desktop/blog-robotics-1/vendor/bundle/ruby/3.0.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230111-30177-3zvosk sitelibdir\=./.gem.20230111-30177-3zvosk
+make: Nothing to be done for `all'.
+
+current directory: /Users/navneetarora/Desktop/blog-robotics-1/vendor/bundle/ruby/3.0.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230111-30177-3zvosk sitelibdir\=./.gem.20230111-30177-3zvosk install
