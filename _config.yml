@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Robotics Blog
+title: The Robotics Space
 # permalink: /home/
 
 minimal_mistakes_skin: mint
@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Apoorva Gupta"
   avatar : "/assets/images/bio-photo.jpeg"
-  bio    : "this is The Robotics Blog, where you can read about the latest development and techincal reviews in the field of Robotics."
+  bio    : "This is The Robotics Space, where you can read about the latest development and techincal reviews in the field of Robotics and some other cool stuff."
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
