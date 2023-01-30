@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-31T00:35:32+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-31T00:45:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all.&lt;/p&gt;
 &lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
@@ -102,17 +102,27 @@
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;In this blog post, we will explore some alternative options for robotics development that do not rely on ROS.&lt;/p&gt;
 
-&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;1. Python-based frameworks: Python is a popular programming language for robotics, and there are several frameworks available for building robots without ROS. Some examples include:
-    - PyRobot: PyRobot is a lightweight, open-source framework for building robots using Python. It provides a set of tools for controlling robots, including a robot simulator and a control library.
-    - RobotPy: RobotPy is a Python-based framework for building robots for the FIRST Robotics Competition. It provides a set of libraries for controlling motors, sensors, and other hardware.
-    - pyControl: pyControl is a framework for building robots using Python and the Raspberry Pi. It provides a set of libraries for controlling motors, sensors, and other hardware.
-2. Hardware-specific frameworks: Some robot manufacturers provide their own frameworks for building robots without ROS. These frameworks are often specific to the manufacturer&apos;s hardware and may not be compatible with other robots. Examples include
-    - Lego Mindstorms EV3: The Lego Mindstorms EV3 is a popular robotics kit for building robots, and it comes with its own software for programming the robots.
-    - Arduino: Arduino is an open-source microcontroller platform that can be used for building robots without ROS. It provides a set of libraries for controlling motors, sensors, and other hardware.
-3. Middleware frameworks: Middleware frameworks provide a layer of abstraction between the robot&apos;s hardware and the software that controls it. These frameworks can be used to build robots without ROS. Examples include:
-  - YARP: The Yet Another Robot Platform (YARP) is an open-source middleware framework for building robots. It provides a set of libraries for controlling motors, sensors, and other hardware, and it can be used with a variety of programming languages.
-  - OROCOS: The Open Real-time Control System (OROCOS) is an open-source middleware framework for building robots. It provides a set of libraries for controlling motors, sensors, and other hardware, and it can be used with a variety of programming languages.
-  &lt;/p&gt;
+&lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
+&lt;li&gt; Python-based frameworks: Python is a popular programming language for robotics, and there are several frameworks available for building robots without ROS. Some examples include:
+  &lt;ul&gt;
+    &lt;li&gt;PyRobot: PyRobot is a lightweight, open-source framework for building robots using Python. It provides a set of tools for controlling robots, including a robot simulator and a control library.&lt;/li&gt;
+    &lt;li&gt;RobotPy: RobotPy is a Python-based framework for building robots for the FIRST Robotics Competition. It provides a set of libraries for controlling motors, sensors, and other hardware.&lt;/li&gt;
+    &lt;li&gt;pyControl: pyControl is a framework for building robots using Python and the Raspberry Pi. It provides a set of libraries for controlling motors, sensors, and other hardware.&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;li&gt;Hardware-specific frameworks: Some robot manufacturers provide their own frameworks for building robots without ROS. These frameworks are often specific to the manufacturer&apos;s hardware and may not be compatible with other robots. Examples include
+  &lt;ul&gt;
+    &lt;li&gt;Lego Mindstorms EV3: The Lego Mindstorms EV3 is a popular robotics kit for building robots, and it comes with its own software for programming the robots.&lt;/li&gt;
+    &lt;li&gt;Arduino: Arduino is an open-source microcontroller platform that can be used for building robots without ROS. It provides a set of libraries for controlling motors, sensors, and other hardware.&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;li&gt;Middleware frameworks: Middleware frameworks provide a layer of abstraction between the robot&apos;s hardware and the software that controls it. These frameworks can be used to build robots without ROS. Examples include:
+  &lt;ul&gt;
+  &lt;li&gt;YARP: The Yet Another Robot Platform (YARP) is an open-source middleware framework for building robots. It provides a set of libraries for controlling motors, sensors, and other hardware, and it can be used with a variety of programming languages.&lt;/li&gt;
+  &lt;li&gt;OROCOS: The Open Real-time Control System (OROCOS) is an open-source middleware framework for building robots. It provides a set of libraries for controlling motors, sensors, and other hardware, and it can be used with a variety of programming languages.&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;/ol&gt;
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Most of the alternative options mentioned are open source libraries. Interestingly, there still exists one more, the most basic way to build robots. With some experience in path planning, sensor fusion, control systems and some low-level firmware communication with robot’s hardware, we can create a robot that can navigate in a dynamic environment avoiding obstacles. By not using ROS, a project can have more control over the specific functionality it uses and can be tailored to the specific needs of the application. I recently heard about a company called Mujin that has succeeded worldwide without using ROS. Even though I use ROS extensively, the possibility of Robotics without ROS is not just based on theory, but rather rooted in practicality.&lt;/p&gt;
 
