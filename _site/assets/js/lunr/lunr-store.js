@@ -4,4 +4,10 @@ var store = [{
         "tags": ["Post Formats","readability","standard"],
         "url": "/blog/Robotics-without-ROS/",
         "teaser": null
+      },{
+        "title": "The History of Turtle Robots",
+        "excerpt":"With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all. The idea of TurtleBot came from two roboticists, Tully...","categories": ["Blog"],
+        "tags": ["Post Formats","readability","standard"],
+        "url": "/blog/The-history-of-turtle-robots/",
+        "teaser": null
       }]
