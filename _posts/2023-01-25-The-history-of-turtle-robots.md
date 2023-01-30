@@ -26,7 +26,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-  <p style="text-align: center;">Image Source: <a href="https://spectrum.ieee.org/interview-turtlebot-inventors-tell-us-everything-about-the-robot">IEEE Spectrum</a></p>
+  <p style="text-align: center; margin: auto 3rem;">Image Source: <a href="https://spectrum.ieee.org/interview-turtlebot-inventors-tell-us-everything-about-the-robot">IEEE Spectrum</a></p>
 
 
   <p style=" margin: 20px 3rem;">TurtleBot was a low-cost, personal robotic kit that had a completely open source SDK and can be used to build a robot that can drive around your house, as well as research SLAM or Path Planning algorithms. The possibilities were endless. No doubt, TurtleBot became a massive hit and was being used by about 15 universities to teach undergrad and graduate students.</p>
@@ -40,7 +40,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-   <p style="text-align: center;">Image Source: <a href="https://www.turtlebot.com/">Turtlebot.com</a></p>
+   <p style="text-align: center; margin: auto 3rem;">Image Source: <a href="https://www.turtlebot.com/">Turtlebot.com</a></p>
 
 
    <!-- Image Source: [Turtlebot.com](https://www.turtlebot.com/ "Title") -->
@@ -61,7 +61,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 30%;"/>
 </div>
-   <p style="text-align: center;">Image Source: <a href="http://www.theoldrobots.com/">oldrobots.com</a></p>
+   <p style="text-align: center;margin: auto 3rem;">Image Source: <a href="http://www.theoldrobots.com/">oldrobots.com</a></p>
 
 
 
@@ -76,7 +76,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-  <p style="text-align: center;">Image Source: <a href="http://cyberneticzoo.com/cyberneticanimals/1969-the-logo-turtle-seymour-papert-marvin-minsky-et-al-american/">Cyberneticzoo.com</a></p>
+  <p style="text-align: center;margin: auto 3rem;">Image Source: <a href="http://cyberneticzoo.com/cyberneticanimals/1969-the-logo-turtle-seymour-papert-marvin-minsky-et-al-american/">Cyberneticzoo.com</a></p>
 
 
   <p style=" margin: 20px 3rem;">In 1971, Mike Peterson, who was a MIT Lab Consultant, introduced the first Logo-controlled turtle robot and is also the person credited to use the term “turtle”. This was just the beginning of the turtle robots. What followed was a series of new and better turtle robots. The very next year, turtle robots went commercial when Bolt, Beranek and Newman (BBN)’s Paul Wexelblat built the first wireless turtle robot named “Irving”. In 1974-76, Radia Perlman created a turtle robot that could be controlled with a “button box”.</p>
@@ -86,7 +86,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-  <p style="text-align: center;">Image Source: <a href="http://cyberneticzoo.com/cyberneticanimals/1969-the-logo-turtle-seymour-papert-marvin-minsky-et-al-american/">Cyberneticzoo.com</a></p>
+  <p style="text-align: center;margin: auto 3rem;">Image Source: <a href="http://cyberneticzoo.com/cyberneticanimals/1969-the-logo-turtle-seymour-papert-marvin-minsky-et-al-american/">Cyberneticzoo.com</a></p>
 
   <p style=" margin: 20px 3rem;">The question was how long sci-fi could have stayed away from the impact of these turtle robots. The answer was not for long, as the first Star Wars film came out in 1977 and some people say that the small black MSE-6 mouse droid was definitely influenced by turtle robots.</p>
 
@@ -95,7 +95,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-  <p style="text-align: center;">Image Source: <a href=" https://www.youtube.com/watch?v=cLqNmMH4hsg">Youtube.com</a></p>
+  <p style="text-align: center;margin: auto 3rem;">Image Source: <a href=" https://www.youtube.com/watch?v=cLqNmMH4hsg">Youtube.com</a></p>
 
   <p style=" margin: 20px 3rem;">From 1988 to 2011, Valiant Technology, a company I could find on hrefedIn, built the Valiant Turtle Robot, which could be connected to an Apple IIe computer and could be programmed in Logo. This robot was mostly used in schools for teaching coding to kids. The Valiant Turtle had a pen in the center with an up/down mechanism and could draw any pattern on paper.</p>
 
@@ -104,7 +104,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-  <p style="text-align: center;">Image Source: <a href=" http://www.theoldrobots.com/turtle5.html">oldrobots.com</a></p>
+  <p style="text-align: center;margin: auto 3rem;">Image Source: <a href=" http://www.theoldrobots.com/turtle5.html">oldrobots.com</a></p>
 
 
   <p style=" margin: 20px 3rem;">Recently, when I talked to my 7-year old nephew, who knows I am a Roboticist, he couldn’t stop himself from talking about his Lego robotics kit. Lego isn’t as new to the game as one might think. In 1998, Papert (Logo’s founder) collaborated with Lego and the result was the Lego Mindstorms series of robotics kits priced at $199, which would be about $400 in 2023. Certainly, at some point, someone had to cross the Atlantic and so turtle robots went international. Denning International was a Boston-based turtle robots company, but was the trading name for the private Australian company, Branch & Associates Pty Ltd, (B&A) although Denning International got some bad press in its day.</p>
@@ -114,7 +114,7 @@ excerpt_separator: <!--more-->
     margin-right: auto;
     width: 50%;" />
 
-  <p style="text-align: center;">Image Source: <a href="https://apps.dtic.mil/sti/pdfs/ADA422581.pdf">If Our Robots Are So Smart, Why Aren’t We All Rich?</a></p>
+  <p style="text-align: center;margin: auto 3rem;">Image Source: <a href="https://apps.dtic.mil/sti/pdfs/ADA422581.pdf">If Our Robots Are So Smart, Why Aren’t We All Rich?</a></p>
 
 
   <p style=" margin: 20px 3rem;">The other robots launched in this period were ‘Turtle Tot Robot’ By Flexible Systems, ‘Tasman Turtle’ and ‘Terrapin Turtle’ Robot by Terrapin Inc.</p>
@@ -124,7 +124,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
- <p style="text-align: center;">Image Source: <a href=" http://www.theoldrobots.com/turtle1.html">oldrobots.com</a></p>
+ <p style="text-align: center;margin: auto 3rem;">Image Source: <a href=" http://www.theoldrobots.com/turtle1.html">oldrobots.com</a></p>
 
 
   <p style=" margin: 20px 3rem;">There were also some cool advertisements in the past.</p>
@@ -134,7 +134,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
- <p style="text-align: center;">Image Source: <a href=" http://www.theoldrobots.com/turtle4.html">oldrobots.com</a></p>
+ <p style="text-align: center;margin: auto 3rem;">Image Source: <a href=" http://www.theoldrobots.com/turtle4.html">oldrobots.com</a></p>
 
 
   <img src="/assets/rimg13.png" alt="turtle robot image1" style="display: block;
@@ -143,7 +143,7 @@ excerpt_separator: <!--more-->
   width: 50%;"/>
 
 
- <p style="text-align: center;">Image Source: <a href=" http://www.theoldrobots.com/turtle3.html">oldrobots.com</a></p>
+ <p style="text-align: center;margin: auto 3rem;">Image Source: <a href=" http://www.theoldrobots.com/turtle3.html">oldrobots.com</a></p>
 
 
 
@@ -154,7 +154,7 @@ excerpt_separator: <!--more-->
   margin-right: auto;
   width: 50%;"/>
 
-   <p style="text-align: center;">Image Source: <a href="https://robotwars.fandom.com/wiki/Terror_Turtle" target="_top">robotwars.fandom.com</a></p>
+   <p style="text-align: center;margin: auto 3rem;">Image Source: <a href="https://robotwars.fandom.com/wiki/Terror_Turtle" target="_top">robotwars.fandom.com</a></p>
 
 
   <p style=" margin: 20px 3rem;">There exists instructables, like Open Source Turtle Robot, and even Arduino-based robot turtle kits and Lego Robotics kits are still part of early STEM education.Nonetheless, robots and turtles are very much intertwined. For over 80 years, the underlying thought process for the turtle robots has been the same, an open source, free-to-build-on platform, to teach, and give access to children to learn robotics.</p>
