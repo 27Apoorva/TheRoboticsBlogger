@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Apoorva Gupta"
   avatar : "/assets/images/bio-photo.jpeg"
-  bio    : "This is The Robotics Space, where you can read about the latest development and techincal reviews in the field of Robotics and some other cool stuff."
+  bio    : "This is The Robotics Space, where you can read about the latest development and technical reviews in the field of Robotics and some other cool stuff."
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
