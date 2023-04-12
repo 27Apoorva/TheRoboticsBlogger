@@ -31,126 +31,126 @@ excerpt_separator: <!--more-->
       </li>
       <li>
         Go to <a href="https://mac.getutm.app/">https://mac.getutm.app/</a>  and click the `Download` button. A UTM.dmg file will start downloading.
-        <img src="/assets/article3/simg1.png" alt="article image 1" style="display: block;
+        <img src="/assets/simg1.png" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>        
       </li>
       <li>Go to <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/"> https://cdimage.ubuntu.com/jammy/daily-live/current/</a> and Download <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso">64-bit ARM (ARMv8/AArch64) desktop image</a>. A ".iso" desktop image will start downloading. Make sure you use the `ARM` image for a Macbook with M1/M2 chip and not an `AMD` image.
       This step might take time depending on your internet speed.
-          <img src="/assets/article3/simg2.png" alt="article image 2" style="display: block;
+          <img src="/assets/simg2.png" alt="article image 2" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>GDouble-click on the `UTM.dmg` file and drag the icon to the Applications folder. 
-          <img src="/assets/article3/simg3.png" alt="article image 3" style="display: block;
+          <img src="/assets/simg3.png" alt="article image 3" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Search for UTM and Open the UTM app from Launchpad.
-          <img src="/assets/article3/simg4.png" alt="article image 4" style="display: block;
+          <img src="/assets/simg4.png" alt="article image 4" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Once the app is launched, click `Create a new Virtual Machine`. 
-          <img src="/assets/article3/simg5.png" alt="article image 5" style="display: block;
+          <img src="/assets/simg5.png" alt="article image 5" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Use the `Virtualize` option to simulate the bare metal performance.
-          <img src="/assets/article3/simg6.png" alt="article image 6" style="display: block;
+          <img src="/assets/simg6.png" alt="article image 6" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Select `Linux` and on the next screen, you will see Boot options. Click `Browse` and select the `.iso` image for Ubuntu 22.04 that you download in the above step.
-          <img src="/assets/article3/simg7.png" alt="article image 7" style="display: block;
+          <img src="/assets/simg7.png" alt="article image 7" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>
           <br>
-          <img src="/assets/article3/simg8.png" alt="article image 8" style="display: block;
+          <img src="/assets/simg8.png" alt="article image 8" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>              
       </li>
      <li>Keep pressing the `Continue` button with default settings till you reach the summary screen.</li> 
      <li>Tap on the big Play button to boot Ubuntu 22.04
-          <img src="/assets/article3/simg9.png" alt="article image 9" style="display: block;
+          <img src="/assets/simg9.png" alt="article image 9" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Select `Try to Install Ubuntu`. This takes a minute and you will see a blank screen. 
-          <img src="/assets/article3/simg11.png" alt="article image 11" style="display: block;
+          <img src="/assets/simg11.png" alt="article image 11" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Once you see the Ubuntu 22.04 login screen, it will ask you for a password. The default password is `ubuntu`. 
-          <img src="/assets/article3/simg12.png" alt="article image 12" style="display: block;
+          <img src="/assets/simg12.png" alt="article image 12" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>The system will boot with the live image. On the right side, you will see `Install Ubuntu`. Continue with the standard installation process.  
-          <img src="/assets/article3/simg13.png" alt="article image 13" style="display: block;
+          <img src="/assets/simg13.png" alt="article image 13" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>            
      <li>Select `Install Third Party Software` in the following screen. 
-          <img src="/assets/article3/simg14.png" alt="article image 14" style="display: block;
+          <img src="/assets/simg14.png" alt="article image 14" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Select ‘Erase Ubuntu and reinstall` or if you are doing it for the first time, the third option `Erase disk and install Ubuntu` will be your first one. Choose that. 
-          <img src="/assets/article3/simg15.png" alt="article image 15" style="display: block;
+          <img src="/assets/simg15.png" alt="article image 15" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Save the username and password. You will need this later for login. 
-          <img src="/assets/article3/simg16.png" alt="article image 16" style="display: block;
+          <img src="/assets/simg16.png" alt="article image 16" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Continue with installation. This will take time. 
-          <img src="/assets/article3/simg17.png" alt="article image 17" style="display: block;
+          <img src="/assets/simg17.png" alt="article image 17" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
       </li>
      <li>Once Installation is done, You will see an option to restart the screen. Close the dialog box and Power Off the system. 
-          <img src="/assets/article3/simg18.png" alt="article image 18" style="display: block;
+          <img src="/assets/simg18.png" alt="article image 18" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>
           <br>
-          <img src="/assets/article3/simg19.png" alt="article image 19" style="display: block;
+          <img src="/assets/simg19.png" alt="article image 19" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>              
       </li>
      <li>Now using the virtual machine Navigation bar, choose Drive Image Options and eject the image file.
-          <img src="/assets/article3/simg20.png" alt="article image 20" style="display: block;
+          <img src="/assets/simg20.png" alt="article image 20" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>
           <br>
-          <img src="/assets/article3/simg21.png" alt="article image 21" style="display: block;
+          <img src="/assets/simg21.png" alt="article image 21" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>              
       </li>
      <li>You can restart the VM now by tapping on the Play Button. Now you will wait for 10 seconds to see the login screen of Ubuntu. 
-          <img src="/assets/article3/simg22.png" alt="article image 22" style="display: block;
+          <img src="/assets/simg22.png" alt="article image 22" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
@@ -170,7 +170,7 @@ excerpt_separator: <!--more-->
   <p style=" margin: 20px 3rem;">Now that we have Ubuntu 22.04 running on our Macbook with M1/M2 Chip, we can install the <a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html">ROS 2 HUMBLE version</a> by following the steps for Linux Distribution.</p>
   <ol style=" margin: 20px 3rem;">
      <li>Open Terminal. 
-          <img src="/assets/article3/simg23.png" alt="article image 23" style="display: block;
+          <img src="/assets/simg23.png" alt="article image 23" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>   
@@ -252,7 +252,7 @@ excerpt_separator: <!--more-->
         $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function<br>
         <br>
         You should see messages from the publisher and subscriber with numbers incrementing.<br>
-          <img src="/assets/article3/simg24.png" alt="article image 24" style="display: block;
+          <img src="/assets/simg24.png" alt="article image 24" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>
