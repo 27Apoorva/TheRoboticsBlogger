@@ -1,4 +1,273 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-31T00:45:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T19:05:45+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</title><link href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/" rel="alternate" type="text/html" title="How To Install ROS 2 in Ubuntu 22.04 On M1 Mac" /><published>2023-04-12T00:00:00+05:30</published><updated>2023-04-12T00:00:00+05:30</updated><id>http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac</id><content type="html" xml:base="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1 Mac&lt;/h1&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Congratulations on taking the first step into the fascinating realm of robotics! 
+  In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using &lt;a href=&quot;https://docs.getutm.app/&quot;&gt; UTM Virtualization software.&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;ROS 2 is supported in MacOS using the Homebrew installation process. Although, In my 7 years as a Roboticist, I have hardly seen anyone using MacOS for Robotics. What I have seen is the use of Virtual Desktops and Dockers with Ubuntu extensively. One of the primary reasons for configuring your development environment in this manner is because robotics software works on ARM-based development kits like &lt;a href=&quot;https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-agx-xavier/&quot;&gt;Nvidia’s Jetson AGX series&lt;/a&gt;. When utilizing Virtual Desktops on Mac M1, you effectively have the same development environment as your robot&apos;s runtime environment while keeping the M1 chip&apos;s inherent speed performance.&lt;/p&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt; We now understand why and what we are doing. Let’s dive right in.
+    &lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
+      &lt;li&gt; The first step is more of a reminder. The Macbooks with M1/M2 Chip are ARM-based platforms compared to older MacBooks and Windows which are AMD/Intel x86-based platforms.&lt;/li&gt;
+      &lt;li&gt;Different virtual desktops are available like Parallels Desktop, Oracle’s Virtual Box, and UTM each having its pros and cons. I would recommend the &lt;a href=&quot;https://www.parallels.com/products/desktop/&quot;&gt;Parallels Desktop paid version&lt;/a&gt; if you are a professional developer. For students or anyone looking for free software, I would recommend &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;Virtual Box&lt;/a&gt; for Windows and &lt;a href=&quot;https://docs.getutm.app/&quot;&gt;UTM&lt;/a&gt; for Macbooks. &lt;/li&gt;
+      &lt;li&gt;In this article, we will use free UTM virtualization software. UTM is a full-featured system emulator and virtual machine host for iOS and macOS. It is based on QEMU. In short, it allows you to run Windows, Linux, and more on your Mac, iPhone, and iPad. UTM allows Ubuntu to run with OpenGL, Hardware acceleration providing a highly efficient with near-native speed performance.&lt;/li&gt;
+      &lt;li&gt; I am using Macbook Pro with M1 Chip with MacOS 13. You will need about 50GB of free space for your new operating system.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Go to &lt;a href=&quot;https://mac.getutm.app/&quot;&gt;https://mac.getutm.app/&lt;/a&gt;  and click the `Download` button. A UTM.dmg file will start downloading.
+        &lt;img src=&quot;/assets/article3/simg1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;Go to &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/&quot;&gt; https://cdimage.ubuntu.com/jammy/daily-live/current/&lt;/a&gt; and Download &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso&quot;&gt;64-bit ARM (ARMv8/AArch64) desktop image&lt;/a&gt;. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the `ARM` image for a Macbook with M1/M2 chip and not an `AMD` image.
+      This step might take time depending on your internet speed.
+          &lt;img src=&quot;/assets/article3/simg2.png&quot; alt=&quot;article image 2&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;GDouble-click on the `UTM.dmg` file and drag the icon to the Applications folder. 
+          &lt;img src=&quot;/assets/article3/simg3.png&quot; alt=&quot;article image 3&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Search for UTM and Open the UTM app from Launchpad.
+          &lt;img src=&quot;/assets/article3/simg4.png&quot; alt=&quot;article image 4&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Once the app is launched, click `Create a new Virtual Machine`. 
+          &lt;img src=&quot;/assets/article3/simg5.png&quot; alt=&quot;article image 5&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Use the `Virtualize` option to simulate the bare metal performance.
+          &lt;img src=&quot;/assets/article3/simg6.png&quot; alt=&quot;article image 6&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Select `Linux` and on the next screen, you will see Boot options. Click `Browse` and select the `.iso` image for Ubuntu 22.04 that you download in the above step.
+          &lt;img src=&quot;/assets/article3/simg7.png&quot; alt=&quot;article image 7&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+          &lt;br /&gt;
+          &lt;img src=&quot;/assets/article3/simg8.png&quot; alt=&quot;article image 8&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;              
+      &lt;/li&gt;
+     &lt;li&gt;Keep pressing the `Continue` button with default settings till you reach the summary screen.&lt;/li&gt; 
+     &lt;li&gt;Tap on the big Play button to boot Ubuntu 22.04
+          &lt;img src=&quot;/assets/article3/simg9.png&quot; alt=&quot;article image 9&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Select `Try to Install Ubuntu`. This takes a minute and you will see a blank screen. 
+          &lt;img src=&quot;/assets/article3/simg11.png&quot; alt=&quot;article image 11&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Once you see the Ubuntu 22.04 login screen, it will ask you for a password. The default password is `ubuntu`. 
+          &lt;img src=&quot;/assets/article3/simg12.png&quot; alt=&quot;article image 12&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;The system will boot with the live image. On the right side, you will see `Install Ubuntu`. Continue with the standard installation process.  
+          &lt;img src=&quot;/assets/article3/simg13.png&quot; alt=&quot;article image 13&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;            
+     &lt;li&gt;Select `Install Third Party Software` in the following screen. 
+          &lt;img src=&quot;/assets/article3/simg14.png&quot; alt=&quot;article image 14&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Select ‘Erase Ubuntu and reinstall` or if you are doing it for the first time, the third option `Erase disk and install Ubuntu` will be your first one. Choose that. 
+          &lt;img src=&quot;/assets/article3/simg15.png&quot; alt=&quot;article image 15&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Save the username and password. You will need this later for login. 
+          &lt;img src=&quot;/assets/article3/simg16.png&quot; alt=&quot;article image 16&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Continue with installation. This will take time. 
+          &lt;img src=&quot;/assets/article3/simg17.png&quot; alt=&quot;article image 17&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Once Installation is done, You will see an option to restart the screen. Close the dialog box and Power Off the system. 
+          &lt;img src=&quot;/assets/article3/simg18.png&quot; alt=&quot;article image 18&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+          &lt;br /&gt;
+          &lt;img src=&quot;/assets/article3/simg19.png&quot; alt=&quot;article image 19&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;              
+      &lt;/li&gt;
+     &lt;li&gt;Now using the virtual machine Navigation bar, choose Drive Image Options and eject the image file.
+          &lt;img src=&quot;/assets/article3/simg20.png&quot; alt=&quot;article image 20&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+          &lt;br /&gt;
+          &lt;img src=&quot;/assets/article3/simg21.png&quot; alt=&quot;article image 21&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;              
+      &lt;/li&gt;
+     &lt;li&gt;You can restart the VM now by tapping on the Play Button. Now you will wait for 10 seconds to see the login screen of Ubuntu. 
+          &lt;img src=&quot;/assets/article3/simg22.png&quot; alt=&quot;article image 22&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;Congratulations! You have Ubuntu 22.04 running on your Macbook. You can log in now using your password.
+      &lt;/li&gt;                                             
+
+    &lt;/ol&gt;
+  &lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1 Mac&lt;/h2&gt;
+
+&lt;!-- 
+  &lt;p style=&quot;text-align: center; margin: auto 3rem;&quot;&gt;Image Source: &lt;a href=&quot;https://spectrum.ieee.org/interview-turtlebot-inventors-tell-us-everything-about-the-robot&quot;&gt;IEEE Spectrum&lt;/a&gt;&lt;/p&gt; --&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Now that we have Ubuntu 22.04 running on our Macbook with M1/M2 Chip, we can install the &lt;a href=&quot;https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html&quot;&gt;ROS 2 HUMBLE version&lt;/a&gt; by following the steps for Linux Distribution.&lt;/p&gt;
+&lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
+     &lt;li&gt;Open Terminal. 
+          &lt;img src=&quot;/assets/article3/simg23.png&quot; alt=&quot;article image 23&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;   
+      &lt;/li&gt;
+     &lt;li&gt;To be able to copy and paste between your Ubuntu and Mac, run the following command in your terminal
+     &lt;br /&gt;
+          $ sudo apt install spice-webdavd spice-vdagent  
+      &lt;/li&gt;
+     &lt;li&gt;Set locale &lt;br /&gt;
+        Make sure you have a locale that supports UTF-8.&lt;br /&gt;
+        $ locale  # check for UTF-8 skip this step if locale is utf-8 already&lt;br /&gt;
+        $ sudo apt update &amp;amp;&amp;amp; sudo apt install locales&lt;br /&gt;
+        $ sudo locale-gen en_US en_US.UTF-8&lt;br /&gt;
+        $ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8&lt;br /&gt;
+        $ export LANG=en_US.UTF-8&lt;br /&gt;
+        $ locale  # verify settings&lt;br /&gt;
+      &lt;/li&gt;
+     &lt;li&gt;Setup resources&lt;br /&gt;
+        $ sudo apt install software-properties-common&lt;br /&gt;
+        $ sudo add-apt-repository universe &lt;br /&gt;
+      &lt;/li&gt;
+     &lt;li&gt;ROS 2 GPG key with apt.&lt;br /&gt;
+        $ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y&lt;br /&gt;
+        $ sudo curl -sSL &lt;br /&gt;
+        https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+      &lt;/li&gt;  
+     &lt;li&gt;Add the repository to your sources list.&lt;br /&gt;
+        $ echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;amp;&amp;amp; echo&lt;br /&gt; 
+        $UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &amp;gt; /dev/null
+
+      &lt;/li&gt;  
+     &lt;li&gt;Update and Upgrade your packages&lt;br /&gt;
+        $ sudo apt update&lt;br /&gt;
+        $ Sudo apt upgrade&lt;br /&gt;
+      &lt;/li&gt;
+     &lt;li&gt;Install Desktop Full&lt;br /&gt;
+        $ sudo apt install ros-humble-desktop-full&lt;br /&gt;
+      &lt;/li&gt;  
+     &lt;li&gt;Setup environment:&lt;br /&gt; 
+        $ source /opt/ros/humble/setup.bash&lt;br /&gt;
+      &lt;/li&gt;  
+     &lt;li&gt;Add this to your bashrc script so that you don’t have to re-run the command every time you open a new terminal.&lt;br /&gt;
+        $ echo “source /opt/ros/indigo/setup.bash” &amp;gt;&amp;gt; ~/.bashrc&lt;br /&gt;
+      &lt;/li&gt;
+     &lt;li&gt;To check the installation:&lt;br /&gt;
+        ​​$ ros2 run demo_nodes_cpp talker
+      &lt;/li&gt;
+      &lt;h3&gt;Another important thing to learn is how to build new ros packages:
+      &lt;/h3&gt;
+
+     &lt;li&gt;Go to &lt;br /&gt; &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html&quot;&gt;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.&lt;/a&gt; &lt;br /&gt; We need to install the `colcon` build tool.&lt;br /&gt;
+      $ sudo apt install python3-colcon-common-extensions&lt;br /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Welcome to creating your first ros workspace.&lt;br /&gt;
+        $ mkdir -p ~/ros2_ws/src&lt;br /&gt;
+        $ cd ~/ros2_ws&lt;br /&gt;
+      &lt;/li&gt; 
+      &lt;li&gt;Since we are doing a clone, we need git also, So install git using&lt;br /&gt;
+        $ sudo apt install git
+      &lt;/li&gt;
+      &lt;li&gt;Run all the below commands from the ros2_ws folder.&lt;br /&gt;
+        $ git clone https://github.com/ros2/examples src/examples -b humble
+      &lt;/li&gt;
+      &lt;li&gt;After cloning, you should have the entire code inside your src folder for examples in ros2.
+      &lt;/li&gt;
+      &lt;li&gt;Now we will build examples of the ros package. In the root of the workspace, run &lt;br /&gt;
+        $colcon build
+      &lt;/li&gt;
+      &lt;li&gt;You should have build, install, and log folders.
+      &lt;/li&gt;
+      &lt;li&gt;You need to source before being able to launch the node. So run&lt;br /&gt;
+        $ . install/setup.bash
+      &lt;/li&gt;
+      &lt;li&gt;Try a demo&lt;br /&gt;
+        With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples:&lt;br /&gt;
+        $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function&lt;br /&gt;
+        &lt;br /&gt;
+        In another terminal, let’s run a publisher node (don’t forget to source the setup script):&lt;br /&gt;
+        $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function&lt;br /&gt;
+        &lt;br /&gt;
+        You should see messages from the publisher and subscriber with numbers incrementing.&lt;br /&gt;
+          &lt;img src=&quot;/assets/article3/simg24.png&quot; alt=&quot;article image 24&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+        &lt;br /&gt;
+        Voila!! You have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Macbook.
+      &lt;/li&gt;                                             
+  &lt;/ol&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;References:&lt;/p&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+ &lt;li&gt;
+ &lt;a href=&quot;https://www.nvidia.com/&quot;&gt;
+ https://www.nvidia.com/
+ &lt;/a&gt;
+ &lt;/li&gt;
+  &lt;li&gt;
+  &lt;a href=&quot;https://docs.ros.org/en/humble/index.html&quot;&gt;
+https://docs.ros.org/en/humble/index.html
+&lt;/a&gt;
+ &lt;/li&gt;
+  &lt;li&gt;
+  &lt;a href=&quot;https://mac.getutm.app/&quot;&gt;
+https://mac.getutm.app/
+&lt;/a&gt;
+ &lt;/li&gt;
+  &lt;li&gt;
+  &lt;a href=&quot;https://www.parallels.com/&quot;&gt;
+ https://www.parallels.com/&lt;/a&gt;
+ &lt;/li&gt;
+  &lt;li&gt;
+ &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;https://www.virtualbox.org/&lt;/a&gt;
+ &lt;/li&gt;
+ &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using UTM Virtualization software.</summary></entry><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all.&lt;/p&gt;
 &lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
@@ -124,6 +393,4 @@
   &lt;/li&gt;
   &lt;/ol&gt;
 
-&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Most of the alternative options mentioned are open source libraries. Interestingly, there still exists one more, the most basic way to build robots. With some experience in path planning, sensor fusion, control systems and some low-level firmware communication with robot’s hardware, we can create a robot that can navigate in a dynamic environment avoiding obstacles. By not using ROS, a project can have more control over the specific functionality it uses and can be tailored to the specific needs of the application. I recently heard about a company called Mujin that has succeeded worldwide without using ROS. Even though I use ROS extensively, the possibility of Robotics without ROS is not just based on theory, but rather rooted in practicality.&lt;/p&gt;
-
-&lt;!--more--&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Robotics without ROS On the first day at my first job fresh out of grad school, I was informed that “This vacuum bot doesn’t use ROS” and my mind was blown. This revelation was not so much shocking as it was enlightening. During my time in graduate school studying Robotics Engineering, I was heavily encouraged or even pressurized to learn ROS. However, this experience showed me that not all companies and projects rely on it.</summary></entry></feed>
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Most of the alternative options mentioned are open source libraries. Interestingly, there still exists one more, the most basic way to build robots. With some experience in path planning, sensor fusion, control systems and some low-level firmware communication with robot’s hardware, we can create a robot that can navigate in a dynamic environment avoiding obstacles. By not using ROS, a project can have more control over the specific functionality it uses and can be tailored to the specific needs of the application. I recently heard about a company called Mujin that has succeeded worldwide without using ROS. Even though I use ROS extensively, the possibility of Robotics without ROS is not just based on theory, but rather rooted in practicality.&lt;/p&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Robotics without ROS On the first day at my first job fresh out of grad school, I was informed that “This vacuum bot doesn’t use ROS” and my mind was blown. This revelation was not so much shocking as it was enlightening. During my time in graduate school studying Robotics Engineering, I was heavily encouraged or even pressurized to learn ROS. However, this experience showed me that not all companies and projects rely on it.</summary></entry></feed>
