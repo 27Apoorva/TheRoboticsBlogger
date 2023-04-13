@@ -1,26 +1,3 @@
-<!-- ---
-layout: archive
----
-
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-  {% endfor %}
-</div>
-
-{% include paginator.html %} -->
-
 
 <!doctype html>
 <!--
@@ -173,7 +150,7 @@ layout: archive
 
   
     <div class="author__avatar">
-      <a href="http://localhost:4000/">
+      <a href="https://www.linkedin.com/in/apoorvag27/">
         <img src="/assets/images/bio-photo.jpeg" alt="Apoorva Gupta" itemprop="image" class="u-photo">
       </a>
     </div>
@@ -181,7 +158,7 @@ layout: archive
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Apoorva Gupta</a>
+      <a class="u-url" rel="me" href="https://www.linkedin.com/in/apoorvag27/" itemprop="url">Apoorva Gupta</a>
     </h3>
     
       <div class="author__bio p-note" itemprop="description">

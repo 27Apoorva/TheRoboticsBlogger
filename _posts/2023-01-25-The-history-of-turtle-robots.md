@@ -14,8 +14,10 @@ excerpt_separator: <!--more-->
 
   <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >The History of Turtle Bots</h1>
 
+<!--excerpt.start-->
   <p style=" margin: 20px 3rem;">With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all.</p>
-  <!--more-->
+<!--excerpt.end-->
+
 
 
 

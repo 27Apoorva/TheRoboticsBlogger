@@ -12,9 +12,11 @@ excerpt_separator: <!--more-->
 
 ---
   <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >Robotics without ROS</h1>
+<!--excerpt.start-->
 
   <p style=" margin: 20px 3rem;">On the first day at my first job fresh out of grad school, I was informed that “This vacuum bot doesn’t use ROS” and my mind was blown. This revelation was not so much shocking as it was enlightening. During my time in graduate school studying Robotics Engineering, I was heavily encouraged or even pressurized to learn ROS. However, this experience showed me that not all companies and projects rely on it.</p>
-<!--more-->
+<!--excerpt.end-->
+
 
 
   <p style=" margin: 20px 3rem;">Robot Operating System (ROS) is a popular open-source framework for robotics software development. It provides a set of tools and libraries for building, deploying, and running robots, and has become a standard in the robotics community. However, ROS is not the only option for building robotics systems.</p>

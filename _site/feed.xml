@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T19:41:45+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</title><link href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/" rel="alternate" type="text/html" title="How To Install ROS 2 in Ubuntu 22.04 On M1 Mac" /><published>2023-04-12T00:00:00+05:30</published><updated>2023-04-12T00:00:00+05:30</updated><id>http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac</id><content type="html" xml:base="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1 Mac&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-13T18:50:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</title><link href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/" rel="alternate" type="text/html" title="How To Install ROS 2 in Ubuntu 22.04 On M1 Mac" /><published>2023-04-12T00:00:00+05:30</published><updated>2023-04-12T00:00:00+05:30</updated><id>http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac</id><content type="html" xml:base="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1/M2 Mac&lt;/h1&gt;
 
-&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Congratulations on taking the first step into the fascinating realm of robotics! 
+&lt;!--excerpt.start--&gt;
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Congratulations on taking the first step into the fascinating realm of robotics!&lt;br /&gt; 
   In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using &lt;a href=&quot;https://docs.getutm.app/&quot;&gt; UTM Virtualization software.&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
+&lt;!--excerpt.end--&gt;
 
-&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;ROS 2 is supported in MacOS using the Homebrew installation process. Although, In my 7 years as a Roboticist, I have hardly seen anyone using MacOS for Robotics. What I have seen is the use of Virtual Desktops and Dockers with Ubuntu extensively. One of the primary reasons for configuring your development environment in this manner is because robotics software works on ARM-based development kits like &lt;a href=&quot;https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-agx-xavier/&quot;&gt;Nvidia’s Jetson AGX series&lt;/a&gt;. When utilizing Virtual Desktops on Mac M1, you effectively have the same development environment as your robot&apos;s runtime environment while keeping the M1 chip&apos;s inherent speed performance.&lt;/p&gt;
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;ROS 2 is supported in MacOS using the Homebrew installation process. Although, in my 7 years as a Roboticist, I have hardly seen anyone using MacOS for Robotics. What I have seen is the use of Virtual Desktops and Dockers with Ubuntu extensively. One of the primary reasons for configuring your development environment in this manner is because robotics software works on ARM-based development kits like &lt;a href=&quot;https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-agx-xavier/&quot;&gt;Nvidia’s Jetson AGX series&lt;/a&gt;. When utilizing Virtual Desktops on Mac M1, you effectively have the same development environment as your robot&apos;s runtime environment while keeping the M1 chip&apos;s inherent speed performance.&lt;/p&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt; We now understand why and what we are doing. Let’s dive right in.
     &lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
       &lt;li&gt; The first step is more of a reminder. The Macbooks with M1/M2 Chip are ARM-based platforms compared to older MacBooks and Windows which are AMD/Intel x86-based platforms.&lt;/li&gt;
@@ -13,20 +14,20 @@
       &lt;li&gt; I am using Macbook Pro with M1 Chip with MacOS 13. You will need about 50GB of free space for your new operating system.
       &lt;/li&gt;
       &lt;li&gt;
-        Go to &lt;a href=&quot;https://mac.getutm.app/&quot;&gt;https://mac.getutm.app/&lt;/a&gt;  and click the `Download` button. A UTM.dmg file will start downloading.
+        Go to &lt;a href=&quot;https://mac.getutm.app/&quot;&gt;https://mac.getutm.app/&lt;/a&gt;  and click the &lt;code style=&quot;color:orange&quot;&gt; Download&lt;/code&gt; button. A UTM.dmg file will start downloading.
         &lt;img src=&quot;/assets/simg1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;        
       &lt;/li&gt;
-      &lt;li&gt;Go to &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/&quot;&gt; https://cdimage.ubuntu.com/jammy/daily-live/current/&lt;/a&gt; and Download &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso&quot;&gt;64-bit ARM (ARMv8/AArch64) desktop image&lt;/a&gt;. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the `ARM` image for a Macbook with M1/M2 chip and not an `AMD` image.
+      &lt;li&gt;Go to &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/&quot;&gt; https://cdimage.ubuntu.com/jammy/daily-live/current/&lt;/a&gt; and Download &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso&quot;&gt;64-bit ARM (ARMv8/AArch64) desktop image&lt;/a&gt;. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the &lt;code style=&quot;color:orange&quot;&gt;ARM&lt;/code&gt; image for a Macbook with M1/M2 chip and not an &lt;code style=&quot;color:orange&quot;&gt;AMD&lt;/code&gt; image.
       This step might take time depending on your internet speed.
           &lt;img src=&quot;/assets/simg2.png&quot; alt=&quot;article image 2&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;GDouble-click on the `UTM.dmg` file and drag the icon to the Applications folder. 
+     &lt;li&gt;Double-click on the &lt;code style=&quot;color:orange&quot;&gt;UTM.dmg&lt;/code&gt; file and drag the icon to the Applications folder. 
           &lt;img src=&quot;/assets/simg3.png&quot; alt=&quot;article image 3&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
@@ -38,61 +39,61 @@
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;Once the app is launched, click `Create a new Virtual Machine`. 
+     &lt;li&gt;Once the app is launched, click &lt;code style=&quot;color:orange&quot;&gt;Create a new Virtual Machine&lt;/code&gt;. 
           &lt;img src=&quot;/assets/simg5.png&quot; alt=&quot;article image 5&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;Use the `Virtualize` option to simulate the bare metal performance.
+     &lt;li&gt;Use the &lt;code style=&quot;color:orange&quot;&gt;Virtualize&lt;/code&gt; option to simulate the bare metal performance.
           &lt;img src=&quot;/assets/simg6.png&quot; alt=&quot;article image 6&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;Select `Linux` and on the next screen, you will see Boot options. Click `Browse` and select the `.iso` image for Ubuntu 22.04 that you download in the above step.
+     &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Linux&lt;/code&gt; and on the next screen, you will see Boot options. Click &lt;code style=&quot;color:orange&quot;&gt;Browse&lt;/code&gt; and select the &lt;code style=&quot;color:orange&quot;&gt;.iso&lt;/code&gt; image for Ubuntu 22.04 that you download in the above step.
           &lt;img src=&quot;/assets/simg7.png&quot; alt=&quot;article image 7&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;
           &lt;br /&gt;
-          &lt;img src=&quot;/assets/simg8.png&quot; alt=&quot;article image 8&quot; style=&quot;display: block;
+          &lt;img src=&quot;/assets/point_11.png&quot; alt=&quot;article image 8&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;              
       &lt;/li&gt;
-     &lt;li&gt;Keep pressing the `Continue` button with default settings till you reach the summary screen.&lt;/li&gt; 
+     &lt;li&gt;Keep pressing the &lt;code style=&quot;color:orange&quot;&gt;Continue&lt;/code&gt; button with default settings till you reach the summary screen.&lt;/li&gt; 
      &lt;li&gt;Tap on the big Play button to boot Ubuntu 22.04
           &lt;img src=&quot;/assets/simg9.png&quot; alt=&quot;article image 9&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;Select `Try to Install Ubuntu`. This takes a minute and you will see a blank screen. 
+     &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Try to Install Ubuntu&lt;/code&gt;. This takes a minute and you will see a blank screen. 
           &lt;img src=&quot;/assets/simg11.png&quot; alt=&quot;article image 11&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;Once you see the Ubuntu 22.04 login screen, it will ask you for a password. The default password is `ubuntu`. 
+     &lt;li&gt;Once you see the Ubuntu 22.04 screen, type in &lt;code style=&quot;color:orange&quot;&gt;ubuntu&lt;/code&gt; to login. 
           &lt;img src=&quot;/assets/simg12.png&quot; alt=&quot;article image 12&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;The system will boot with the live image. On the right side, you will see `Install Ubuntu`. Continue with the standard installation process.  
+     &lt;li&gt;The system will boot with the live image. On the right side, you will see &lt;code style=&quot;color:orange&quot;&gt;Install Ubuntu&lt;/code&gt;. Continue with the standard installation process.  
           &lt;img src=&quot;/assets/simg13.png&quot; alt=&quot;article image 13&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;            
-     &lt;li&gt;Select `Install Third Party Software` in the following screen. 
+     &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Install Third Party Software&lt;/code&gt; in the following screen. 
           &lt;img src=&quot;/assets/simg14.png&quot; alt=&quot;article image 14&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
-     &lt;li&gt;Select ‘Erase Ubuntu and reinstall` or if you are doing it for the first time, the third option `Erase disk and install Ubuntu` will be your first one. Choose that. 
+     &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Erase Ubuntu and reinstall&lt;/code&gt; or if you are doing it for the first time, the third option &lt;code style=&quot;color:orange&quot;&gt;Erase disk and install Ubuntu&lt;/code&gt; will be your first one. Choose that. 
           &lt;img src=&quot;/assets/simg15.png&quot; alt=&quot;article image 15&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
@@ -158,81 +159,224 @@
           width: 50%;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;To be able to copy and paste between your Ubuntu and Mac, run the following command in your terminal
-     &lt;br /&gt;
-          $ sudo apt install spice-webdavd spice-vdagent  
+           &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt install spice-webdavd spice-vdagent&lt;/code&gt; 
       &lt;/li&gt;
      &lt;li&gt;Set locale &lt;br /&gt;
         Make sure you have a locale that supports UTF-8.&lt;br /&gt;
-        $ locale  # check for UTF-8 skip this step if locale is utf-8 already&lt;br /&gt;
-        $ sudo apt update &amp;amp;&amp;amp; sudo apt install locales&lt;br /&gt;
-        $ sudo locale-gen en_US en_US.UTF-8&lt;br /&gt;
-        $ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8&lt;br /&gt;
-        $ export LANG=en_US.UTF-8&lt;br /&gt;
-        $ locale  # verify settings&lt;br /&gt;
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ locale  # check for UTF-8 skip this step if locale is utf-8 already
+$ sudo apt update &amp;amp;&amp;amp; sudo apt install locales
+$ sudo locale-gen en_US en_US.UTF-8
+$ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+$ export LANG=en_US.UTF-8
+$ locale  # verify settings&lt;/code&gt;
       &lt;/li&gt;
-     &lt;li&gt;Setup resources&lt;br /&gt;
-        $ sudo apt install software-properties-common&lt;br /&gt;
-        $ sudo add-apt-repository universe &lt;br /&gt;
+     &lt;li&gt;Setup resources
+&lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt install software-properties-common
+$ sudo add-apt-repository universe&lt;/code&gt;
       &lt;/li&gt;
-     &lt;li&gt;ROS 2 GPG key with apt.&lt;br /&gt;
-        $ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y&lt;br /&gt;
-        $ sudo curl -sSL &lt;br /&gt;
+     &lt;li&gt;ROS 2 GPG key with apt.
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y
+$ sudo curl -sSL &lt;/code&gt;
         https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
       &lt;/li&gt;  
-     &lt;li&gt;Add the repository to your sources list.&lt;br /&gt;
-        $ echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;amp;&amp;amp; echo&lt;br /&gt; 
-        $UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &amp;gt; /dev/null
+     &lt;li&gt;Add the repository to your sources list.
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;amp;&amp;amp; echo$UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &amp;gt; /dev/null&lt;/code&gt;
 
       &lt;/li&gt;  
-     &lt;li&gt;Update and Upgrade your packages&lt;br /&gt;
-        $ sudo apt update&lt;br /&gt;
-        $ Sudo apt upgrade&lt;br /&gt;
+     &lt;li&gt;Update and Upgrade your packages
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt update
+$ sudo apt upgrade&lt;/code&gt;        
       &lt;/li&gt;
-     &lt;li&gt;Install Desktop Full&lt;br /&gt;
-        $ sudo apt install ros-humble-desktop-full&lt;br /&gt;
+     &lt;li&gt;Install Desktop Full
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt install ros-humble-desktop-full&lt;/code&gt;
       &lt;/li&gt;  
-     &lt;li&gt;Setup environment:&lt;br /&gt; 
-        $ source /opt/ros/humble/setup.bash&lt;br /&gt;
+     &lt;li&gt;Setup environment:
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ source /opt/ros/humble/setup.bash&lt;/code&gt;
       &lt;/li&gt;  
-     &lt;li&gt;Add this to your bashrc script so that you don’t have to re-run the command every time you open a new terminal.&lt;br /&gt;
-        $ echo “source /opt/ros/indigo/setup.bash” &amp;gt;&amp;gt; ~/.bashrc&lt;br /&gt;
+     &lt;li&gt;Add this to your bashrc script so that you don’t have to re-run the command every time you open a new terminal.
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ echo “source /opt/ros/indigo/setup.bash” &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;
       &lt;/li&gt;
-     &lt;li&gt;To check the installation:&lt;br /&gt;
-        ​​$ ros2 run demo_nodes_cpp talker
+     &lt;li&gt;To check the installation:
+           &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ ros2 run demo_nodes_cpp talker&lt;/code&gt;
       &lt;/li&gt;
       &lt;h3&gt;Another important thing to learn is how to build new ros packages:
       &lt;/h3&gt;
 
-     &lt;li&gt;Go to &lt;br /&gt; &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html&quot;&gt;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.&lt;/a&gt; &lt;br /&gt; We need to install the `colcon` build tool.&lt;br /&gt;
-      $ sudo apt install python3-colcon-common-extensions&lt;br /&gt;
+     &lt;li&gt;Go to &lt;br /&gt; &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html&quot;&gt;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.&lt;/a&gt; &lt;br /&gt; We need to install the `colcon` build tool.
+
+            &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt install python3-colcon-common-extensions&lt;/code&gt;
       &lt;/li&gt;
-      &lt;li&gt;Welcome to creating your first ros workspace.&lt;br /&gt;
-        $ mkdir -p ~/ros2_ws/src&lt;br /&gt;
-        $ cd ~/ros2_ws&lt;br /&gt;
+      &lt;li&gt;Welcome to creating your first ros workspace.
+      &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ mkdir -p ~/ros2_ws/src
+$ cd ~/ros2_ws&lt;/code&gt;
       &lt;/li&gt; 
-      &lt;li&gt;Since we are doing a clone, we need git also, So install git using&lt;br /&gt;
-        $ sudo apt install git
+      &lt;li&gt;Since we are doing a clone, we need git also, So install git using
+            &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ sudo apt install git&lt;/code&gt;
       &lt;/li&gt;
-      &lt;li&gt;Run all the below commands from the ros2_ws folder.&lt;br /&gt;
-        $ git clone https://github.com/ros2/examples src/examples -b humble
+      &lt;li&gt;Run all the below commands from the ros2_ws folder.
+              &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ git clone https://github.com/ros2/examples src/examples -b humble&lt;/code&gt;
       &lt;/li&gt;
       &lt;li&gt;After cloning, you should have the entire code inside your src folder for examples in ros2.
       &lt;/li&gt;
-      &lt;li&gt;Now we will build examples of the ros package. In the root of the workspace, run &lt;br /&gt;
-        $colcon build
+      &lt;li&gt;Now we will build examples of the ros package. In the root of the workspace, run
+              &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$colcon build&lt;/code&gt;
       &lt;/li&gt;
       &lt;li&gt;You should have build, install, and log folders.
       &lt;/li&gt;
-      &lt;li&gt;You need to source before being able to launch the node. So run&lt;br /&gt;
-        $ . install/setup.bash
+      &lt;li&gt;You need to source before being able to launch the node. So run
+              &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ . install/setup.bash&lt;/code&gt;
       &lt;/li&gt;
       &lt;li&gt;Try a demo&lt;br /&gt;
-        With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples:&lt;br /&gt;
-        $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function&lt;br /&gt;
-        &lt;br /&gt;
-        In another terminal, let’s run a publisher node (don’t forget to source the setup script):&lt;br /&gt;
-        $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function&lt;br /&gt;
-        &lt;br /&gt;
+        With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples:
+              &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function&lt;/code&gt;
+            &lt;br /&gt;
+        In another terminal, let’s run a publisher node (don’t forget to source the setup script):
+              &lt;code style=&quot;display: block;
+            width: 90%;
+            min-height: 3em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: monospace;
+            border: 1px solid #bbb;
+            padding: 0.5em;
+            white-space:pre-wrap;&quot;&gt;$ ros2 run examples_rclcpp_minimal_publisher publisher_member_function&lt;/code&gt;
+            &lt;br /&gt;
         You should see messages from the publisher and subscriber with numbers incrementing.&lt;br /&gt;
           &lt;img src=&quot;/assets/simg24.png&quot; alt=&quot;article image 24&quot; style=&quot;display: block;
           margin-left: auto;
@@ -267,10 +411,11 @@ https://mac.getutm.app/
   &lt;li&gt;
  &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;https://www.virtualbox.org/&lt;/a&gt;
  &lt;/li&gt;
- &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using UTM Virtualization software.</summary></entry><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
+ &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">How To Install ROS 2 in Ubuntu 22.04 On M1/M2 Mac Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using UTM Virtualization software. ROS 2 is supported in MacOS using the Homebrew installation process. Although, in my 7 years as a Roboticist, I have hardly seen anyone using MacOS for Robotics. What I have seen is the use of Virtual Desktops and Dockers with Ubuntu extensively. One of the primary reasons for configuring your development environment in this manner is because robotics software works on ARM-based development kits like Nvidia’s Jetson AGX series. When utilizing Virtual Desktops on Mac M1, you effectively have the same development environment as your robot&apos;s runtime environment while keeping the M1 chip&apos;s inherent speed performance. We now understand why and what we are doing. Let’s dive right in. The first step is more of a reminder. The Macbooks with M1/M2 Chip are ARM-based platforms compared to older MacBooks and Windows which are AMD/Intel x86-based platforms. Different virtual desktops are available like Parallels Desktop, Oracle’s Virtual Box, and UTM each having its pros and cons. I would recommend the Parallels Desktop paid version if you are a professional developer. For students or anyone looking for free software, I would recommend Virtual Box for Windows and UTM for Macbooks. In this article, we will use free UTM virtualization software. UTM is a full-featured system emulator and virtual machine host for iOS and macOS. It is based on QEMU. In short, it allows you to run Windows, Linux, and more on your Mac, iPhone, and iPad. UTM allows Ubuntu to run with OpenGL, Hardware acceleration providing a highly efficient with near-native speed performance. I am using Macbook Pro with M1 Chip with MacOS 13. You will need about 50GB of free space for your new operating system. Go to https://mac.getutm.app/ and click the Download button. A UTM.dmg file will start downloading. Go to https://cdimage.ubuntu.com/jammy/daily-live/current/ and Download 64-bit ARM (ARMv8/AArch64) desktop image. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the ARM image for a Macbook with M1/M2 chip and not an AMD image. This step might take time depending on your internet speed. Double-click on the UTM.dmg file and drag the icon to the Applications folder. Search for UTM and Open the UTM app from Launchpad. Once the app is launched, click Create a new Virtual Machine. Use the Virtualize option to simulate the bare metal performance. Select Linux and on the next screen, you will see Boot options. Click Browse and select the .iso image for Ubuntu 22.04 that you download in the above step. Keep pressing the Continue button with default settings till you reach the summary screen. Tap on the big Play button to boot Ubuntu 22.04 Select Try to Install Ubuntu. This takes a minute and you will see a blank screen. Once you see the Ubuntu 22.04 screen, type in ubuntu to login. The system will boot with the live image. On the right side, you will see Install Ubuntu. Continue with the standard installation process. Select Install Third Party Software in the following screen. Select Erase Ubuntu and reinstall or if you are doing it for the first time, the third option Erase disk and install Ubuntu will be your first one. Choose that. Save the username and password. You will need this later for login. Continue with installation. This will take time. Once Installation is done, You will see an option to restart the screen. Close the dialog box and Power Off the system. Now using the virtual machine Navigation bar, choose Drive Image Options and eject the image file. You can restart the VM now by tapping on the Play Button. Now you will wait for 10 seconds to see the login screen of Ubuntu. Congratulations! You have Ubuntu 22.04 running on your Macbook. You can log in now using your password. How To Install ROS 2 in Ubuntu 22.04 On M1 Mac Now that we have Ubuntu 22.04 running on our Macbook with M1/M2 Chip, we can install the ROS 2 HUMBLE version by following the steps for Linux Distribution. Open Terminal. To be able to copy and paste between your Ubuntu and Mac, run the following command in your terminal $ sudo apt install spice-webdavd spice-vdagent Set locale Make sure you have a locale that supports UTF-8. $ locale # check for UTF-8 skip this step if locale is utf-8 already $ sudo apt update &amp;amp;&amp;amp; sudo apt install locales $ sudo locale-gen en_US en_US.UTF-8 $ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 $ export LANG=en_US.UTF-8 $ locale # verify settings Setup resources $ sudo apt install software-properties-common $ sudo add-apt-repository universe ROS 2 GPG key with apt. $ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y $ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg Add the repository to your sources list. $ echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;amp;&amp;amp; echo$UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &amp;gt; /dev/null Update and Upgrade your packages $ sudo apt update $ sudo apt upgrade Install Desktop Full $ sudo apt install ros-humble-desktop-full Setup environment: $ source /opt/ros/humble/setup.bash Add this to your bashrc script so that you don’t have to re-run the command every time you open a new terminal. $ echo “source /opt/ros/indigo/setup.bash” &amp;gt;&amp;gt; ~/.bashrc To check the installation: $ ros2 run demo_nodes_cpp talker Another important thing to learn is how to build new ros packages: Go to https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html. We need to install the `colcon` build tool. $ sudo apt install python3-colcon-common-extensions Welcome to creating your first ros workspace. $ mkdir -p ~/ros2_ws/src $ cd ~/ros2_ws Since we are doing a clone, we need git also, So install git using $ sudo apt install git Run all the below commands from the ros2_ws folder. $ git clone https://github.com/ros2/examples src/examples -b humble After cloning, you should have the entire code inside your src folder for examples in ros2. Now we will build examples of the ros package. In the root of the workspace, run $colcon build You should have build, install, and log folders. You need to source before being able to launch the node. So run $ . install/setup.bash Try a demo With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples: $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function In another terminal, let’s run a publisher node (don’t forget to source the setup script): $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function You should see messages from the publisher and subscriber with numbers incrementing. Voila!! You have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Macbook. References: https://www.nvidia.com/ https://docs.ros.org/en/humble/index.html https://mac.getutm.app/ https://www.parallels.com/ https://www.virtualbox.org/</summary></entry><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
 
+&lt;!--excerpt.start--&gt;
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all.&lt;/p&gt;
-&lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
+&lt;!--excerpt.end--&gt;
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;The idea of TurtleBot came from two roboticists, Tully Foote and Melonee Wise, when they were working at Willow Garage in 2010, interestingly, where the Robot Operating System (ROS) was developed. Behind every idea is a person trying to solve a problem. The problem with ROS at the time was that ROS only ran on big, fancy and expensive robots. When Melonee got her hands on Kinect and wired it with iRobot Create, that gave birth to the first generation TurtleBot.&lt;/p&gt;
 
@@ -362,10 +507,11 @@ https://mac.getutm.app/
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;There exists instructables, like Open Source Turtle Robot, and even Arduino-based robot turtle kits and Lego Robotics kits are still part of early STEM education.Nonetheless, robots and turtles are very much intertwined. For over 80 years, the underlying thought process for the turtle robots has been the same, an open source, free-to-build-on platform, to teach, and give access to children to learn robotics.&lt;/p&gt;
 
-&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;As for the next generation TurtleBots, I think it is time to take them outdoors, on the sidewalks, in the urban environment. The space of indoor robotics has had massive development in the last decade and today, it is a relatively easier problem to solve. Whereas the robots for curbside, or last-mile delivery, even self-driving cars, are still facing major challenges, especially during extreme weather conditions and drastically dynamic environments with new edge cases and poor sensor readings. We are secretly waiting for the TurtleBots 5.0 to chill at the Campus Quads with its 3D Lidar and perhaps GPS.&lt;/p&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">The History of Turtle Bots With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all.</summary></entry><entry><title type="html">Robotics without ROS</title><link href="http://localhost:4000/blog/Robotics-without-ROS/" rel="alternate" type="text/html" title="Robotics without ROS" /><published>2023-01-24T00:00:00+05:30</published><updated>2023-01-24T00:00:00+05:30</updated><id>http://localhost:4000/blog/Robotics-without-ROS</id><content type="html" xml:base="http://localhost:4000/blog/Robotics-without-ROS/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Robotics without ROS&lt;/h1&gt;
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;As for the next generation TurtleBots, I think it is time to take them outdoors, on the sidewalks, in the urban environment. The space of indoor robotics has had massive development in the last decade and today, it is a relatively easier problem to solve. Whereas the robots for curbside, or last-mile delivery, even self-driving cars, are still facing major challenges, especially during extreme weather conditions and drastically dynamic environments with new edge cases and poor sensor readings. We are secretly waiting for the TurtleBots 5.0 to chill at the Campus Quads with its 3D Lidar and perhaps GPS.&lt;/p&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">The History of Turtle Bots With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all. The idea of TurtleBot came from two roboticists, Tully Foote and Melonee Wise, when they were working at Willow Garage in 2010, interestingly, where the Robot Operating System (ROS) was developed. Behind every idea is a person trying to solve a problem. The problem with ROS at the time was that ROS only ran on big, fancy and expensive robots. When Melonee got her hands on Kinect and wired it with iRobot Create, that gave birth to the first generation TurtleBot. Image Source: IEEE Spectrum TurtleBot was a low-cost, personal robotic kit that had a completely open source SDK and can be used to build a robot that can drive around your house, as well as research SLAM or Path Planning algorithms. The possibilities were endless. No doubt, TurtleBot became a massive hit and was being used by about 15 universities to teach undergrad and graduate students. The second generation TurtleBots, called TurtleBot2, consists of a Yujin Kobuki base, a 2,200mAh battery pack, a Kinect sensor, an Asus 1215N laptop with a dual core processor, fast charger, charging dock, and a hardware mounting kit attaching everything together and adding future sensors. It was released in October 2012, costing $1500. The goal for third generation TurtleBots, called TurtleBot3, released in May 2017 in collaboration between Open Robotics and ROBOTIS, was to dramatically reduce the size of the platform and lower the price, without having to sacrifice its functionality and quality, while at the same time offering expandability. The latest generation of TurtleBots, called TurtleBot4, comes with ROS2 pre-installed and is developed by Clearpath Robotics. It is priced at $1195 and $1899. As new models of iRobot have been released over the years, interestingly, TurtleBot4 is equipped with iRobot Create3 mobile base. Image Source: Turtlebot.com The big question is why this small, affordable robot, primarily used for teaching robotics, was named with the word “turtle” in it. Well, as Melonee said in an interview, “Everything in ROS is turtles”. The TurtleBot actually came from Turtlesim and the intent behind Turtlesim was to teach ROS and ROS Packages. Turtlesim is a simulator where a turtle-like robot can be moved around and teleported to a particular location. Now, all the baby-boomers and early-millennials might find this all too familiar. Remember the Logo, an educational programming language widely known for turtle graphics? Actually, the turtlesim commands were inspired and similar to command structures as Logo Turtles. Logo was designed in 1967 by Wally Feurzeig, Seymour Papert, and Cynthia Solomon, but there were no physical turtle robots at that time. In the late 1940s, a researcher named William Grey Walter worked on small, mobile robots, named Elmer and Elsie. These robots used analog circuits for thinking, were three-wheeled and had the ability to go to the charging station. The robots had a strong resemblance to Tortoises (or turtles) due to their shape and slow movement. Here is a sneak peak: Grey Walter’s tortoises Image Source: oldrobots.com When Logo programming came, a researcher at MIT, named Marvin Minsky, took the design of a three-wheeled pen robot from Tom Callahan, and the rest was pretty much a DIY job, using a canister and a pen in the middle so that the robot could draw its path, as well as a “tail” for stability and undercarriage viewability. This robot was eventually known as a “Yellow Turtle” and was mainly used by children at school as a way of programming robots to draw or to explore an environment. Image Source: Cyberneticzoo.com In 1971, Mike Peterson, who was a MIT Lab Consultant, introduced the first Logo-controlled turtle robot and is also the person credited to use the term “turtle”. This was just the beginning of the turtle robots. What followed was a series of new and better turtle robots. The very next year, turtle robots went commercial when Bolt, Beranek and Newman (BBN)’s Paul Wexelblat built the first wireless turtle robot named “Irving”. In 1974-76, Radia Perlman created a turtle robot that could be controlled with a “button box”. Image Source: Cyberneticzoo.com The question was how long sci-fi could have stayed away from the impact of these turtle robots. The answer was not for long, as the first Star Wars film came out in 1977 and some people say that the small black MSE-6 mouse droid was definitely influenced by turtle robots. Image Source: Youtube.com From 1988 to 2011, Valiant Technology, a company I could find on hrefedIn, built the Valiant Turtle Robot, which could be connected to an Apple IIe computer and could be programmed in Logo. This robot was mostly used in schools for teaching coding to kids. The Valiant Turtle had a pen in the center with an up/down mechanism and could draw any pattern on paper. Image Source: oldrobots.com Recently, when I talked to my 7-year old nephew, who knows I am a Roboticist, he couldn’t stop himself from talking about his Lego robotics kit. Lego isn’t as new to the game as one might think. In 1998, Papert (Logo’s founder) collaborated with Lego and the result was the Lego Mindstorms series of robotics kits priced at $199, which would be about $400 in 2023. Certainly, at some point, someone had to cross the Atlantic and so turtle robots went international. Denning International was a Boston-based turtle robots company, but was the trading name for the private Australian company, Branch &amp;amp; Associates Pty Ltd, (B&amp;amp;A) although Denning International got some bad press in its day. Image Source: If Our Robots Are So Smart, Why Aren’t We All Rich? The other robots launched in this period were ‘Turtle Tot Robot’ By Flexible Systems, ‘Tasman Turtle’ and ‘Terrapin Turtle’ Robot by Terrapin Inc. Image Source: oldrobots.com There were also some cool advertisements in the past. Image Source: oldrobots.com Image Source: oldrobots.com Even today, people are using the concept of turtle robots. Some of them are fighting in robot wars and built a turtle robot, calling them Terror Turtles, for not just one, but at least for four series. Image Source: robotwars.fandom.com There exists instructables, like Open Source Turtle Robot, and even Arduino-based robot turtle kits and Lego Robotics kits are still part of early STEM education.Nonetheless, robots and turtles are very much intertwined. For over 80 years, the underlying thought process for the turtle robots has been the same, an open source, free-to-build-on platform, to teach, and give access to children to learn robotics. As for the next generation TurtleBots, I think it is time to take them outdoors, on the sidewalks, in the urban environment. The space of indoor robotics has had massive development in the last decade and today, it is a relatively easier problem to solve. Whereas the robots for curbside, or last-mile delivery, even self-driving cars, are still facing major challenges, especially during extreme weather conditions and drastically dynamic environments with new edge cases and poor sensor readings. We are secretly waiting for the TurtleBots 5.0 to chill at the Campus Quads with its 3D Lidar and perhaps GPS.</summary></entry><entry><title type="html">Robotics without ROS</title><link href="http://localhost:4000/blog/Robotics-without-ROS/" rel="alternate" type="text/html" title="Robotics without ROS" /><published>2023-01-24T00:00:00+05:30</published><updated>2023-01-24T00:00:00+05:30</updated><id>http://localhost:4000/blog/Robotics-without-ROS</id><content type="html" xml:base="http://localhost:4000/blog/Robotics-without-ROS/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Robotics without ROS&lt;/h1&gt;
+&lt;!--excerpt.start--&gt;
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;On the first day at my first job fresh out of grad school, I was informed that “This vacuum bot doesn’t use ROS” and my mind was blown. This revelation was not so much shocking as it was enlightening. During my time in graduate school studying Robotics Engineering, I was heavily encouraged or even pressurized to learn ROS. However, this experience showed me that not all companies and projects rely on it.&lt;/p&gt;
-&lt;!--more--&gt;
+&lt;!--excerpt.end--&gt;
 
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Robot Operating System (ROS) is a popular open-source framework for robotics software development. It provides a set of tools and libraries for building, deploying, and running robots, and has become a standard in the robotics community. However, ROS is not the only option for building robotics systems.&lt;/p&gt;
 
@@ -393,4 +539,4 @@ https://mac.getutm.app/
   &lt;/li&gt;
   &lt;/ol&gt;
 
-&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Most of the alternative options mentioned are open source libraries. Interestingly, there still exists one more, the most basic way to build robots. With some experience in path planning, sensor fusion, control systems and some low-level firmware communication with robot’s hardware, we can create a robot that can navigate in a dynamic environment avoiding obstacles. By not using ROS, a project can have more control over the specific functionality it uses and can be tailored to the specific needs of the application. I recently heard about a company called Mujin that has succeeded worldwide without using ROS. Even though I use ROS extensively, the possibility of Robotics without ROS is not just based on theory, but rather rooted in practicality.&lt;/p&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Robotics without ROS On the first day at my first job fresh out of grad school, I was informed that “This vacuum bot doesn’t use ROS” and my mind was blown. This revelation was not so much shocking as it was enlightening. During my time in graduate school studying Robotics Engineering, I was heavily encouraged or even pressurized to learn ROS. However, this experience showed me that not all companies and projects rely on it.</summary></entry></feed>
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Most of the alternative options mentioned are open source libraries. Interestingly, there still exists one more, the most basic way to build robots. With some experience in path planning, sensor fusion, control systems and some low-level firmware communication with robot’s hardware, we can create a robot that can navigate in a dynamic environment avoiding obstacles. By not using ROS, a project can have more control over the specific functionality it uses and can be tailored to the specific needs of the application. I recently heard about a company called Mujin that has succeeded worldwide without using ROS. Even though I use ROS extensively, the possibility of Robotics without ROS is not just based on theory, but rather rooted in practicality.&lt;/p&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Robotics without ROS On the first day at my first job fresh out of grad school, I was informed that “This vacuum bot doesn’t use ROS” and my mind was blown. This revelation was not so much shocking as it was enlightening. During my time in graduate school studying Robotics Engineering, I was heavily encouraged or even pressurized to learn ROS. However, this experience showed me that not all companies and projects rely on it. Robot Operating System (ROS) is a popular open-source framework for robotics software development. It provides a set of tools and libraries for building, deploying, and running robots, and has become a standard in the robotics community. However, ROS is not the only option for building robotics systems. In this blog post, we will explore some alternative options for robotics development that do not rely on ROS. Python-based frameworks: Python is a popular programming language for robotics, and there are several frameworks available for building robots without ROS. Some examples include: PyRobot: PyRobot is a lightweight, open-source framework for building robots using Python. It provides a set of tools for controlling robots, including a robot simulator and a control library. RobotPy: RobotPy is a Python-based framework for building robots for the FIRST Robotics Competition. It provides a set of libraries for controlling motors, sensors, and other hardware. pyControl: pyControl is a framework for building robots using Python and the Raspberry Pi. It provides a set of libraries for controlling motors, sensors, and other hardware. Hardware-specific frameworks: Some robot manufacturers provide their own frameworks for building robots without ROS. These frameworks are often specific to the manufacturer&apos;s hardware and may not be compatible with other robots. Examples include Lego Mindstorms EV3: The Lego Mindstorms EV3 is a popular robotics kit for building robots, and it comes with its own software for programming the robots. Arduino: Arduino is an open-source microcontroller platform that can be used for building robots without ROS. It provides a set of libraries for controlling motors, sensors, and other hardware. Middleware frameworks: Middleware frameworks provide a layer of abstraction between the robot&apos;s hardware and the software that controls it. These frameworks can be used to build robots without ROS. Examples include: YARP: The Yet Another Robot Platform (YARP) is an open-source middleware framework for building robots. It provides a set of libraries for controlling motors, sensors, and other hardware, and it can be used with a variety of programming languages. OROCOS: The Open Real-time Control System (OROCOS) is an open-source middleware framework for building robots. It provides a set of libraries for controlling motors, sensors, and other hardware, and it can be used with a variety of programming languages. Most of the alternative options mentioned are open source libraries. Interestingly, there still exists one more, the most basic way to build robots. With some experience in path planning, sensor fusion, control systems and some low-level firmware communication with robot’s hardware, we can create a robot that can navigate in a dynamic environment avoiding obstacles. By not using ROS, a project can have more control over the specific functionality it uses and can be tailored to the specific needs of the application. I recently heard about a company called Mujin that has succeeded worldwide without using ROS. Even though I use ROS extensively, the possibility of Robotics without ROS is not just based on theory, but rather rooted in practicality.</summary></entry></feed>
