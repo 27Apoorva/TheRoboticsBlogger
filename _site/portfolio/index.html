@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Portfolio - The Robotics Space</title>
+<!-- begin _includes/seo.html --><title>The Robotics Space</title>
 <meta name="description" content="">
 
 
@@ -102,19 +102,19 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/">
-          The Robotics Space
-          
+        <a class="site-title" style="color: #0d7377;" href="/posts/">
+          <b>The Robotics Space</b>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/posts/">Home</a>
-            </li><li class="masthead__menu-item">
-              <a href="/about/">About</a>
-            </li><li class="masthead__menu-item">
-              <a href="/portfolio/">Portfolio</a>
-            </li><li class="masthead__menu-item">
-              <a href="/contact/">Contact</a>
-            </li></ul>
+        </li><li class="masthead__menu-item">
+          <a href="/posts/">Home</a>
+        </li><li class="masthead__menu-item">
+          <a href="/about/">About</a>
+        </li><li class="masthead__menu-item">
+          <a href="/portfolio/">Portfolio</a>
+        </li><li class="masthead__menu-item">
+          <a href="/contact/">Contact</a>
+        </li></ul>
         
         <button class="search__toggle" type="button">
           <span class="visually-hidden">Toggle search</span>
@@ -149,7 +149,7 @@
 
   
     <div class="author__avatar">
-      <a href="http://localhost:4000/">
+      <a href="https://www.linkedin.com/in/apoorvag27/">
         <img src="/assets/images/bio-photo.jpeg" alt="Apoorva Gupta" itemprop="image" class="u-photo">
       </a>
     </div>
@@ -157,7 +157,7 @@
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Apoorva Gupta</a>
+      <a class="u-url" rel="me" href="https://www.linkedin.com/in/apoorvag27/" itemprop="url">Apoorva Gupta</a>
     </h3>
     
       <div class="author__bio p-note" itemprop="description">
@@ -174,17 +174,17 @@
 
       
         
-          
-            <li><a href="https://github.com/27Apoorva" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
-          
-        
-          
-            <li><a href="https://www.linkedin.com/in/apoorvag27/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+      <li><a href="https://github.com/27Apoorva" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
-      
+          
+      <li><a href="https://www.linkedin.com/in/apoorvag27/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+    
+  
+      <li><a href=" https://www.upwork.com/freelancers/~011cb0fd391374f4a6" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa fa-users" aria-hidden="true"></i><span class="label">Upwork</span></a></li>
 
-      
+      <li><a href="https://www.youtube.com/@TheRoboticsSpace/channels" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span></a></li>
+
 
       
 
@@ -267,14 +267,123 @@
         </header>
       
 
-      <section class="page__content e-content" itemprop="text">
-        
-        <p>Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.</p>
-
-<p>Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.</p>
-
-        
-      </section>
+        <article id="portfolio" class="wrapper style3">
+          <div class="container">
+            <header>
+              <!-- <h2>Projects</h2> -->
+            </header>
+            <div class="row">
+              <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <!-- <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a> -->
+                  <!-- <h3><a href="#">Patent</a></h3> -->
+                  <h3>Open Source</h3>
+                  <ul style="text-align: left;">
+                    <li>
+                      Designed an algorithm for determining the indoor position of an autonomous vehicle by populating the open-source ORB-SLAM with predefined Landmarks to get real world positioning using CUDA platform.
+                    </li>
+                    <video width="560" height="315" controls>
+                      <source src="/assets/slam.mp4" type="video/mp4">
+                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                    Your browser does not support the video tag.
+                    </video>                  
+                    <li>
+                      Ran RTAB Map using two D435 camera's with limited field of view and used the map for inventory control in the warehouse.
+                    </li>
+                    <img width="560" height="315" src="/assets/imge.png" alt="" >
+                    <li>
+                      Designed and constructed a faster mode of Adaptive Monte Carlo Localization that can run the algorithm on
+  rosbag data and reproduce results for the purpose of localization improvements, automation testing etc.
+                    </li>
+                    <li>
+                      Integrated Cartographer in the codebase to use landmarks for auto stitching occupancy maps of the
+                      warehouse.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+              <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <!-- <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a> -->
+                  <h3>System Design</h3>
+                    <ul style="text-align: left;">
+                      <li>
+                        Designed a localization system that provided a modular codebase to have one source of truth about robot’s
+  state and added flexibility to support multiple devices and configurations.
+                      </li>
+                      <li>
+                        Developed a feature that adds ability for robot to switch floors in a multi level warehouse.
+                      </li>
+                      <li>
+                        Handled responsibilities for design and development of robot’s behavioral framework for navigation
+  particularly to integrate a new planner, move base flex, add faults, charging behavior etc.
+                      </li>
+                      <li>
+                        Developed a feature for vacuum robot to navigate to a targeted zone in the map for cleaning within the zone
+  boundaries.
+                      </li>
+                    </ul>
+                </article>
+              </div>
+              <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <!-- <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a> -->
+                  <h3>Research and Development</h3>
+                  <ul style="text-align: left;">
+                    <li>
+                      Designed a feature for robot to retain localization after reboot including recovery behavior using Iterative
+  Closest Point algorithm.
+                    </li>
+                    <li>
+                      Designed an algorithm for creating an indoor floor map using PiCamera.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+              <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <!-- <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a> -->
+                  <h3>Github Contributions</h3>
+                  <ul style="text-align: left;">
+                    <li>
+                      <a href="https://github.com/6RiverSystems/navigation"> https://github.com/6RiverSystems/navigation</a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/6RiverSystems/teb_local_planner"> https://github.com/6RiverSystems/teb_local_planner</a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/6RiverSystems/move_base_flex">https://github.com/6RiverSystems/move_base_flex</a>
+                    </li>
+                  </ul>
+                </article>
+              </div>              
+              <!-- <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+                  <h3><a href="#">Tempus dolore</a></h3>
+                  <p>Ornare nulla proin odio consequat.</p>
+                </article>
+              </div>
+              <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+                  <h3><a href="#">Feugiat aliquam</a></h3>
+                  <p>Ornare nulla proin odio consequat.</p>
+                </article>
+              </div>
+              <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                  <a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+                  <h3><a href="#">Sed amet ornare</a></h3>
+                  <p>Ornare nulla proin odio consequat.</p>
+                </article>
+              </div> -->
+            </div>
+            <footer>
+              <!-- <button><a href="/contact" class="button large scrolly">Get in touch with me</a></button> -->
+            </footer>
+          </div>
+        </article>
 
       <footer class="page__meta">
         
@@ -323,15 +432,13 @@
 
     
       
-        
-          <li><a href="https://github.com/27Apoorva" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        
-      
-        
-          <li><a href="https://www.linkedin.com/in/apoorvag27/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+    <li><a href="https://github.com/27Apoorva" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
       
-    
+        
+    <li><a href="https://www.linkedin.com/in/apoorvag27/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+  
+
 
     
       <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
