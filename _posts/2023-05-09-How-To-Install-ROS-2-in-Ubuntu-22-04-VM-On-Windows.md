@@ -14,13 +14,13 @@ excerpt_separator: <!--more-->
 
   <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box</h1>
 
-
-
-
+<!--excerpt.start-->
 <p style="margin: 20px 3rem;"> Congratulations on taking the first step into the fascinating realm of robotics!<br> In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free <a href="https://www.virtualbox.org/wiki/Downloads">Oracle VirtualBox software</a>. 
+<!--excerpt.end-->
+
 
   <h2 style="text-align: left;margin: 20px 3rem;">Pre Requisites</h2>
-  <p style="margin: 20px 3rem;">Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system</p>
+  <p style="margin: 20px 3rem;">Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system.</p>
    <ul style="margin: 20px 3rem;">
     <li>A computer running Windows 10 or 11. This guide uses Windows 10 64-bit. 
       Note: VirtualBox should work fine on any recent version of Windows 10 or 11.</li>
@@ -52,7 +52,7 @@ excerpt_separator: <!--more-->
           margin-right: auto;
           width: 50%;"/>  
       </li>
-      <li>Locate and double-click the VirtualBox installer file from the `Downloads` folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.</li>
+      <li>Locate and double-click the VirtualBox installer file from the <code style='color:orange'>Downloads</code> folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.</li>
       <li>Click <b>Next</b> on the welcome screen in the Setup Wizard to begin the process.
       <img src="/assets/article2/virtualbox2.JPG" alt="article image 1" style="display: block;
           padding: 10px;
@@ -177,8 +177,8 @@ excerpt_separator: <!--more-->
       </li>
     </ol>
     <h3 style="text-align: left;margin: 20px 3rem;">Install ROS 2 Humble Hawksbill</h3>
-    <p style="text-align: left; margin: 20px 3rem;"><b>Hang in there!!</b> <br>
-      You are one step away to becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup. <br><br>
+    <p style="text-align: left; margin: 20px 3rem;">Hang in there!! <br>
+      You are one step away from becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup. <br><br>
       To install the latest LTS version of ROS 2, i.e., Humble Hawksbill, follow the steps <a href="https://www.theroboticsspace.com/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/#rosinstallation">here</a>.
       <br>
       Voila!! I hope you have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Windows Laptop.
