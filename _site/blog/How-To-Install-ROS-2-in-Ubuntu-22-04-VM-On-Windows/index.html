@@ -1,0 +1,415 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box - The Robotics Space</title>
+<meta name="description" content="How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box   Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free Oracle VirtualBox software.     Pre Requisites   Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system         A computer running Windows 10 or 11. This guide uses Windows 10 64-bit.        Note: VirtualBox should work fine on any recent version of Windows 10 or 11.     Ubuntu: Desktop 22.04 ISO Image     Oracle VirtualBox 7.1 software     Minimum 50 GB of Storage memory     Minimum of 8 GB of RAM        Let’s dive right into the process to set up Ubuntu 22.04 Virtual machine to start working with ROS 2.     Download Ubuntu 22.04 ISO Image             This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., Ubuntu 22.04 Jammy Jellyfish.       Go to Ubuntu 22.04 Download Page and Download the 64-bit PC (AMD64) desktop image. A &quot;.iso&quot; desktop image will start downloading.                 NOTE : Windows 10/11 systems are based on the AMD64/Intel-64 architecture. Make sure you use the AMD image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed.           Download and Install VirtualBox            In this section, you will use the Oracle VirtualBox software. VirtualBox is a free general-purpose virtualizer available across Linux, Mac OS, and Windows.        Go to the VirtualBox Downloads page Oracle VM VirtualBox Downloads page and click on the Windows hosts link to download the VirtualBox software. It will download a “.exe” installer file into your Downloads folder.                       Locate and double-click the VirtualBox installer file from the `Downloads` folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.       Click Next on the welcome screen in the Setup Wizard to begin the process.                                On the Custom Setup screen, you can leave the default selections for now so that the installer can set up Wizard to install the features. You can change the installation location by clicking on Browse or else leave the default location. Click Next when ready to continue.                                        The next screen will show a Warning about the network interfaces. The Setup Wizard will install a virtual network adapter that may reset and temporarily disconnect the network connection. Click on Yes to process the installation.                                        The next screen will ask you to confirm the installation. Click on Install to begin the installation of VirtualBox 7.0.8. The installation process will begin and it might take several minutes.                                        Once the installation is done, click on the Finish button to exit the Setup Wizard.                                        Launch the VirtualBox Manager from the Start Menu.                                   Creating Virtual Machine     Once the VirtualBox Software is installed properly, you can begin creating your Virtual Machine.                     Click the New button from the top Menu on the VirtualBox Manager window. This will open the Create Virtual Machine wizard which will let you create and configure your new Virtual Machine with the desired settings.                                        On the Virtual Machine Name and Operating System section, fill in the name, Folder (location to store the Virtual machine files), and select the Ubuntu 22.04 ISO Image (downloaded in the previous section) in the ISO Image option. Click on the Next button to process.                               On the Unattended Guest OS Install Setup section, you need to enter your `username` and` password` in addition to your machine name so that it can be configured automatically during the first boot.                Also, check the Guest Additions box to install the default Guest Additions ISO that is downloaded as part of VirtualBox.                                        In the next Hardware section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values.  NOTE: For using ROS 2 application, it is recommended to use a minimum of `8 GB RAM` and at least `6 CPUs`.                                         Next in the Virtual Hard Disk section, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around `50 GB` as a minimum.                                        Click Next to continue and view a summary of your virtual machine setting. After this click Finish to initialize the machine.                                        You will see a message saying ‘Powering VM up …’ in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.                                                             On the first boot, it will begin the unattended installation.                                        Once the installation completes, the machine will automatically reboot to complete the installation.                                        Finally, you will be greeted with the Ubuntu log-in screen where you can enter your `username` and `password` defined during the previous setup.                                  Install ROS 2 Humble Hawksbill     Hang in there!!        You are one step away to becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup.        To install the latest LTS version of ROS 2, i.e., Humble Hawksbill, follow the steps here.              Voila!! I hope you have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Windows Laptop.          If you liked the article, please buy me a ☕️ coffee  Currently, I am reading The Light We Carry by Michelle Obama.   References:             https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox                 https://trendoceans.com/install-ubuntu-on-virtualbox/                 https://adamtheautomator.com/install-virtualbox-on-windows-10/                 https://docs.ros.org/en/humble/index.html">
+
+
+  <meta name="author" content="Apoorva Gupta">
+  
+  <meta property="article:author" content="Apoorva Gupta">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="The Robotics Space">
+<meta property="og:title" content="How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box">
+<meta property="og:url" content="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-VM-On-Windows/">
+
+
+  <meta property="og:description" content="How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box   Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free Oracle VirtualBox software.     Pre Requisites   Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system         A computer running Windows 10 or 11. This guide uses Windows 10 64-bit.        Note: VirtualBox should work fine on any recent version of Windows 10 or 11.     Ubuntu: Desktop 22.04 ISO Image     Oracle VirtualBox 7.1 software     Minimum 50 GB of Storage memory     Minimum of 8 GB of RAM        Let’s dive right into the process to set up Ubuntu 22.04 Virtual machine to start working with ROS 2.     Download Ubuntu 22.04 ISO Image             This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., Ubuntu 22.04 Jammy Jellyfish.       Go to Ubuntu 22.04 Download Page and Download the 64-bit PC (AMD64) desktop image. A &quot;.iso&quot; desktop image will start downloading.                 NOTE : Windows 10/11 systems are based on the AMD64/Intel-64 architecture. Make sure you use the AMD image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed.           Download and Install VirtualBox            In this section, you will use the Oracle VirtualBox software. VirtualBox is a free general-purpose virtualizer available across Linux, Mac OS, and Windows.        Go to the VirtualBox Downloads page Oracle VM VirtualBox Downloads page and click on the Windows hosts link to download the VirtualBox software. It will download a “.exe” installer file into your Downloads folder.                       Locate and double-click the VirtualBox installer file from the `Downloads` folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.       Click Next on the welcome screen in the Setup Wizard to begin the process.                                On the Custom Setup screen, you can leave the default selections for now so that the installer can set up Wizard to install the features. You can change the installation location by clicking on Browse or else leave the default location. Click Next when ready to continue.                                        The next screen will show a Warning about the network interfaces. The Setup Wizard will install a virtual network adapter that may reset and temporarily disconnect the network connection. Click on Yes to process the installation.                                        The next screen will ask you to confirm the installation. Click on Install to begin the installation of VirtualBox 7.0.8. The installation process will begin and it might take several minutes.                                        Once the installation is done, click on the Finish button to exit the Setup Wizard.                                        Launch the VirtualBox Manager from the Start Menu.                                   Creating Virtual Machine     Once the VirtualBox Software is installed properly, you can begin creating your Virtual Machine.                     Click the New button from the top Menu on the VirtualBox Manager window. This will open the Create Virtual Machine wizard which will let you create and configure your new Virtual Machine with the desired settings.                                        On the Virtual Machine Name and Operating System section, fill in the name, Folder (location to store the Virtual machine files), and select the Ubuntu 22.04 ISO Image (downloaded in the previous section) in the ISO Image option. Click on the Next button to process.                               On the Unattended Guest OS Install Setup section, you need to enter your `username` and` password` in addition to your machine name so that it can be configured automatically during the first boot.                Also, check the Guest Additions box to install the default Guest Additions ISO that is downloaded as part of VirtualBox.                                        In the next Hardware section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values.  NOTE: For using ROS 2 application, it is recommended to use a minimum of `8 GB RAM` and at least `6 CPUs`.                                         Next in the Virtual Hard Disk section, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around `50 GB` as a minimum.                                        Click Next to continue and view a summary of your virtual machine setting. After this click Finish to initialize the machine.                                        You will see a message saying ‘Powering VM up …’ in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.                                                             On the first boot, it will begin the unattended installation.                                        Once the installation completes, the machine will automatically reboot to complete the installation.                                        Finally, you will be greeted with the Ubuntu log-in screen where you can enter your `username` and `password` defined during the previous setup.                                  Install ROS 2 Humble Hawksbill     Hang in there!!        You are one step away to becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup.        To install the latest LTS version of ROS 2, i.e., Humble Hawksbill, follow the steps here.              Voila!! I hope you have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Windows Laptop.          If you liked the article, please buy me a ☕️ coffee  Currently, I am reading The Light We Carry by Michelle Obama.   References:             https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox                 https://trendoceans.com/install-ubuntu-on-virtualbox/                 https://adamtheautomator.com/install-virtualbox-on-windows-10/                 https://docs.ros.org/en/humble/index.html">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-05-09T00:00:00+05:30">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-VM-On-Windows/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="The Robotics Space Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--default">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          The Robotics Space
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/">Portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;">How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box</h1>
+
+<p style="margin: 20px 3rem;"> Congratulations on taking the first step into the fascinating realm of robotics!<br /> In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free <a href="https://www.virtualbox.org/wiki/Downloads">Oracle VirtualBox software</a>. 
+
+  <h2 style="text-align: left;margin: 20px 3rem;">Pre Requisites</h2>
+  <p style="margin: 20px 3rem;">Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system</p>
+   <ul style="margin: 20px 3rem;">
+    <li>A computer running Windows 10 or 11. This guide uses Windows 10 64-bit. 
+      Note: VirtualBox should work fine on any recent version of Windows 10 or 11.</li>
+    <li>Ubuntu: Desktop 22.04 ISO Image</li>
+    <li>Oracle VirtualBox 7.1 software</li>
+    <li>Minimum 50 GB of Storage memory</li>
+    <li>Minimum of 8 GB of RAM</li>
+  </ul> 
+
+  <p style="text-align: left;margin: 20px 3rem;">Let’s dive right into the process to set up Ubuntu 22.04 Virtual machine to start working with ROS 2.</p>
+    <h3 style="text-align: left;margin: 20px 3rem;">Download Ubuntu 22.04 ISO Image</h3>
+    <ol style=" margin: 20px 3rem;">
+      <li> This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., <b>Ubuntu 22.04 Jammy Jellyfish</b>.</li>
+      <li>Go to <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/">Ubuntu 22.04 Download Page</a> and Download the <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-amd64.iso">64-bit PC (AMD64) desktop image</a>. A ".iso" desktop image will start downloading. <br />
+      <img src="/assets/article2/ubuntu_install.png" alt="article image 1" style="display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;" />  
+      NOTE : Windows 10/11 systems are based on the AMD64/Intel-64 architecture. Make sure you use the AMD image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed. </li>
+    </ol>
+    <h3 style="text-align: left;margin: 20px 3rem;">Download and Install VirtualBox</h3>
+    <ol style=" margin: 20px 3rem;">
+      <li>In this section, you will use the Oracle VirtualBox software. VirtualBox is a free general-purpose virtualizer available across Linux, Mac OS, and Windows.</li>
+      <li> Go to the VirtualBox Downloads page <a href="https://www.virtualbox.org/wiki/Downloads">Oracle VM VirtualBox Downloads page</a> and click on the <b>Windows hosts</b> link to download the VirtualBox software. It will download a “.exe” installer file into your Downloads folder.
+      <img src="/assets/article2/virtualbox1.png" alt="article image 1" style="display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;" />  
+      </li>
+      <li>Locate and double-click the VirtualBox installer file from the `Downloads` folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.</li>
+      <li>Click <b>Next</b> on the welcome screen in the Setup Wizard to begin the process.
+      <img src="/assets/article2/virtualbox2.JPG" alt="article image 1" style="display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />  
+      </li>
+      <li>
+        On the <b>Custom Setup</b> screen, you can leave the default selections for now so that the installer can set up Wizard to install the features. You can change the installation location by clicking on <b>Browse</b> or else leave the default location. Click <b>Next</b> when ready to continue.
+        <img src="/assets/article2/virtualbox3.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        The next screen will show a Warning about the network interfaces. The Setup Wizard will install a virtual network adapter that may reset and temporarily disconnect the network connection. Click on <b>Yes</b> to process the installation.
+        <img src="/assets/article2/virtualbox4.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        The next screen will ask you to confirm the installation. Click on <b>Install</b> to begin the installation of VirtualBox 7.0.8. The installation process will begin and it might take several minutes.
+        <img src="/assets/article2/virtualbox5.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        Once the installation is done, click on the <b>Finish</b> button to exit the Setup Wizard.
+        <img src="/assets/article2/virtualbox7.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        Launch the VirtualBox Manager from the <b>Start</b> Menu. 
+        <img src="/assets/article2/virtualbox8.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+    </ol>
+    <h3 style="text-align: left;margin: 20px 3rem;">Creating Virtual Machine</h3>
+    <p style="text-align: left; margin: 20px 3rem;">Once the VirtualBox Software is installed properly, you can begin creating your Virtual Machine.</p>
+    <ol style=" margin: 20px 3rem;">
+      <li>
+        Click the <b>New</b> button from the top Menu on the <b>VirtualBox Manager</b> window. This will open the <b>Create Virtual Machine</b> wizard which will let you create and configure your new Virtual Machine with the desired settings.
+        <img src="/assets/article2/createvm1.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        On the <b>Virtual Machine Name and Operating System</b> section, fill in the name, Folder (location to store the Virtual machine files), and select the <b>Ubuntu 22.04 ISO Image</b> (downloaded in the previous section) in the ISO Image option. <br />Click on the <b>Next</b> button to process.
+        <img src="/assets/article2/createvm2.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>On the <b>Unattended Guest OS Install Setup</b> section, you need to enter your `username` and` password` in addition to your machine name so that it can be configured automatically during the first boot.</li>
+      <li>
+        Also, check the <b>Guest Additions</b> box to install the default Guest Additions ISO that is downloaded as part of VirtualBox.
+        <img src="/assets/article2/createvm3.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        In the next <b>Hardware</b> section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values. <br /> <b>NOTE:</b> For using ROS 2 application, it is recommended to use a minimum of `8 GB RAM` and at least `6 CPUs`. 
+        <img src="/assets/article2/createvm4.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        Next in the <b>Virtual Hard Disk section</b>, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around `50 GB` as a minimum.
+        <img src="/assets/article2/createvm5.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        Click <b>Next</b> to continue and view a summary of your virtual machine setting. After this click <b>Finish</b> to initialize the machine.
+        <img src="/assets/article2/createvm6.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />        
+      </li>
+      <li>
+        You will see a message saying ‘Powering VM up …’ in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.
+        <img src="/assets/article2/createvm7.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;" />       
+          <br />
+        <img src="/assets/article2/createvm8.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;" />  
+      </li>
+      <li>
+        On the first boot, it will begin the unattended installation.
+        <img src="/assets/article2/vm1.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;" />        
+      </li>
+      <li>
+        Once the installation completes, the machine will automatically reboot to complete the installation.
+        <img src="/assets/article2/vm2.JPG" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;" />        
+      </li>
+      <li>
+        Finally, you will be greeted with the Ubuntu <b>log-in screen</b> where you can enter your `username` and `password` defined during the previous setup.
+        <img src="/assets/article2/vm3.png" alt="article image 1" style="display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;" />        
+      </li>
+    </ol>
+    <h3 style="text-align: left;margin: 20px 3rem;">Install ROS 2 Humble Hawksbill</h3>
+    <p style="text-align: left; margin: 20px 3rem;"><b>Hang in there!!</b> <br />
+      You are one step away to becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup. <br /><br />
+      To install the latest LTS version of ROS 2, i.e., Humble Hawksbill, follow the steps <a href="https://www.theroboticsspace.com/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/#rosinstallation">here</a>.
+      <br />
+      Voila!! I hope you have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Windows Laptop.
+    </p>
+  </p>
+
+<p style=" margin: 20px 3rem;">If you liked the article, please buy me a <a style="
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                " href="https://www.buymeacoffee.com/roboticsspace">☕️ coffee</a></p>
+
+<p style=" margin: 20px 3rem;">Currently, I am reading <a href="https://www.amazon.in/dp/0241621240?&amp;linkCode=ll1&amp;tag=sarthakgupta0-21&amp;linkId=414822d32ae70a18c28556fa851f4f32&amp;language=en_IN&amp;ref_=as_li_ss_tl">The Light We Carry</a> by Michelle Obama. </p>
+
+<p style=" margin: 20px 3rem;">References:</p>
+<ul style=" margin: 20px 3rem;">
+    <li>
+      <a href="https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview">https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox</a>
+    </li>
+    <li>
+      <a href="https://trendoceans.com/install-ubuntu-on-virtualbox/">https://trendoceans.com/install-ubuntu-on-virtualbox/</a>
+    </li>
+    <li>
+      <a href="https://adamtheautomator.com/install-virtualbox-on-windows-10/">https://adamtheautomator.com/install-virtualbox-on-windows-10/</a>
+    </li>
+    <li>
+      <a href="https://docs.ros.org/en/humble/index.html">https://docs.ros.org/en/humble/index.html</a>
+    </li>
+  </ul>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/27Apoorva" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/apoorvag27/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 The Robotics Space. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

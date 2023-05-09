@@ -163,7 +163,7 @@ excerpt_separator: <!--more-->
     </ol>
   </p>
 
-  <h2 style="text-align: center;margin-top:20px;margin-bottom-20px;" >How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</h2>
+  <h2 style="text-align: center;margin-top:20px;margin-bottom-20px;" id="rosinstallation">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</h2>
 
 <!-- 
   <p style="text-align: center; margin: auto 3rem;">Image Source: <a href="https://spectrum.ieee.org/interview-turtlebot-inventors-tell-us-everything-about-the-robot">IEEE Spectrum</a></p> -->
@@ -227,8 +227,8 @@ $ sudo add-apt-repository universe</code>
             border: 1px solid #bbb;
             padding: 0.5em;
             white-space:pre-wrap;">$ sudo apt update && sudo apt install curl -y
-$ sudo curl -sSL </code>
-        https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+$ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg</code>
+        
       </li>  
      <li>Add the repository to your sources list.
       <code style="display: block;
@@ -285,7 +285,7 @@ $ sudo apt upgrade</code>
             font-family: monospace;
             border: 1px solid #bbb;
             padding: 0.5em;
-            white-space:pre-wrap;">$ echo “source /opt/ros/indigo/setup.bash” >> ~/.bashrc</code>
+            white-space:pre-wrap;">$ echo “source /opt/ros/humble/setup.bash” >> ~/.bashrc</code>
       </li>
      <li>To check the installation:
            <code style="display: block;
@@ -301,7 +301,7 @@ $ sudo apt upgrade</code>
       <h3>Another important thing to learn is how to build new ros packages:
       </h3>
 
-     <li>Go to <br> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html">https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.</a> <br> We need to install the `colcon` build tool.
+     <li>Go to <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html">https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.</a> <br> We need to install the `colcon` build tool.
 
             <code style="display: block;
             width: 90%;
@@ -358,7 +358,7 @@ $ cd ~/ros2_ws</code>
             font-family: monospace;
             border: 1px solid #bbb;
             padding: 0.5em;
-            white-space:pre-wrap;">$colcon build</code>
+            white-space:pre-wrap;">$ colcon build</code>
       </li>
       <li>You should have build, install, and log folders.
       </li>

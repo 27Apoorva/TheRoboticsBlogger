@@ -1,4 +1,211 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-24T22:00:38+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</title><link href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/" rel="alternate" type="text/html" title="How To Install ROS 2 in Ubuntu 22.04 On M1 Mac" /><published>2023-04-12T00:00:00+05:30</published><updated>2023-04-12T00:00:00+05:30</updated><id>http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac</id><content type="html" xml:base="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1/M2 Mac&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-09T13:00:07+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box</title><link href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-VM-On-Windows/" rel="alternate" type="text/html" title="How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box" /><published>2023-05-09T00:00:00+05:30</published><updated>2023-05-09T00:00:00+05:30</updated><id>http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-VM-On-Windows</id><content type="html" xml:base="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-VM-On-Windows/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box&lt;/h1&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt; Congratulations on taking the first step into the fascinating realm of robotics!&lt;br /&gt; In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;Oracle VirtualBox software&lt;/a&gt;. 
+
+  &lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Pre Requisites&lt;/h2&gt;
+  &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system&lt;/p&gt;
+   &lt;ul style=&quot;margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;A computer running Windows 10 or 11. This guide uses Windows 10 64-bit. 
+      Note: VirtualBox should work fine on any recent version of Windows 10 or 11.&lt;/li&gt;
+    &lt;li&gt;Ubuntu: Desktop 22.04 ISO Image&lt;/li&gt;
+    &lt;li&gt;Oracle VirtualBox 7.1 software&lt;/li&gt;
+    &lt;li&gt;Minimum 50 GB of Storage memory&lt;/li&gt;
+    &lt;li&gt;Minimum of 8 GB of RAM&lt;/li&gt;
+  &lt;/ul&gt; 
+
+  &lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Let’s dive right into the process to set up Ubuntu 22.04 Virtual machine to start working with ROS 2.&lt;/p&gt;
+    &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Download Ubuntu 22.04 ISO Image&lt;/h3&gt;
+    &lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
+      &lt;li&gt; This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., &lt;b&gt;Ubuntu 22.04 Jammy Jellyfish&lt;/b&gt;.&lt;/li&gt;
+      &lt;li&gt;Go to &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/&quot;&gt;Ubuntu 22.04 Download Page&lt;/a&gt; and Download the &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-amd64.iso&quot;&gt;64-bit PC (AMD64) desktop image&lt;/a&gt;. A &quot;.iso&quot; desktop image will start downloading. &lt;br /&gt;
+      &lt;img src=&quot;/assets/article2/ubuntu_install.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;  
+      NOTE : Windows 10/11 systems are based on the AMD64/Intel-64 architecture. Make sure you use the AMD image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed. &lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Download and Install VirtualBox&lt;/h3&gt;
+    &lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
+      &lt;li&gt;In this section, you will use the Oracle VirtualBox software. VirtualBox is a free general-purpose virtualizer available across Linux, Mac OS, and Windows.&lt;/li&gt;
+      &lt;li&gt; Go to the VirtualBox Downloads page &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;Oracle VM VirtualBox Downloads page&lt;/a&gt; and click on the &lt;b&gt;Windows hosts&lt;/b&gt; link to download the VirtualBox software. It will download a “.exe” installer file into your Downloads folder.
+      &lt;img src=&quot;/assets/article2/virtualbox1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;Locate and double-click the VirtualBox installer file from the `Downloads` folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.&lt;/li&gt;
+      &lt;li&gt;Click &lt;b&gt;Next&lt;/b&gt; on the welcome screen in the Setup Wizard to begin the process.
+      &lt;img src=&quot;/assets/article2/virtualbox2.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;
+        On the &lt;b&gt;Custom Setup&lt;/b&gt; screen, you can leave the default selections for now so that the installer can set up Wizard to install the features. You can change the installation location by clicking on &lt;b&gt;Browse&lt;/b&gt; or else leave the default location. Click &lt;b&gt;Next&lt;/b&gt; when ready to continue.
+        &lt;img src=&quot;/assets/article2/virtualbox3.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        The next screen will show a Warning about the network interfaces. The Setup Wizard will install a virtual network adapter that may reset and temporarily disconnect the network connection. Click on &lt;b&gt;Yes&lt;/b&gt; to process the installation.
+        &lt;img src=&quot;/assets/article2/virtualbox4.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        The next screen will ask you to confirm the installation. Click on &lt;b&gt;Install&lt;/b&gt; to begin the installation of VirtualBox 7.0.8. The installation process will begin and it might take several minutes.
+        &lt;img src=&quot;/assets/article2/virtualbox5.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        Once the installation is done, click on the &lt;b&gt;Finish&lt;/b&gt; button to exit the Setup Wizard.
+        &lt;img src=&quot;/assets/article2/virtualbox7.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        Launch the VirtualBox Manager from the &lt;b&gt;Start&lt;/b&gt; Menu. 
+        &lt;img src=&quot;/assets/article2/virtualbox8.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Creating Virtual Machine&lt;/h3&gt;
+    &lt;p style=&quot;text-align: left; margin: 20px 3rem;&quot;&gt;Once the VirtualBox Software is installed properly, you can begin creating your Virtual Machine.&lt;/p&gt;
+    &lt;ol style=&quot; margin: 20px 3rem;&quot;&gt;
+      &lt;li&gt;
+        Click the &lt;b&gt;New&lt;/b&gt; button from the top Menu on the &lt;b&gt;VirtualBox Manager&lt;/b&gt; window. This will open the &lt;b&gt;Create Virtual Machine&lt;/b&gt; wizard which will let you create and configure your new Virtual Machine with the desired settings.
+        &lt;img src=&quot;/assets/article2/createvm1.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        On the &lt;b&gt;Virtual Machine Name and Operating System&lt;/b&gt; section, fill in the name, Folder (location to store the Virtual machine files), and select the &lt;b&gt;Ubuntu 22.04 ISO Image&lt;/b&gt; (downloaded in the previous section) in the ISO Image option. &lt;br /&gt;Click on the &lt;b&gt;Next&lt;/b&gt; button to process.
+        &lt;img src=&quot;/assets/article2/createvm2.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;On the &lt;b&gt;Unattended Guest OS Install Setup&lt;/b&gt; section, you need to enter your `username` and` password` in addition to your machine name so that it can be configured automatically during the first boot.&lt;/li&gt;
+      &lt;li&gt;
+        Also, check the &lt;b&gt;Guest Additions&lt;/b&gt; box to install the default Guest Additions ISO that is downloaded as part of VirtualBox.
+        &lt;img src=&quot;/assets/article2/createvm3.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        In the next &lt;b&gt;Hardware&lt;/b&gt; section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values. &lt;br /&gt; &lt;b&gt;NOTE:&lt;/b&gt; For using ROS 2 application, it is recommended to use a minimum of `8 GB RAM` and at least `6 CPUs`. 
+        &lt;img src=&quot;/assets/article2/createvm4.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        Next in the &lt;b&gt;Virtual Hard Disk section&lt;/b&gt;, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around `50 GB` as a minimum.
+        &lt;img src=&quot;/assets/article2/createvm5.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        Click &lt;b&gt;Next&lt;/b&gt; to continue and view a summary of your virtual machine setting. After this click &lt;b&gt;Finish&lt;/b&gt; to initialize the machine.
+        &lt;img src=&quot;/assets/article2/createvm6.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        You will see a message saying ‘Powering VM up …’ in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.
+        &lt;img src=&quot;/assets/article2/createvm7.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;&quot; /&gt;       
+          &lt;br /&gt;
+        &lt;img src=&quot;/assets/article2/createvm8.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;
+        On the first boot, it will begin the unattended installation.
+        &lt;img src=&quot;/assets/article2/vm1.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        Once the installation completes, the machine will automatically reboot to complete the installation.
+        &lt;img src=&quot;/assets/article2/vm2.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;&quot; /&gt;        
+      &lt;/li&gt;
+      &lt;li&gt;
+        Finally, you will be greeted with the Ubuntu &lt;b&gt;log-in screen&lt;/b&gt; where you can enter your `username` and `password` defined during the previous setup.
+        &lt;img src=&quot;/assets/article2/vm3.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35%;&quot; /&gt;        
+      &lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Install ROS 2 Humble Hawksbill&lt;/h3&gt;
+    &lt;p style=&quot;text-align: left; margin: 20px 3rem;&quot;&gt;&lt;b&gt;Hang in there!!&lt;/b&gt; &lt;br /&gt;
+      You are one step away to becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup. &lt;br /&gt;&lt;br /&gt;
+      To install the latest LTS version of ROS 2, i.e., Humble Hawksbill, follow the steps &lt;a href=&quot;https://www.theroboticsspace.com/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/#rosinstallation&quot;&gt;here&lt;/a&gt;.
+      &lt;br /&gt;
+      Voila!! I hope you have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Windows Laptop.
+    &lt;/p&gt;
+  &lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;If you liked the article, please buy me a &lt;a style=&quot;
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                &quot; href=&quot;https://www.buymeacoffee.com/roboticsspace&quot;&gt;☕️ coffee&lt;/a&gt;&lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Currently, I am reading &lt;a href=&quot;https://www.amazon.in/dp/0241621240?&amp;amp;linkCode=ll1&amp;amp;tag=sarthakgupta0-21&amp;amp;linkId=414822d32ae70a18c28556fa851f4f32&amp;amp;language=en_IN&amp;amp;ref_=as_li_ss_tl&quot;&gt;The Light We Carry&lt;/a&gt; by Michelle Obama. &lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;References:&lt;/p&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview&quot;&gt;https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://trendoceans.com/install-ubuntu-on-virtualbox/&quot;&gt;https://trendoceans.com/install-ubuntu-on-virtualbox/&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://adamtheautomator.com/install-virtualbox-on-windows-10/&quot;&gt;https://adamtheautomator.com/install-virtualbox-on-windows-10/&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://docs.ros.org/en/humble/index.html&quot;&gt;https://docs.ros.org/en/humble/index.html&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free Oracle VirtualBox software. Pre Requisites Make sure you satisfy the below prerequisites before installing Ubuntu 22.04 Virtual Machine and ROS 2 Humble on your Windows system A computer running Windows 10 or 11. This guide uses Windows 10 64-bit. Note: VirtualBox should work fine on any recent version of Windows 10 or 11. Ubuntu: Desktop 22.04 ISO Image Oracle VirtualBox 7.1 software Minimum 50 GB of Storage memory Minimum of 8 GB of RAM Let’s dive right into the process to set up Ubuntu 22.04 Virtual machine to start working with ROS 2. Download Ubuntu 22.04 ISO Image This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., Ubuntu 22.04 Jammy Jellyfish. Go to Ubuntu 22.04 Download Page and Download the 64-bit PC (AMD64) desktop image. A &quot;.iso&quot; desktop image will start downloading. NOTE : Windows 10/11 systems are based on the AMD64/Intel-64 architecture. Make sure you use the AMD image for a Windows 10/11 system and not an ARMv8 image. This step might take time depending on your internet speed. Download and Install VirtualBox In this section, you will use the Oracle VirtualBox software. VirtualBox is a free general-purpose virtualizer available across Linux, Mac OS, and Windows. Go to the VirtualBox Downloads page Oracle VM VirtualBox Downloads page and click on the Windows hosts link to download the VirtualBox software. It will download a “.exe” installer file into your Downloads folder. Locate and double-click the VirtualBox installer file from the `Downloads` folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard. Click Next on the welcome screen in the Setup Wizard to begin the process. On the Custom Setup screen, you can leave the default selections for now so that the installer can set up Wizard to install the features. You can change the installation location by clicking on Browse or else leave the default location. Click Next when ready to continue. The next screen will show a Warning about the network interfaces. The Setup Wizard will install a virtual network adapter that may reset and temporarily disconnect the network connection. Click on Yes to process the installation. The next screen will ask you to confirm the installation. Click on Install to begin the installation of VirtualBox 7.0.8. The installation process will begin and it might take several minutes. Once the installation is done, click on the Finish button to exit the Setup Wizard. Launch the VirtualBox Manager from the Start Menu. Creating Virtual Machine Once the VirtualBox Software is installed properly, you can begin creating your Virtual Machine. Click the New button from the top Menu on the VirtualBox Manager window. This will open the Create Virtual Machine wizard which will let you create and configure your new Virtual Machine with the desired settings. On the Virtual Machine Name and Operating System section, fill in the name, Folder (location to store the Virtual machine files), and select the Ubuntu 22.04 ISO Image (downloaded in the previous section) in the ISO Image option. Click on the Next button to process. On the Unattended Guest OS Install Setup section, you need to enter your `username` and` password` in addition to your machine name so that it can be configured automatically during the first boot. Also, check the Guest Additions box to install the default Guest Additions ISO that is downloaded as part of VirtualBox. In the next Hardware section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values. NOTE: For using ROS 2 application, it is recommended to use a minimum of `8 GB RAM` and at least `6 CPUs`. Next in the Virtual Hard Disk section, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around `50 GB` as a minimum. Click Next to continue and view a summary of your virtual machine setting. After this click Finish to initialize the machine. You will see a message saying ‘Powering VM up …’ in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot. On the first boot, it will begin the unattended installation. Once the installation completes, the machine will automatically reboot to complete the installation. Finally, you will be greeted with the Ubuntu log-in screen where you can enter your `username` and `password` defined during the previous setup. Install ROS 2 Humble Hawksbill Hang in there!! You are one step away to becoming a ROS 2 developer with your Ubuntu 22.04 VirtualBox Machine setup. To install the latest LTS version of ROS 2, i.e., Humble Hawksbill, follow the steps here. Voila!! I hope you have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Windows Laptop. If you liked the article, please buy me a ☕️ coffee Currently, I am reading The Light We Carry by Michelle Obama. References: https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox https://trendoceans.com/install-ubuntu-on-virtualbox/ https://adamtheautomator.com/install-virtualbox-on-windows-10/ https://docs.ros.org/en/humble/index.html</summary></entry><entry><title type="html">How To Install ROS 2 in Ubuntu 22.04 On M1 Mac</title><link href="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/" rel="alternate" type="text/html" title="How To Install ROS 2 in Ubuntu 22.04 On M1 Mac" /><published>2023-04-12T00:00:00+05:30</published><updated>2023-04-12T00:00:00+05:30</updated><id>http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac</id><content type="html" xml:base="http://localhost:4000/blog/How-To-Install-ROS-2-in-Ubuntu-22-04-On-M1-Mac/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1/M2 Mac&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;Congratulations on taking the first step into the fascinating realm of robotics!&lt;br /&gt; 
@@ -145,7 +352,7 @@
     &lt;/ol&gt;
   &lt;/p&gt;
 
-&lt;h2 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1 Mac&lt;/h2&gt;
+&lt;h2 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot; id=&quot;rosinstallation&quot;&gt;How To Install ROS 2 in Ubuntu 22.04 On M1 Mac&lt;/h2&gt;
 
 &lt;!-- 
   &lt;p style=&quot;text-align: center; margin: auto 3rem;&quot;&gt;Image Source: &lt;a href=&quot;https://spectrum.ieee.org/interview-turtlebot-inventors-tell-us-everything-about-the-robot&quot;&gt;IEEE Spectrum&lt;/a&gt;&lt;/p&gt; --&gt;
@@ -208,8 +415,8 @@ $ sudo add-apt-repository universe&lt;/code&gt;
             border: 1px solid #bbb;
             padding: 0.5em;
             white-space:pre-wrap;&quot;&gt;$ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y
-$ sudo curl -sSL &lt;/code&gt;
-        https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+$ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg&lt;/code&gt;
+        
       &lt;/li&gt;  
      &lt;li&gt;Add the repository to your sources list.
       &lt;code style=&quot;display: block;
@@ -266,7 +473,7 @@ $ sudo apt upgrade&lt;/code&gt;
             font-family: monospace;
             border: 1px solid #bbb;
             padding: 0.5em;
-            white-space:pre-wrap;&quot;&gt;$ echo “source /opt/ros/indigo/setup.bash” &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;
+            white-space:pre-wrap;&quot;&gt;$ echo “source /opt/ros/humble/setup.bash” &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;
       &lt;/li&gt;
      &lt;li&gt;To check the installation:
            &lt;code style=&quot;display: block;
@@ -282,7 +489,7 @@ $ sudo apt upgrade&lt;/code&gt;
       &lt;h3&gt;Another important thing to learn is how to build new ros packages:
       &lt;/h3&gt;
 
-     &lt;li&gt;Go to &lt;br /&gt; &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html&quot;&gt;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.&lt;/a&gt; &lt;br /&gt; We need to install the `colcon` build tool.
+     &lt;li&gt;Go to &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html&quot;&gt;https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html.&lt;/a&gt; &lt;br /&gt; We need to install the `colcon` build tool.
 
             &lt;code style=&quot;display: block;
             width: 90%;
@@ -339,7 +546,7 @@ $ cd ~/ros2_ws&lt;/code&gt;
             font-family: monospace;
             border: 1px solid #bbb;
             padding: 0.5em;
-            white-space:pre-wrap;&quot;&gt;$colcon build&lt;/code&gt;
+            white-space:pre-wrap;&quot;&gt;$ colcon build&lt;/code&gt;
       &lt;/li&gt;
       &lt;li&gt;You should have build, install, and log folders.
       &lt;/li&gt;
@@ -432,7 +639,7 @@ https://mac.getutm.app/
   &lt;li&gt;
  &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;https://www.virtualbox.org/&lt;/a&gt;
  &lt;/li&gt;
- &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">How To Install ROS 2 in Ubuntu 22.04 On M1/M2 Mac Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using UTM Virtualization software. ROS 2 is supported in MacOS using the Homebrew installation process. Although, in my 7 years as a Roboticist, I have hardly seen anyone using MacOS for Robotics. What I have seen is the use of Virtual Desktops and Dockers with Ubuntu extensively. One of the primary reasons for configuring your development environment in this manner is because robotics software works on ARM-based development kits like Nvidia’s Jetson AGX series. When utilizing Virtual Desktops on Mac M1, you effectively have the same development environment as your robot&apos;s runtime environment while keeping the M1 chip&apos;s inherent speed performance. We now understand why and what we are doing. Let’s dive right in. The first step is more of a reminder. The Macbooks with M1/M2 Chip are ARM-based platforms compared to older MacBooks and Windows which are AMD/Intel x86-based platforms. Different virtual desktops are available like Parallels Desktop, Oracle’s Virtual Box, and UTM each having its pros and cons. I would recommend the Parallels Desktop paid version if you are a professional developer. For students or anyone looking for free software, I would recommend Virtual Box for Windows and UTM for Macbooks. In this article, we will use free UTM virtualization software. UTM is a full-featured system emulator and virtual machine host for iOS and macOS. It is based on QEMU. In short, it allows you to run Windows, Linux, and more on your Mac, iPhone, and iPad. UTM allows Ubuntu to run with OpenGL, Hardware acceleration providing a highly efficient with near-native speed performance. I am using Macbook Pro with M1 Chip with MacOS 13. You will need about 50GB of free space for your new operating system. Go to https://mac.getutm.app/ and click the Download button. A UTM.dmg file will start downloading. Go to https://cdimage.ubuntu.com/jammy/daily-live/current/ and Download 64-bit ARM (ARMv8/AArch64) desktop image. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the ARM image for a Macbook with M1/M2 chip and not an AMD image. This step might take time depending on your internet speed. Double-click on the UTM.dmg file and drag the icon to the Applications folder. Search for UTM and Open the UTM app from Launchpad. Once the app is launched, click Create a new Virtual Machine. Use the Virtualize option to simulate the bare metal performance. Select Linux and on the next screen, you will see Boot options. Click Browse and select the .iso image for Ubuntu 22.04 that you download in the above step. Keep pressing the Continue button with default settings till you reach the summary screen. Tap on the big Play button to boot Ubuntu 22.04 Select Try to Install Ubuntu. This takes a minute and you will see a blank screen. Once you see the Ubuntu 22.04 screen, type in ubuntu to login. The system will boot with the live image. On the right side, you will see Install Ubuntu. Continue with the standard installation process. Select Install Third Party Software in the following screen. Select Erase Ubuntu and reinstall or if you are doing it for the first time, the third option Erase disk and install Ubuntu will be your first one. Choose that. Save the username and password. You will need this later for login. Continue with installation. This will take time. Once Installation is done, You will see an option to restart the screen. Close the dialog box and Power Off the system. Now using the virtual machine Navigation bar, choose Drive Image Options and eject the image file. You can restart the VM now by tapping on the Play Button. Now you will wait for 10 seconds to see the login screen of Ubuntu. Congratulations! You have Ubuntu 22.04 running on your Macbook. You can log in now using your password. How To Install ROS 2 in Ubuntu 22.04 On M1 Mac Now that we have Ubuntu 22.04 running on our Macbook with M1/M2 Chip, we can install the ROS 2 HUMBLE version by following the steps for Linux Distribution. Open Terminal. To be able to copy and paste between your Ubuntu and Mac, run the following command in your terminal $ sudo apt install spice-webdavd spice-vdagent Set locale Make sure you have a locale that supports UTF-8. $ locale # check for UTF-8 skip this step if locale is utf-8 already $ sudo apt update &amp;amp;&amp;amp; sudo apt install locales $ sudo locale-gen en_US en_US.UTF-8 $ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 $ export LANG=en_US.UTF-8 $ locale # verify settings Setup resources $ sudo apt install software-properties-common $ sudo add-apt-repository universe ROS 2 GPG key with apt. $ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y $ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg Add the repository to your sources list. $ echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;amp;&amp;amp; echo$UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &amp;gt; /dev/null Update and Upgrade your packages $ sudo apt update $ sudo apt upgrade Install Desktop Full $ sudo apt install ros-humble-desktop-full Setup environment: $ source /opt/ros/humble/setup.bash Add this to your bashrc script so that you don’t have to re-run the command every time you open a new terminal. $ echo “source /opt/ros/indigo/setup.bash” &amp;gt;&amp;gt; ~/.bashrc To check the installation: $ ros2 run demo_nodes_cpp talker Another important thing to learn is how to build new ros packages: Go to https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html. We need to install the `colcon` build tool. $ sudo apt install python3-colcon-common-extensions Welcome to creating your first ros workspace. $ mkdir -p ~/ros2_ws/src $ cd ~/ros2_ws Since we are doing a clone, we need git also, So install git using $ sudo apt install git Run all the below commands from the ros2_ws folder. $ git clone https://github.com/ros2/examples src/examples -b humble After cloning, you should have the entire code inside your src folder for examples in ros2. Now we will build examples of the ros package. In the root of the workspace, run $colcon build You should have build, install, and log folders. You need to source before being able to launch the node. So run $ . install/setup.bash Try a demo With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples: $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function In another terminal, let’s run a publisher node (don’t forget to source the setup script): $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function You should see messages from the publisher and subscriber with numbers incrementing. Voila!! You have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Macbook. If you liked the article, please buy me a ☕️ coffee References: https://www.nvidia.com/ https://docs.ros.org/en/humble/index.html https://mac.getutm.app/ https://www.parallels.com/ https://www.virtualbox.org/</summary></entry><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
+ &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">How To Install ROS 2 in Ubuntu 22.04 On M1/M2 Mac Congratulations on taking the first step into the fascinating realm of robotics! In this tutorial, I will walk you through the in-depth steps to install Ubuntu 22.04 with ROS 2 on the Macbook M1/M2 chip using UTM Virtualization software. ROS 2 is supported in MacOS using the Homebrew installation process. Although, in my 7 years as a Roboticist, I have hardly seen anyone using MacOS for Robotics. What I have seen is the use of Virtual Desktops and Dockers with Ubuntu extensively. One of the primary reasons for configuring your development environment in this manner is because robotics software works on ARM-based development kits like Nvidia’s Jetson AGX series. When utilizing Virtual Desktops on Mac M1, you effectively have the same development environment as your robot&apos;s runtime environment while keeping the M1 chip&apos;s inherent speed performance. We now understand why and what we are doing. Let’s dive right in. The first step is more of a reminder. The Macbooks with M1/M2 Chip are ARM-based platforms compared to older MacBooks and Windows which are AMD/Intel x86-based platforms. Different virtual desktops are available like Parallels Desktop, Oracle’s Virtual Box, and UTM each having its pros and cons. I would recommend the Parallels Desktop paid version if you are a professional developer. For students or anyone looking for free software, I would recommend Virtual Box for Windows and UTM for Macbooks. In this article, we will use free UTM virtualization software. UTM is a full-featured system emulator and virtual machine host for iOS and macOS. It is based on QEMU. In short, it allows you to run Windows, Linux, and more on your Mac, iPhone, and iPad. UTM allows Ubuntu to run with OpenGL, Hardware acceleration providing a highly efficient with near-native speed performance. I am using Macbook Pro with M1 Chip with MacOS 13. You will need about 50GB of free space for your new operating system. Go to https://mac.getutm.app/ and click the Download button. A UTM.dmg file will start downloading. Go to https://cdimage.ubuntu.com/jammy/daily-live/current/ and Download 64-bit ARM (ARMv8/AArch64) desktop image. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the ARM image for a Macbook with M1/M2 chip and not an AMD image. This step might take time depending on your internet speed. Double-click on the UTM.dmg file and drag the icon to the Applications folder. Search for UTM and Open the UTM app from Launchpad. Once the app is launched, click Create a new Virtual Machine. Use the Virtualize option to simulate the bare metal performance. Select Linux and on the next screen, you will see Boot options. Click Browse and select the .iso image for Ubuntu 22.04 that you download in the above step. Keep pressing the Continue button with default settings till you reach the summary screen. Tap on the big Play button to boot Ubuntu 22.04 Select Try to Install Ubuntu. This takes a minute and you will see a blank screen. Once you see the Ubuntu 22.04 screen, type in ubuntu to login. The system will boot with the live image. On the right side, you will see Install Ubuntu. Continue with the standard installation process. Select Install Third Party Software in the following screen. Select Erase Ubuntu and reinstall or if you are doing it for the first time, the third option Erase disk and install Ubuntu will be your first one. Choose that. Save the username and password. You will need this later for login. Continue with installation. This will take time. Once Installation is done, You will see an option to restart the screen. Close the dialog box and Power Off the system. Now using the virtual machine Navigation bar, choose Drive Image Options and eject the image file. You can restart the VM now by tapping on the Play Button. Now you will wait for 10 seconds to see the login screen of Ubuntu. Congratulations! You have Ubuntu 22.04 running on your Macbook. You can log in now using your password. How To Install ROS 2 in Ubuntu 22.04 On M1 Mac Now that we have Ubuntu 22.04 running on our Macbook with M1/M2 Chip, we can install the ROS 2 HUMBLE version by following the steps for Linux Distribution. Open Terminal. To be able to copy and paste between your Ubuntu and Mac, run the following command in your terminal $ sudo apt install spice-webdavd spice-vdagent Set locale Make sure you have a locale that supports UTF-8. $ locale # check for UTF-8 skip this step if locale is utf-8 already $ sudo apt update &amp;amp;&amp;amp; sudo apt install locales $ sudo locale-gen en_US en_US.UTF-8 $ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 $ export LANG=en_US.UTF-8 $ locale # verify settings Setup resources $ sudo apt install software-properties-common $ sudo add-apt-repository universe ROS 2 GPG key with apt. $ sudo apt update &amp;amp;&amp;amp; sudo apt install curl -y $ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg Add the repository to your sources list. $ echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;amp;&amp;amp; echo$UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &amp;gt; /dev/null Update and Upgrade your packages $ sudo apt update $ sudo apt upgrade Install Desktop Full $ sudo apt install ros-humble-desktop-full Setup environment: $ source /opt/ros/humble/setup.bash Add this to your bashrc script so that you don’t have to re-run the command every time you open a new terminal. $ echo “source /opt/ros/humble/setup.bash” &amp;gt;&amp;gt; ~/.bashrc To check the installation: $ ros2 run demo_nodes_cpp talker Another important thing to learn is how to build new ros packages: Go to https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html. We need to install the `colcon` build tool. $ sudo apt install python3-colcon-common-extensions Welcome to creating your first ros workspace. $ mkdir -p ~/ros2_ws/src $ cd ~/ros2_ws Since we are doing a clone, we need git also, So install git using $ sudo apt install git Run all the below commands from the ros2_ws folder. $ git clone https://github.com/ros2/examples src/examples -b humble After cloning, you should have the entire code inside your src folder for examples in ros2. Now we will build examples of the ros package. In the root of the workspace, run $ colcon build You should have build, install, and log folders. You need to source before being able to launch the node. So run $ . install/setup.bash Try a demo With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples: $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function In another terminal, let’s run a publisher node (don’t forget to source the setup script): $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function You should see messages from the publisher and subscriber with numbers incrementing. Voila!! You have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Macbook. If you liked the article, please buy me a ☕️ coffee References: https://www.nvidia.com/ https://docs.ros.org/en/humble/index.html https://mac.getutm.app/ https://www.parallels.com/ https://www.virtualbox.org/</summary></entry><entry><title type="html">The History of Turtle Robots</title><link href="http://localhost:4000/blog/The-history-of-turtle-robots/" rel="alternate" type="text/html" title="The History of Turtle Robots" /><published>2023-01-25T00:00:00+05:30</published><updated>2023-01-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/The-history-of-turtle-robots</id><content type="html" xml:base="http://localhost:4000/blog/The-history-of-turtle-robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;The History of Turtle Bots&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot; margin: 20px 3rem;&quot;&gt;With the title of this article being “Turtle Robots”, you might be thinking to yourself, “Hmm, well I know about TurtleBots”, assuming you are into Robotics. Well, the infamous TurtleBots falls under the category of Turtle Robots, but that’s not all.&lt;/p&gt;
