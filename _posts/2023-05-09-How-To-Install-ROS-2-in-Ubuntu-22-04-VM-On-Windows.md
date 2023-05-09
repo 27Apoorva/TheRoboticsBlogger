@@ -1,5 +1,5 @@
 ---
-title: "How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box"
+title: "How to Install ROS 2 in Ubuntu 22.04 on Windows using Virtual Box"
 # excerpt_separator: "<!--more-->"
 categories:
   - Blog
@@ -12,7 +12,7 @@ excerpt_separator: <!--more-->
 
 ---
 
-  <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >How to Install ROS 2 on Ubuntu 22.04 in Windows using Virtual Box</h1>
+  <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >How to Install ROS 2 in Ubuntu 22.04 on Windows using Virtual Box</h1>
 
 <!--excerpt.start-->
 <p style="margin: 20px 3rem;"> Congratulations on taking the first step into the fascinating realm of robotics!<br> In this tutorial, I will walk you through the in-depth process to install Ubuntu 22.04 with ROS 2 on a Windows 10/11 system using the free <a href="https://www.virtualbox.org/wiki/Downloads">Oracle VirtualBox software</a>. 
