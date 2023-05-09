@@ -33,14 +33,14 @@ excerpt_separator: <!--more-->
   <p style="text-align: left;margin: 20px 3rem;">Let’s dive right into the process to set up Ubuntu 22.04 Virtual machine to start working with ROS 2.</p>
     <h3 style="text-align: left;margin: 20px 3rem;">Download Ubuntu 22.04 ISO Image</h3>
     <ol style=" margin: 20px 3rem;">
-      <li> This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., <b>Ubuntu 22.04 Jammy Jellyfish</b>.</li>
-      <li>Go to <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/">Ubuntu 22.04 Download Page</a> and Download the <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-amd64.iso">64-bit PC (AMD64) desktop image</a>. A ".iso" desktop image will start downloading. <br>
+      <li> This section will walk you through the process of downloading and installing the latest LTS version of the Ubuntu distribution of Linux, i.e., <code style='color:orange'>Ubuntu 22.04 Jammy Jellyfish</code>.</li>
+      <li>Go to <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/">Ubuntu 22.04 Download Page</a> and Download the <a href="https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-amd64.iso">64-bit PC (AMD64) desktop image</a>. A <code style='color:orange'>.iso</code> desktop image will start downloading. <br>
       <img src="/assets/article2/ubuntu_install.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>  
-      NOTE : Windows 10/11 systems are based on the AMD64/Intel-64 architecture. Make sure you use the AMD image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed. </li>
+      NOTE : Windows 10/11 systems are based on the <code style='color:orange'>AMD64/Intel-64</code> architecture. Make sure you use the <code style='color:orange'>AMD</code> image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed. </li>
     </ol>
     <h3 style="text-align: left;margin: 20px 3rem;">Download and Install VirtualBox</h3>
     <ol style=" margin: 20px 3rem;">
@@ -89,7 +89,7 @@ excerpt_separator: <!--more-->
           width: 40%;"/>        
       </li>
       <li>
-        Launch the VirtualBox Manager from the <b>Start</b> Menu. 
+        Launch the VirtualBox Manager from the <b><code style='color:orange'>Start</code></b> Menu. 
         <img src="/assets/article2/virtualbox8.JPG" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
@@ -107,13 +107,13 @@ excerpt_separator: <!--more-->
           width: 40%;"/>        
       </li>
       <li>
-        On the <b>Virtual Machine Name and Operating System</b> section, fill in the name, Folder (location to store the Virtual machine files), and select the <b>Ubuntu 22.04 ISO Image</b> (downloaded in the previous section) in the ISO Image option. <br>Click on the <b>Next</b> button to process.
+        On the <b>Virtual Machine Name and Operating System</b> section, fill in the name, Folder (location to store the Virtual machine files), and select the <b><code style='color:orange'>Ubuntu 22.04 ISO Image</code></b> (downloaded in the previous section) in the ISO Image option. <br>Click on the <b>Next</b> button to process.
         <img src="/assets/article2/createvm2.JPG" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 40%;"/>        
       </li>
-      <li>On the <b>Unattended Guest OS Install Setup</b> section, you need to enter your `username` and` password` in addition to your machine name so that it can be configured automatically during the first boot.</li>
+      <li>On the <b>Unattended Guest OS Install Setup</b> section, you need to enter your <code style='color:orange'>username</code> and <code style='color:orange'>password</code> in addition to your machine name so that it can be configured automatically during the first boot.</li>
       <li>
         Also, check the <b>Guest Additions</b> box to install the default Guest Additions ISO that is downloaded as part of VirtualBox.
         <img src="/assets/article2/createvm3.JPG" alt="article image 1" style="display: block;
@@ -122,14 +122,14 @@ excerpt_separator: <!--more-->
           width: 40%;"/>        
       </li>
       <li>
-        In the next <b>Hardware</b> section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values. <br> <b>NOTE:</b> For using ROS 2 application, it is recommended to use a minimum of `8 GB RAM` and at least `6 CPUs`. 
+        In the next <b>Hardware</b> section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values. <br> <b>NOTE:</b> For using ROS 2 application, it is recommended to use a minimum of <code style='color:orange'>8 GB RAM</code> and at least <code style='color:orange'>6 CPUs</code>. 
         <img src="/assets/article2/createvm4.JPG" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 40%;"/>        
       </li>
       <li>
-        Next in the <b>Virtual Hard Disk section</b>, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around `50 GB` as a minimum.
+        Next in the <b>Virtual Hard Disk section</b>, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around <code style='color:orange'>50 GB</code> as a minimum.
         <img src="/assets/article2/createvm5.JPG" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
@@ -143,7 +143,7 @@ excerpt_separator: <!--more-->
           width: 40%;"/>        
       </li>
       <li>
-        You will see a message saying ‘Powering VM up …’ in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.
+        You will see a message saying <code style='color:orange'>Powering VM up …</code> in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.
         <img src="/assets/article2/createvm7.JPG" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
@@ -169,7 +169,7 @@ excerpt_separator: <!--more-->
           width: 35%;"/>        
       </li>
       <li>
-        Finally, you will be greeted with the Ubuntu <b>log-in screen</b> where you can enter your `username` and `password` defined during the previous setup.
+        Finally, you will be greeted with the Ubuntu <b>log-in screen</b> where you can enter your <code style='color:orange'>username</code> and <code style='color:orange'>password</code> defined during the previous setup.
         <img src="/assets/article2/vm3.png" alt="article image 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
