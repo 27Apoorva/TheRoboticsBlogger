@@ -40,7 +40,7 @@ excerpt_separator: <!--more-->
           margin-left: auto;
           margin-right: auto;
           width: 50%;"/>  
-      NOTE : Windows 10/11 systems are based on the <code style='color:orange'>AMD64/Intel-64</code> architecture. Make sure you use the <code style='color:orange'>AMD</code> image for a Windows 10/11 system and not an ARMv8  image. This step might take time depending on your internet speed. </li>
+      NOTE : Windows 10/11 systems are based on the <code style='color:orange'>AMD64/Intel-64</code> architecture. Make sure you use the <code style='color:orange'>AMD</code> image for a Windows 10/11 system and not an <code style='color:orange'>ARMv8</code>  image. This step might take time depending on your internet speed. </li>
     </ol>
     <h3 style="text-align: left;margin: 20px 3rem;">Download and Install VirtualBox</h3>
     <ol style=" margin: 20px 3rem;">
