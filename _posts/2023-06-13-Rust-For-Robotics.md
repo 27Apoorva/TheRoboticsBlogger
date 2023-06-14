@@ -104,7 +104,7 @@ But why is there a Rust buzz? It will be quite evident soon how all the problems
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>  <br>
+          width: 50%;"/>  
 I declare a mutable raw pointer <code style='color:orange'>p</code> as a null pointer in line 2 and I assign <code style='color:orange'>p</code> to a new pointer <code style='color:orange'>q</code>. 
 Then I free the memory allocated to <code style='color:orange'>p</code> using the C free function. <br>
 This leaves q as a dangling pointer since it still points to the memory location that was just freed.<br>
