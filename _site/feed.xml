@@ -1,4 +1,247 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-06T10:18:49+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">ROS 2 Commands Cheat Sheet</title><link href="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/" rel="alternate" type="text/html" title="ROS 2 Commands Cheat Sheet" /><published>2023-05-31T00:00:00+05:30</published><updated>2023-05-31T00:00:00+05:30</updated><id>http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet</id><content type="html" xml:base="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;ROS 2 Commands Cheat Sheet&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-14T11:42:17+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
+
+&lt;!--excerpt.start--&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+This blog is a written presentation of the talk I gave at ROS Meetup Delhi, India in April 2023. &lt;br /&gt;
+I was inspired by &lt;a href=&quot;https://www.tangramvision.com/&quot;&gt;Tangram Vision&lt;/a&gt;’s work on Rust for Robotics and the blogs, and talks by &lt;a href=&quot;https://www.linkedin.com/in/bminortx/&quot;&gt;Brandon Minor, CEO&lt;/a&gt;. &lt;/p&gt;
+&lt;!--excerpt.end--&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;So, I will start with asking a simple question. &lt;/p&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Why are Roboticists looking for a new programming language?&lt;/h3&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;As a Roboticist, my preferable coding language is C++ as this is the language that runs on the actual robots. Generally, Python-based ROS nodes suffer performance issues on hardware. Python and in some cases, Matlab are generally used for research and proof of concept purposes. &lt;br /&gt;
+C++ is well suited for embedded platforms as it can get &lt;b&gt;“Close to the metal”&lt;/b&gt;.&lt;br /&gt;
+But C++ comes with its own set of problems:
+  &lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+      &lt;li&gt; &lt;i&gt;Portability between different platforms and operating systems&lt;/i&gt;&lt;br /&gt;
+      In a real-world scenario, my development system and deployment system would be quite different from each other as shown below.
+      &lt;img src=&quot;/assets/article4/image1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;  
+          The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Slow Compile Time&lt;/i&gt;&lt;br /&gt;
+      Based on my experience, for about 20 ROS C++ Packges, the code compile time was anywhere between 45 mins to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Cyclic Dependency&lt;/i&gt;&lt;br /&gt;
+      In ROS, Node 1 can depend on Node 2 for a .msg file. Node 2 depends on Node 3. Node 3 depends on Node 1 for a .msg file. This can lead to cyclic dependencies if the developer is not careful. 
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Manual Memory Management causes leaks and crashes&lt;/i&gt;&lt;br /&gt;
+      In C++, a developer needs to figure out when and where to use the mutex to prevent multiple threads from accessing the same data.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;There is no built-in memory safety&lt;/i&gt;
+      &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Hello, Rust!&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Rust is an open Source Systems Programming Language created by Mozilla Research Project.
+Fun Fact: It was voted as the most loved language by StackOverflow four years in a row. It is developed with an emphasis on Safety, Speed, and Concurrency. It provides High-Level Abstraction and Low-Level control over system resources.&lt;br /&gt;&lt;br /&gt;
+Rust is based on two principles:&lt;br /&gt;
+&lt;img src=&quot;/assets/article4/image2.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;  &lt;br /&gt;
+But why is there a Rust buzz? It will be quite evident soon how all the problems with C++ are magically taken care of by Rust.
+  &lt;/p&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+      &lt;li&gt;&lt;i&gt;Portability&lt;/i&gt;&lt;br /&gt;
+        Rust is a cross-platform language and performance is consistent across different operating systems.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Performance&lt;/i&gt;&lt;br /&gt;
+        There is zero cost for abstraction, and move semantics, leading to potentially faster code resolving the problem of slow compile times with C++.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Painless Packaging and Dependency Management&lt;/i&gt;&lt;br /&gt;
+        Rust provides Cargo and Xargo for package management that can prevent cyclic dependency.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Concurrency&lt;/i&gt;&lt;br /&gt;
+        Rust prevents data races and deadlocks. There is no need for manual management of mutexes and locks. 
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Memory Safety &lt;/i&gt;&lt;br /&gt;
+        Null pointers and dangling pointers are not allowed to prevent memory leaks.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Type Inference and Efficient C Bindings&lt;/i&gt;&lt;br /&gt;
+        In short, if a function asks for degrees and you provide radians, Rust can automatically infer that type conversion is needed. And it will use the type conversion function from radians to degrees if it has been defined. How cool is that?
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Safety&lt;/i&gt;&lt;br /&gt;
+       It is very hard to write code with undefined behavior in Rust.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Community&lt;/i&gt;&lt;br /&gt;
+      The Rust User Forum, internal forum, and chat platforms are heavily active to contribute, develop, and learn Rust. For more information, visit &lt;a href=&quot;https://www.rust-lang.org/community&quot;&gt;https://www.rust-lang.org/community&lt;/a&gt;.
+      &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Before looking at Rust code, it is important to understand the basic Rust Terminologies.
+&lt;img src=&quot;/assets/article4/image3.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;&quot; /&gt;  
+  &lt;/p&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Ready to witness Rust&apos;s magic?&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;In the below code, I have defined a dangling pointer. A dangling pointer is a pointer that doesn’t point to a valid object. 
+&lt;img src=&quot;/assets/article4/image4.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;  &lt;br /&gt;
+I declare a mutable raw pointer &lt;code style=&quot;color:orange&quot;&gt;p&lt;/code&gt; as a null pointer in line 2 and I assign &lt;code style=&quot;color:orange&quot;&gt;p&lt;/code&gt; to a new pointer &lt;code style=&quot;color:orange&quot;&gt;q&lt;/code&gt;. 
+Then I free the memory allocated to &lt;code style=&quot;color:orange&quot;&gt;p&lt;/code&gt; using the C free function. &lt;br /&gt;
+This leaves q as a dangling pointer since it still points to the memory location that was just freed.&lt;br /&gt;
+Finally, I attempt to print the value at &lt;code style=&quot;color:orange&quot;&gt;q&lt;/code&gt;, which leads to undefined behavior since the memory location it points to has been freed.&lt;br /&gt;
+Now, I know nobody would deliberately write such code but dangling pointers can exist under certain unknown circumstances in a fairly large codebase.
+  &lt;img src=&quot;/assets/article4/image5.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+  
+  When I try to compile the code in Rust, the compiler throws an error and will not build the code at all. This will never happen in C++ and mostly, I would have to attach the debugger and spend hours finding the crash. &lt;br /&gt;
+That is how amazing is the safety provided by Rust. 
+  &lt;/p&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;ROS and Rust&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Let’s take a turn and see how ROS and Rust interact with each other.&lt;br /&gt;
+Below are the Rust-based ROS packages available to begin development of Robotics code in Rust.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; margin: auto 3rem;&quot;&gt;
+&lt;img src=&quot;/assets/article4/image6.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 1px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;  
+Links are available in the Resources section.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;The wait is over and now I will show you an example of Rust in Robotics.&lt;br /&gt;
+I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 2 C++ callbacks are sequential and not parallel. In this example, I have set up two string callbacks in ROS 2 both printing the incoming string from the topic.
+
+  &lt;img src=&quot;/assets/article4/image7.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+  
+  Furthermore, I have added a 2 seconds wait in callback1. This causes the callback2 to be blocked by callback1 and the rate at which callback should be executed is not maintained as evidenced by the execution of the code. From the timestamp, it is seen that the code execution was; callback1 (16824198&lt;b&gt;71&lt;/b&gt;.593) -&amp;gt; wait for 2 seconds -&amp;gt; print the incoming string ‘hey’ (16824198&lt;b&gt;73&lt;/b&gt;.593) when callback2’s ‘oy’ message was blocked.
+
+  &lt;img src=&quot;/assets/article4/image8.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+
+  Now imagine a robot’s camera image callback is blocked by another callback and the robot is operating on an older camera image for object detection. The robot will not have the latest information about the obstacles. Robots operating on delayed and old information can lead to horrible safety-related incidents and collisions.&lt;br /&gt;
+  ROS 2 does provide a solution that is &lt;b&gt;&lt;a href=&quot;https://docs.ros.org/en/humble/Concepts/About-Executors.html&quot;&gt;MultiThreadedExecuter&lt;/a&gt;&lt;/b&gt; with callback groups. But it comes with the overhead of deadlocks, manual memory management, race condition, deciding the number of threads, and scheduling execution. All of them being standard problems with C++.
+  Fortunately, there is Rust to the rescue. &lt;br /&gt;
+  The next code is an example of the same use case written in Rust where I have created two threads that can run each callback parallelly without blocking each other. 
+  &lt;img src=&quot;/assets/article4/image9.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+  From the below result, it is evident from the timestamp that callback1 is published after every 2 seconds while callback2 keeps receiving messages.
+
+  &lt;img src=&quot;/assets/article4/image10.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+  This example is for a very basic use case of publishing strings. Generally, I would want to extract data from the callbacks and use it elsewhere in the codebase. &lt;br /&gt;
+
+  Now, this is where things start getting complicated as there will be a case where one thread would be updating the data while another wants to access it simultaneously. 
+
+  &lt;img src=&quot;/assets/article4/image11.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;
+  In Rust, I can create an &lt;code style=&quot;color:orange&quot;&gt;Arc&lt;/code&gt; that allows multiple ownership while ensuring thread safety. Overall, in the first line of the example above, a thread-safe shared string is created that can be accessed and modified by multiple threads simultaneously without causing data races. In the second line, I create a clone of data1 since we need to pass it to another thread inside the callback. In this way, I can easily access the data while printing as well as inside the thread without manually managing and figuring out when to lock and unlock the mutex. 
+  &lt;br /&gt;&lt;br /&gt;
+  Here are some companies already using Rust.
+   &lt;img src=&quot;/assets/article4/image12.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;&quot; /&gt;&lt;br /&gt;
+  As for Robotics, Rust is ready to be used for UI/Frontend, Webhooks, and systems programming.&lt;br /&gt;
+  While RUST is safe, efficient, and user-friendly, it is heavily under development, especially for ROS
+  Also, C++ has been around for decades whereas Rust has been around only for about 10 years.
+  In my opinion, Rust is very promising as witnessed in the blog but it will take time for Rust to become mainstream for Robotics.
+
+
+  &lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;If you liked the article, please buy me a &lt;a style=&quot;
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                &quot; href=&quot;https://www.buymeacoffee.com/roboticsspace&quot;&gt;☕️ coffee&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot; margin: 20px 3rem;&quot;&gt;Resources:&lt;/h3&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/adnanademovic/rosrust&quot;&gt;rosrust&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+       &lt;a href=&quot;https://github.com/ros2-rust/ros2_rust&quot;&gt;ros2_rust&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/Carter12s/roslibrust&quot;&gt;roslibrust&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+       &lt;a href=&quot;https://github.com/sequenceplanner/r2r&quot;&gt;r2r&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/jhelovuo/RustDDS&quot;&gt;RustDDS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+       &lt;a href=&quot;https://github.com/rclrust/rclrust&quot;&gt;rclrust&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://docs.rs/rosbag/latest/rosbag/&quot;&gt;rosbag&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/arjo129/rustros_tf&quot;&gt;rustros_tf&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://docs.rs/optimization_engine/latest/optimization_engine/&quot;&gt;optimization-engine&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://robotics.rs/&quot;&gt;https://robotics.rs/&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://www.tangramvision.com/blog/why-rust-for-robots&quot;&gt;https://www.tangramvision.com/blog/why-rust-for-robots&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://medium.com/luos/why-rust-is-the-future-of-robotics-81d7fb68fe37&quot;&gt;https://medium.com/luos/why-rust-is-the-future-of-robotics-81d7fb68fe37&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html&quot;&gt;https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://roboticsbackend.com/ros-asyncspinner-example/&quot;&gt;https://roboticsbackend.com/ros-asyncspinner-example/&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Rust For Robotics This blog is a written presentation of the talk I gave at ROS Meetup Delhi, India in April 2023. I was inspired by Tangram Vision’s work on Rust for Robotics and the blogs, and talks by Brandon Minor, CEO. So, I will start with asking a simple question. Why are Roboticists looking for a new programming language? As a Roboticist, my preferable coding language is C++ as this is the language that runs on the actual robots. Generally, Python-based ROS nodes suffer performance issues on hardware. Python and in some cases, Matlab are generally used for research and proof of concept purposes. C++ is well suited for embedded platforms as it can get “Close to the metal”. But C++ comes with its own set of problems: Portability between different platforms and operating systems In a real-world scenario, my development system and deployment system would be quite different from each other as shown below. The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms. Slow Compile Time Based on my experience, for about 20 ROS C++ Packges, the code compile time was anywhere between 45 mins to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead. Cyclic Dependency In ROS, Node 1 can depend on Node 2 for a .msg file. Node 2 depends on Node 3. Node 3 depends on Node 1 for a .msg file. This can lead to cyclic dependencies if the developer is not careful. Manual Memory Management causes leaks and crashes In C++, a developer needs to figure out when and where to use the mutex to prevent multiple threads from accessing the same data. There is no built-in memory safety Hello, Rust! Rust is an open Source Systems Programming Language created by Mozilla Research Project. Fun Fact: It was voted as the most loved language by StackOverflow four years in a row. It is developed with an emphasis on Safety, Speed, and Concurrency. It provides High-Level Abstraction and Low-Level control over system resources. Rust is based on two principles: But why is there a Rust buzz? It will be quite evident soon how all the problems with C++ are magically taken care of by Rust. Portability Rust is a cross-platform language and performance is consistent across different operating systems. Performance There is zero cost for abstraction, and move semantics, leading to potentially faster code resolving the problem of slow compile times with C++. Painless Packaging and Dependency Management Rust provides Cargo and Xargo for package management that can prevent cyclic dependency. Concurrency Rust prevents data races and deadlocks. There is no need for manual management of mutexes and locks. Memory Safety Null pointers and dangling pointers are not allowed to prevent memory leaks. Type Inference and Efficient C Bindings In short, if a function asks for degrees and you provide radians, Rust can automatically infer that type conversion is needed. And it will use the type conversion function from radians to degrees if it has been defined. How cool is that? Safety It is very hard to write code with undefined behavior in Rust. Community The Rust User Forum, internal forum, and chat platforms are heavily active to contribute, develop, and learn Rust. For more information, visit https://www.rust-lang.org/community. Before looking at Rust code, it is important to understand the basic Rust Terminologies. Ready to witness Rust&apos;s magic? In the below code, I have defined a dangling pointer. A dangling pointer is a pointer that doesn’t point to a valid object. I declare a mutable raw pointer p as a null pointer in line 2 and I assign p to a new pointer q. Then I free the memory allocated to p using the C free function. This leaves q as a dangling pointer since it still points to the memory location that was just freed. Finally, I attempt to print the value at q, which leads to undefined behavior since the memory location it points to has been freed. Now, I know nobody would deliberately write such code but dangling pointers can exist under certain unknown circumstances in a fairly large codebase. When I try to compile the code in Rust, the compiler throws an error and will not build the code at all. This will never happen in C++ and mostly, I would have to attach the debugger and spend hours finding the crash. That is how amazing is the safety provided by Rust. ROS and Rust Let’s take a turn and see how ROS and Rust interact with each other. Below are the Rust-based ROS packages available to begin development of Robotics code in Rust. Links are available in the Resources section. The wait is over and now I will show you an example of Rust in Robotics. I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 2 C++ callbacks are sequential and not parallel. In this example, I have set up two string callbacks in ROS 2 both printing the incoming string from the topic. Furthermore, I have added a 2 seconds wait in callback1. This causes the callback2 to be blocked by callback1 and the rate at which callback should be executed is not maintained as evidenced by the execution of the code. From the timestamp, it is seen that the code execution was; callback1 (1682419871.593) -&amp;gt; wait for 2 seconds -&amp;gt; print the incoming string ‘hey’ (1682419873.593) when callback2’s ‘oy’ message was blocked. Now imagine a robot’s camera image callback is blocked by another callback and the robot is operating on an older camera image for object detection. The robot will not have the latest information about the obstacles. Robots operating on delayed and old information can lead to horrible safety-related incidents and collisions. ROS 2 does provide a solution that is MultiThreadedExecuter with callback groups. But it comes with the overhead of deadlocks, manual memory management, race condition, deciding the number of threads, and scheduling execution. All of them being standard problems with C++. Fortunately, there is Rust to the rescue. The next code is an example of the same use case written in Rust where I have created two threads that can run each callback parallelly without blocking each other. From the below result, it is evident from the timestamp that callback1 is published after every 2 seconds while callback2 keeps receiving messages. This example is for a very basic use case of publishing strings. Generally, I would want to extract data from the callbacks and use it elsewhere in the codebase. Now, this is where things start getting complicated as there will be a case where one thread would be updating the data while another wants to access it simultaneously. In Rust, I can create an Arc that allows multiple ownership while ensuring thread safety. Overall, in the first line of the example above, a thread-safe shared string is created that can be accessed and modified by multiple threads simultaneously without causing data races. In the second line, I create a clone of data1 since we need to pass it to another thread inside the callback. In this way, I can easily access the data while printing as well as inside the thread without manually managing and figuring out when to lock and unlock the mutex. Here are some companies already using Rust. As for Robotics, Rust is ready to be used for UI/Frontend, Webhooks, and systems programming. While RUST is safe, efficient, and user-friendly, it is heavily under development, especially for ROS Also, C++ has been around for decades whereas Rust has been around only for about 10 years. In my opinion, Rust is very promising as witnessed in the blog but it will take time for Rust to become mainstream for Robotics. If you liked the article, please buy me a ☕️ coffee Resources: rosrust ros2_rust roslibrust r2r RustDDS rclrust rosbag rustros_tf optimization-engine https://robotics.rs/ https://www.tangramvision.com/blog/why-rust-for-robots https://medium.com/luos/why-rust-is-the-future-of-robotics-81d7fb68fe37 https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html https://roboticsbackend.com/ros-asyncspinner-example/</summary></entry><entry><title type="html">ROS 2 Commands Cheat Sheet</title><link href="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/" rel="alternate" type="text/html" title="ROS 2 Commands Cheat Sheet" /><published>2023-05-31T00:00:00+05:30</published><updated>2023-05-31T00:00:00+05:30</updated><id>http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet</id><content type="html" xml:base="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;ROS 2 Commands Cheat Sheet&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  

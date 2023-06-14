@@ -28,4 +28,10 @@ var store = [{
         "tags": ["Post Formats","readability","standard"],
         "url": "/blog/ROS2-Commands-Cheat-Sheet/",
         "teaser": null
+      },{
+        "title": "Rust For Robotics",
+        "excerpt":"Rust For Robotics This blog is a written presentation of the talk I gave at ROS Meetup Delhi, India in April 2023. I was inspired by Tangram Vision’s work on Rust for Robotics and the blogs, and talks by Brandon Minor, CEO. So, I will start with asking a simple...","categories": ["Blog"],
+        "tags": ["Post Formats","readability","standard"],
+        "url": "/blog/Rust-For-Robotics/",
+        "teaser": null
       }]
