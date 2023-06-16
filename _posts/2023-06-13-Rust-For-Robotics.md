@@ -22,7 +22,7 @@ I was inspired by <a href="https://www.tangramvision.com/">Tangram Vision</a>’
 
 <p style="text-align: left;margin: 20px 3rem;">So, I will start with asking a simple question. </p>
 
-<h3 style="text-align: left;margin: 20px 3rem;">Why are Roboticists looking for a new programming language?</h3>
+<h3 style="text-align: left;margin: 20px 3rem;">Why are Roboticist looking for a new programming language?</h3>
 
   <p style="text-align: left;margin: 20px 3rem;">As a Roboticist, my preferable coding language is C++ as this is the language that runs on the actual robots. Generally, Python-based ROS nodes suffer performance issues on hardware. Python and in some cases, Matlab are generally used for research and proof of concept purposes. <br>
 C++ is well suited for embedded platforms as it can get <b>“Close to the metal”</b>.<br>
@@ -40,7 +40,7 @@ But C++ comes with its own set of problems:
           The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms.
       </li>
       <li><i>Slow Compile Time</i><br>
-      Based on my experience, for about 20 ROS C++ Packges, the code compile time was anywhere between 45 mins to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead.
+      Based on my experience, for about 20 ROS C++ packages, the code compile time was anywhere between 45 minutes to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead.
       </li>
       <li><i>Cyclic Dependency</i><br>
       In ROS, Node 1 can depend on Node 2 for a .msg file. Node 2 depends on Node 3. Node 3 depends on Node 1 for a .msg file. This can lead to cyclic dependencies if the developer is not careful. 
