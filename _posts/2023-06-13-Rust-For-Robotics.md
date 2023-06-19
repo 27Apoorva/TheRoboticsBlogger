@@ -36,7 +36,7 @@ But C++ comes with its own set of problems:
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>  
+          width: 45vmax;"/>  
           The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms.
       </li>
       <li><i>Slow Compile Time</i><br>
@@ -60,7 +60,7 @@ Rust is based on two principles:<br>
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>  <br>
+          width: 45vmax;"/>  <br>
 But why is there a Rust buzz? It will be quite evident soon how all the problems with C++ are magically taken care of by Rust.
   </p>
   <ul style=" margin: 20px 3rem;">
@@ -95,7 +95,7 @@ But why is there a Rust buzz? It will be quite evident soon how all the problems
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;"/>  
+          width: 45vmax;"/>  
   </p>
 
 <h3 style="text-align: left;margin: 20px 3rem;">Ready to witness Rust's magic?</h3>
@@ -104,7 +104,7 @@ But why is there a Rust buzz? It will be quite evident soon how all the problems
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>  
+          width: 45vmax;"/>  
 I declare a mutable raw pointer <code style='color:orange'>p</code> as a null pointer in line 2 and I assign <code style='color:orange'>p</code> to a new pointer <code style='color:orange'>q</code>. 
 Then I free the memory allocated to <code style='color:orange'>p</code> using the C free function. <br>
 This leaves q as a dangling pointer since it still points to the memory location that was just freed.<br>
@@ -114,7 +114,7 @@ Now, I know nobody would deliberately write such code but dangling pointers can 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>
+          width: 45vmax;"/>
   
   When I try to compile the code in Rust, the compiler throws an error and will not build the code at all. This will never happen in C++ and mostly, I would have to attach the debugger and spend hours finding the crash. <br>
 That is how amazing is the safety provided by Rust. 
@@ -129,7 +129,7 @@ Below are the Rust-based ROS packages available to begin development of Robotics
           padding: 1px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>  
+          width: 45vmax;"/>  
 Links are available in the Resources section.</p>
 
 <p style="text-align: left;margin: 20px 3rem;">The wait is over and now I will show you an example of Rust in Robotics.<br>
@@ -139,7 +139,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>
+          width: 45vmax;"/>
   
   Furthermore, I have added a 2 seconds wait in callback1. This causes the callback2 to be blocked by callback1 and the rate at which callback should be executed is not maintained as evidenced by the execution of the code. From the timestamp, it is seen that the code execution was; callback1 (16824198<b>71</b>.593) -> wait for 2 seconds -> print the incoming string ‘hey’ (16824198<b>73</b>.593) when callback2’s ‘oy’ message was blocked.
 
@@ -147,7 +147,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>
+          width: 45vmax;"/>
 
   Now imagine a robot’s camera image callback is blocked by another callback and the robot is operating on an older camera image for object detection. The robot will not have the latest information about the obstacles. Robots operating on delayed and old information can lead to horrible safety-related incidents and collisions.<br>
   ROS 2 does provide a solution that is <b><a href ="https://docs.ros.org/en/humble/Concepts/About-Executors.html">MultiThreadedExecuter</a></b> with callback groups. But it comes with the overhead of deadlocks, manual memory management, race condition, deciding the number of threads, and scheduling execution. All of them being standard problems with C++.
@@ -157,14 +157,14 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>
+          width: 45vmax;"/>
   From the below result, it is evident from the timestamp that callback1 is published after every 2 seconds while callback2 keeps receiving messages.
 
   <img src="/assets/article4/image10.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>
+          width: 45vmax;"/>
   This example is for a very basic use case of publishing strings. Generally, I would want to extract data from the callbacks and use it elsewhere in the codebase. <br>
 
   Now, this is where things start getting complicated as there will be a case where one thread would be updating the data while another wants to access it simultaneously. 
@@ -173,7 +173,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/>
+          width: 45vmax;"/>
   In Rust, I can create an <code style='color:orange'>Arc</code> that allows multiple ownership while ensuring thread safety. Overall, in the first line of the example above, a thread-safe shared string is created that can be accessed and modified by multiple threads simultaneously without causing data races. In the second line, I create a clone of data1 since we need to pass it to another thread inside the callback. In this way, I can easily access the data while printing as well as inside the thread without manually managing and figuring out when to lock and unlock the mutex. 
   <br><br>
   Here are some companies already using Rust.
@@ -181,7 +181,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;"/><br>
+          width: 45vmax;"/><br>
   As for Robotics, Rust is ready to be used for UI/Frontend, Webhooks, and systems programming.<br>
   While RUST is safe, efficient, and user-friendly, it is heavily under development, especially for ROS
   Also, C++ has been around for decades whereas Rust has been around only for about 10 years.

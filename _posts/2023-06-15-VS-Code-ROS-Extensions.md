@@ -1,5 +1,5 @@
 ---
-title: "Exploration of VSCode Extensions for a ROS Developer"
+title: "Exploration of VS Code Extensions for a ROS Developer"
 # excerpt_separator: "<!--more-->"
 categories:
   - Blog
@@ -12,27 +12,26 @@ excerpt_separator: <!--more-->
 
 ---
 
-  <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >Exploration of VSCode Extensions for a ROS Developer</h1>
+  <h1 style="text-align: center;margin-top:20px;margin-bottom-20px;" >Exploration of VS Code extensions for a ROS Developer</h1>
 
 <!--excerpt.start-->
 <p style="margin: 20px 3rem;">  
-In the developers' community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally love to code in VSCode as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web Developer, especially in terms of the infrastructure available to make development easier.
-When I first started coding, my VSCode setup was very minimal and the only extensions I used were specific to writing C++/Python code.  
+In the developers' community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it <a href="https://www.jetbrains.com/idea/">IntelliJ</a>, <a href="https://developer.apple.com/xcode/">Xcode</a>, <a href="https://www.eclipse.org/ide/">Eclipse</a>, <a href="https://atom.en.softonic.com/">Atom</a>, <a href="https://www.sublimetext.com/">Sublime Text</a>, or <a href="https://code.visualstudio.com/">Visual Studios</a>. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier.
+When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code.  
 Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. 
 </p>
 <!--excerpt.end-->
 
 <p style="text-align: left;margin: 20px 3rem;">This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. <br>
-While doing research for this blog, the first thing I did was simply type ROS in the search bar for Extensions in VSCode.</p>
+While doing research for this blog, the first thing I did was simply type ROS in the search bar for extensions in VS Code.</p>
 
 
 <p style="text-align: left;margin: 20px 3rem;">
 <img src="/assets/article5/image1.png" alt="article image 1" style="display: block;
-        padding: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 55%;"/>  
-The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">Visual Studio Code Extension for ROS was by Microsoft</a> which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code Extensions Marketplace and can be installed with a single click. 
+        width: 50vmax;"/>  
+The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">Visual Studio Code extension for ROS was by Microsoft</a> which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions Marketplace and can be installed with a single click. 
 </p>
 
 <p style="text-align: left;margin: 20px 3rem;">Some cool functionalities that you can enjoy after installing this extension are:
@@ -40,37 +39,37 @@ The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-i
 
 <ul style=" margin: 20px 3rem;">
     <li><i>URDF Previewer</i><br>
-    Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and Rviz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in Rviz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster.
+    Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and RViz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in RViz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster.
     <img src="/assets/article5/image2.png" alt="article image 1" style="display: block;
         padding: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 55%;"/>  
+        width: 50vmax;"/>  
     </li>
     <li><i>Multiple ROS Nodes Execution</i><br>
     Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution.
-      <img src="/assets/article5/image3.jpg" alt="article image 1" style="display: block;
+      <img src="/assets/article5/image3.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;"/>  
-      <div align="center">Select a ROS command;&nbsp;&nbsp;&nbsp;Select a ROS package;&nbsp;&nbsp;&nbsp;Select a exectuable or launch file</div>
+          width: 50vmax;"/>  
+      <!-- <div align="center">Select a ROS command;&nbsp;&nbsp;&nbsp;Select a ROS package;&nbsp;&nbsp;&nbsp;Select a exectuable or launch file</div> -->
       </li>
       <li><i>Build Configurations</i><br>
       Say goodbye to the days when you needed to type the <code style='color:orange'>colcon build</code> command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the <code style='color:orange'>.vscode/tasks.json</code> file, you can simply run the <code style='color:orange'>Build Task</code> command to build the workspace.
-      <img src="/assets/article5/image4.png" alt="article image 1" style="display: block;
+      <img src="/assets/article5/image42.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;"/>  
+          width: 50vmax;"/>  
       </li>
       <li><i>Debug Configurations</i><br>
-      Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code Extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration <code style='color:orange'>(launch.json)</code> to the <code style='color:orange'>.vscode</code> folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as <code style='color:orange'>launch.json</code> can take an array of nodes.
+      Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration <code style='color:orange'>(launch.json)</code> to the <code style='color:orange'>.vscode</code> folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as <code style='color:orange'>launch.json</code> can take an array of nodes.
       <img src="/assets/article5/image55.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;"/>  
+          width: 50vmax;"/>  
       </li>
       <li><i>System Status</i><br>
       The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services.
@@ -78,15 +77,15 @@ The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-i
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;"/>  
+          width: 50vmax;"/>  
       </li>
       <li><i>IntelliSense</i><br>
-      The ROS VS Code Extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types.
+      The ROS VS Code extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types.
       <img src="/assets/article5/image7.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;"/>  
+          width: 50vmax;"/>  
       </li>
 </ul>
 
@@ -95,7 +94,7 @@ The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-i
         padding: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 55%;"/> 
+        width: 50vmax;"/> 
 </p>
 
 <ul style=" margin: 20px 3rem;">
@@ -105,14 +104,14 @@ The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-i
         padding: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 55%;"/>  
+        width: 50vmax;"/>  
 </ul>
 
 <p style="text-align: left;margin: 20px 3rem;">Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing.</p>
 
 <ul style=" margin: 20px 3rem;">
     <li><i>ROS Bag interface</i><br>
-    Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only <a href="https://marketplace.visualstudio.com/items?itemName=lochbrunner.vscode-rosbag">one plugin</a> currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of <code style='color:orange'>rosbag info filename</code>. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VSCode menu bar itself.
+    Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only <a href="https://marketplace.visualstudio.com/items?itemName=lochbrunner.vscode-rosbag">one plugin</a> currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of <code style='color:orange'>rosbag info filename</code>. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VS Code menu bar itself.
     </li>
     <li><i>Parameters in System Status</i><br>
     The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph.
