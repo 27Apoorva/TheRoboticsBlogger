@@ -34,4 +34,10 @@ var store = [{
         "tags": ["Post Formats","readability","standard"],
         "url": "/blog/Rust-For-Robotics/",
         "teaser": null
+      },{
+        "title": "Exploration of VSCode Extensions for a ROS Developer",
+        "excerpt":"Exploration of VSCode Extensions for a ROS Developer In the developers' community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally...","categories": ["Blog"],
+        "tags": ["Post Formats","readability","standard"],
+        "url": "/blog/VS-Code-ROS-Extensions/",
+        "teaser": null
       }]

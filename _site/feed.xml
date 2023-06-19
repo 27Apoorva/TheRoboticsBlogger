@@ -1,4 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-14T11:53:18+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-19T13:23:34+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Exploration of VSCode Extensions for a ROS Developer</title><link href="http://localhost:4000/blog/VS-Code-ROS-Extensions/" rel="alternate" type="text/html" title="Exploration of VSCode Extensions for a ROS Developer" /><published>2023-06-15T00:00:00+05:30</published><updated>2023-06-15T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Extensions</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Extensions/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Exploration of VSCode Extensions for a ROS Developer&lt;/h1&gt;
+
+&lt;!--excerpt.start--&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally love to code in VSCode as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web Developer, especially in terms of the infrastructure available to make development easier.
+When I first started coding, my VSCode setup was very minimal and the only extensions I used were specific to writing C++/Python code.  
+Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. 
+&lt;/p&gt;
+&lt;!--excerpt.end--&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. &lt;br /&gt;
+While doing research for this blog, the first thing I did was simply type ROS in the search bar for Extensions in VSCode.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+&lt;img src=&quot;/assets/article5/image1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 55%;&quot; /&gt;  
+The very first &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros&quot;&gt;Visual Studio Code Extension for ROS was by Microsoft&lt;/a&gt; which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code Extensions Marketplace and can be installed with a single click. 
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Some cool functionalities that you can enjoy after installing this extension are:
+&lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;&lt;i&gt;URDF Previewer&lt;/i&gt;&lt;br /&gt;
+    Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and Rviz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in Rviz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster.
+    &lt;img src=&quot;/assets/article5/image2.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 55%;&quot; /&gt;  
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Multiple ROS Nodes Execution&lt;/i&gt;&lt;br /&gt;
+    Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution.
+      &lt;img src=&quot;/assets/article5/image3.jpg&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;&quot; /&gt;  
+      &lt;div align=&quot;center&quot;&gt;Select a ROS command;&amp;nbsp;&amp;nbsp;&amp;nbsp;Select a ROS package;&amp;nbsp;&amp;nbsp;&amp;nbsp;Select a exectuable or launch file&lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Build Configurations&lt;/i&gt;&lt;br /&gt;
+      Say goodbye to the days when you needed to type the &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt; command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the &lt;code style=&quot;color:orange&quot;&gt;.vscode/tasks.json&lt;/code&gt; file, you can simply run the &lt;code style=&quot;color:orange&quot;&gt;Build Task&lt;/code&gt; command to build the workspace.
+      &lt;img src=&quot;/assets/article5/image4.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Debug Configurations&lt;/i&gt;&lt;br /&gt;
+      Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code Extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration &lt;code style=&quot;color:orange&quot;&gt;(launch.json)&lt;/code&gt; to the &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt; can take an array of nodes.
+      &lt;img src=&quot;/assets/article5/image55.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;System Status&lt;/i&gt;&lt;br /&gt;
+      The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services.
+      &lt;img src=&quot;/assets/article5/image6.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;IntelliSense&lt;/i&gt;&lt;br /&gt;
+      The ROS VS Code Extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types.
+      &lt;img src=&quot;/assets/article5/image7.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;&quot; /&gt;  
+      &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Another plugin that I found useful was &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=twxs.cmake&quot;&gt;CMake by twxs&lt;/a&gt;: 
+&lt;img src=&quot;/assets/article5/image8.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 55%;&quot; /&gt; 
+&lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;&lt;i&gt;Syntax Formatting&lt;/i&gt;&lt;br /&gt;
+    You can use this CMake extension in VS Code to get syntax highlighting and code completion for your &lt;code style=&quot;color:orange&quot;&gt;CMakeLists.txt&lt;/code&gt; files.&lt;/li&gt;
+    &lt;img src=&quot;/assets/article5/image9.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 55%;&quot; /&gt;  
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing.&lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;&lt;i&gt;ROS Bag interface&lt;/i&gt;&lt;br /&gt;
+    Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=lochbrunner.vscode-rosbag&quot;&gt;one plugin&lt;/a&gt; currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of &lt;code style=&quot;color:orange&quot;&gt;rosbag info filename&lt;/code&gt;. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VSCode menu bar itself.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Parameters in System Status&lt;/i&gt;&lt;br /&gt;
+    The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Joint Visualisation in URDF Previewer&lt;/i&gt;&lt;br /&gt;
+    While setting up the robot’s URDF, I generally try to test out the movement of each joint specifically the direction and axes of rotation. The current URDF previewer should also support Joint Visualisation for ease of debugging and verification of the robot model.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Interactive ROS Graph Visualisation&lt;/i&gt;&lt;br /&gt;
+    I would love to have an extension that visualizes the ROS graph, displaying nodes, topics like tf, and connections in an interactive graph view.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;ROS Documentation Integration&lt;/i&gt;&lt;br /&gt;
+    Another cool to have extension could be a ROS Documentation Integrator. This extension can integrate ROS documentation directly into VS Code. It can allow you to quickly search and access ROS API documentation, tutorials, and examples without leaving the editor.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Unit &amp;amp; Integration Tests&lt;/i&gt;&lt;br /&gt;
+    This is the one I most desperately need. An extension that can enable running and managing unit tests/integration tests (both Google tests and rostest) directly from VS Code. It can provide an intuitive interface for executing tests, viewing test results, and generating test reports.
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;I am really grateful to have installed the plugins available for ROS. If I have to put an estimate on the percentage of the time these plugins have saved, I would say it is about a 40% reduction in the overall development time especially for writing and executing ROS nodes. The ROS plugins aren’t perfectly developed yet as witnessed especially due to the unique challenges of visualization and data formats of ROS. As the robotics community is continuously growing, I have high hopes that the development environments would also improve over time. As of today, I highly recommend using the existing plugins to save time, especially for startups who struggle with maintaining one development process across the organization.&lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;If you liked the article, please buy me a &lt;a style=&quot;
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                &quot; href=&quot;https://www.buymeacoffee.com/roboticsspace&quot;&gt;☕️ coffee&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot; margin: 20px 3rem;&quot;&gt;Resources:&lt;/h3&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://hiro-group.ronc.one/vscode_urdf_previewer.html&quot;&gt;https://hiro-group.ronc.one/vscode_urdf_previewer.html&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md&quot;&gt;https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/lzptr/VS_Code_ROS&quot;&gt;https://github.com/lzptr/VS_Code_ROS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html&quot;&gt;https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Exploration of VSCode Extensions for a ROS Developer In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally love to code in VSCode as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web Developer, especially in terms of the infrastructure available to make development easier. When I first started coding, my VSCode setup was very minimal and the only extensions I used were specific to writing C++/Python code. Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. While doing research for this blog, the first thing I did was simply type ROS in the search bar for Extensions in VSCode. The very first Visual Studio Code Extension for ROS was by Microsoft which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code Extensions Marketplace and can be installed with a single click. Some cool functionalities that you can enjoy after installing this extension are: URDF Previewer Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and Rviz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in Rviz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster. Multiple ROS Nodes Execution Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution. Select a ROS command;&amp;nbsp;&amp;nbsp;&amp;nbsp;Select a ROS package;&amp;nbsp;&amp;nbsp;&amp;nbsp;Select a exectuable or launch file Build Configurations Say goodbye to the days when you needed to type the colcon build command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the .vscode/tasks.json file, you can simply run the Build Task command to build the workspace. Debug Configurations Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code Extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration (launch.json) to the .vscode folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as launch.json can take an array of nodes. System Status The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services. IntelliSense The ROS VS Code Extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types. Another plugin that I found useful was CMake by twxs: Syntax Formatting You can use this CMake extension in VS Code to get syntax highlighting and code completion for your CMakeLists.txt files. Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing. ROS Bag interface Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only one plugin currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of rosbag info filename. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VSCode menu bar itself. Parameters in System Status The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph. Joint Visualisation in URDF Previewer While setting up the robot’s URDF, I generally try to test out the movement of each joint specifically the direction and axes of rotation. The current URDF previewer should also support Joint Visualisation for ease of debugging and verification of the robot model. Interactive ROS Graph Visualisation I would love to have an extension that visualizes the ROS graph, displaying nodes, topics like tf, and connections in an interactive graph view. ROS Documentation Integration Another cool to have extension could be a ROS Documentation Integrator. This extension can integrate ROS documentation directly into VS Code. It can allow you to quickly search and access ROS API documentation, tutorials, and examples without leaving the editor. Unit &amp;amp; Integration Tests This is the one I most desperately need. An extension that can enable running and managing unit tests/integration tests (both Google tests and rostest) directly from VS Code. It can provide an intuitive interface for executing tests, viewing test results, and generating test reports. I am really grateful to have installed the plugins available for ROS. If I have to put an estimate on the percentage of the time these plugins have saved, I would say it is about a 40% reduction in the overall development time especially for writing and executing ROS nodes. The ROS plugins aren’t perfectly developed yet as witnessed especially due to the unique challenges of visualization and data formats of ROS. As the robotics community is continuously growing, I have high hopes that the development environments would also improve over time. As of today, I highly recommend using the existing plugins to save time, especially for startups who struggle with maintaining one development process across the organization. If you liked the article, please buy me a ☕️ coffee Resources: https://hiro-group.ronc.one/vscode_urdf_previewer.html https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md https://github.com/lzptr/VS_Code_ROS https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html</summary></entry><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
