@@ -31,7 +31,7 @@ While doing research for this blog, the first thing I did was simply type ROS in
         margin-left: auto;
         margin-right: auto;
         width: 50vmax;"/>  
-The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">Visual Studio Code extension for ROS was by Microsoft</a> which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions Marketplace and can be installed with a single click. 
+The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">Visual Studio Code extension for ROS was by Microsoft</a> which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions marketplace and can be installed with a single click. 
 </p>
 
 <p style="text-align: left;margin: 20px 3rem;">Some cool functionalities that you can enjoy after installing this extension are:
@@ -56,7 +56,7 @@ The very first <a href="https://marketplace.visualstudio.com/items?itemName=ms-i
       <!-- <div align="center">Select a ROS command;&nbsp;&nbsp;&nbsp;Select a ROS package;&nbsp;&nbsp;&nbsp;Select a exectuable or launch file</div> -->
       </li>
       <li><i>Build Configurations</i><br>
-      Say goodbye to the days when you needed to type the <code style='color:orange'>colcon build</code> command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the <code style='color:orange'>.vscode/tasks.json</code> file, you can simply run the <code style='color:orange'>Build Task</code> command to build the workspace.
+      Say goodbye to the days when you needed to type the <code style='color:orange'>colcon build</code> command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the <code style='color:orange'>.vscode/tasks.json</code> file, you can simply run the <code style='color:orange'>colcon: build</code> command to build the workspace.
       <img src="/assets/article5/image42.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
