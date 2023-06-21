@@ -1,4 +1,158 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-14T11:53:18+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-21T11:26:48+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Exploration of VS Code Extensions for a ROS Developer</title><link href="http://localhost:4000/blog/VS-Code-ROS-Extensions/" rel="alternate" type="text/html" title="Exploration of VS Code Extensions for a ROS Developer" /><published>2023-06-15T00:00:00+05:30</published><updated>2023-06-15T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Extensions</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Extensions/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Exploration of VS Code extensions for a ROS Developer&lt;/h1&gt;
+
+&lt;!--excerpt.start--&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it &lt;a href=&quot;https://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt;, &lt;a href=&quot;https://developer.apple.com/xcode/&quot;&gt;Xcode&lt;/a&gt;, &lt;a href=&quot;https://www.eclipse.org/ide/&quot;&gt;Eclipse&lt;/a&gt;, &lt;a href=&quot;https://atom.en.softonic.com/&quot;&gt;Atom&lt;/a&gt;, &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;, or &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studios&lt;/a&gt;. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier.
+When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code.  
+Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. 
+&lt;/p&gt;
+&lt;!--excerpt.end--&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. &lt;br /&gt;
+While doing research for this blog, the first thing I did was simply type ROS in the search bar for extensions in VS Code.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+&lt;img src=&quot;/assets/article5/image1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vmax;&quot; /&gt;  
+The very first &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros&quot;&gt;Visual Studio Code extension for ROS was by Microsoft&lt;/a&gt; which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions marketplace and can be installed with a single click. 
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Some cool functionalities that you can enjoy after installing this extension are:
+&lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;&lt;i&gt;URDF Previewer&lt;/i&gt;&lt;br /&gt;
+    Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and RViz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in RViz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster.
+    &lt;img src=&quot;/assets/article5/image2.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vmax;&quot; /&gt;  
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Multiple ROS Nodes Execution&lt;/i&gt;&lt;br /&gt;
+    Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution.
+      &lt;img src=&quot;/assets/article5/image3.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;  
+      &lt;!-- &lt;div align=&quot;center&quot;&gt;Select a ROS command;&amp;nbsp;&amp;nbsp;&amp;nbsp;Select a ROS package;&amp;nbsp;&amp;nbsp;&amp;nbsp;Select a exectuable or launch file&lt;/div&gt; --&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Build Configurations&lt;/i&gt;&lt;br /&gt;
+      Say goodbye to the days when you needed to type the &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt; command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the &lt;code style=&quot;color:orange&quot;&gt;.vscode/tasks.json&lt;/code&gt; file, you can simply run the &lt;code style=&quot;color:orange&quot;&gt;colcon: build&lt;/code&gt; command to build the workspace.
+      &lt;img src=&quot;/assets/article5/image42.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Debug Configurations&lt;/i&gt;&lt;br /&gt;
+      Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration &lt;code style=&quot;color:orange&quot;&gt;(launch.json)&lt;/code&gt; to the &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt; can take an array of nodes.
+      &lt;img src=&quot;/assets/article5/image55.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;System Status&lt;/i&gt;&lt;br /&gt;
+      The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services.
+      &lt;img src=&quot;/assets/article5/image6.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;  
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;IntelliSense&lt;/i&gt;&lt;br /&gt;
+      The ROS VS Code extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types.
+      &lt;img src=&quot;/assets/article5/image7.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;  
+      &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Another plugin that I found useful was &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=twxs.cmake&quot;&gt;CMake by twxs&lt;/a&gt;: 
+&lt;img src=&quot;/assets/article5/image8.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vmax;&quot; /&gt; 
+&lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;&lt;i&gt;Syntax Formatting&lt;/i&gt;&lt;br /&gt;
+    You can use this CMake extension in VS Code to get syntax highlighting and code completion for your &lt;code style=&quot;color:orange&quot;&gt;CMakeLists.txt&lt;/code&gt; files.&lt;/li&gt;
+    &lt;img src=&quot;/assets/article5/image9.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vmax;&quot; /&gt;  
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing.&lt;/p&gt;
+
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;&lt;i&gt;ROS Bag interface&lt;/i&gt;&lt;br /&gt;
+    Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=lochbrunner.vscode-rosbag&quot;&gt;one plugin&lt;/a&gt; currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of &lt;code style=&quot;color:orange&quot;&gt;rosbag info filename&lt;/code&gt;. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VS Code menu bar itself.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Parameters in System Status&lt;/i&gt;&lt;br /&gt;
+    The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Joint Visualisation in URDF Previewer&lt;/i&gt;&lt;br /&gt;
+    While setting up the robot’s URDF, I generally try to test out the movement of each joint specifically the direction and axes of rotation. The current URDF previewer should also support Joint Visualisation for ease of debugging and verification of the robot model.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Interactive ROS Graph Visualisation&lt;/i&gt;&lt;br /&gt;
+    I would love to have an extension that visualizes the ROS graph, displaying nodes, topics like tf, and connections in an interactive graph view.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;ROS Documentation Integration&lt;/i&gt;&lt;br /&gt;
+    Another cool to have extension could be a ROS Documentation Integrator. This extension can integrate ROS documentation directly into VS Code. It can allow you to quickly search and access ROS API documentation, tutorials, and examples without leaving the editor.
+    &lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Unit &amp;amp; Integration Tests&lt;/i&gt;&lt;br /&gt;
+    This is the one I most desperately need. An extension that can enable running and managing unit tests/integration tests (both Google tests and rostest) directly from VS Code. It can provide an intuitive interface for executing tests, viewing test results, and generating test reports.
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;I am really grateful to have installed the plugins available for ROS. If I have to put an estimate on the percentage of the time these plugins have saved, I would say it is about a 40% reduction in the overall development time especially for writing and executing ROS nodes. The ROS plugins aren’t perfectly developed yet as witnessed especially due to the unique challenges of visualization and data formats of ROS. As the robotics community is continuously growing, I have high hopes that the development environments would also improve over time. As of today, I highly recommend using the existing plugins to save time, especially for startups who struggle with maintaining one development process across the organization.&lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;If you liked the article, please buy me a &lt;a style=&quot;
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                &quot; href=&quot;https://www.buymeacoffee.com/roboticsspace&quot;&gt;☕️ coffee&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot; margin: 20px 3rem;&quot;&gt;Resources:&lt;/h3&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://hiro-group.ronc.one/vscode_urdf_previewer.html&quot;&gt;https://hiro-group.ronc.one/vscode_urdf_previewer.html&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md&quot;&gt;https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/lzptr/VS_Code_ROS&quot;&gt;https://github.com/lzptr/VS_Code_ROS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html&quot;&gt;https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Exploration of VS Code extensions for a ROS Developer In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier. When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code. Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. While doing research for this blog, the first thing I did was simply type ROS in the search bar for extensions in VS Code. The very first Visual Studio Code extension for ROS was by Microsoft which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions marketplace and can be installed with a single click. Some cool functionalities that you can enjoy after installing this extension are: URDF Previewer Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and RViz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in RViz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster. Multiple ROS Nodes Execution Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution. Build Configurations Say goodbye to the days when you needed to type the colcon build command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the .vscode/tasks.json file, you can simply run the colcon: build command to build the workspace. Debug Configurations Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration (launch.json) to the .vscode folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as launch.json can take an array of nodes. System Status The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services. IntelliSense The ROS VS Code extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types. Another plugin that I found useful was CMake by twxs: Syntax Formatting You can use this CMake extension in VS Code to get syntax highlighting and code completion for your CMakeLists.txt files. Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing. ROS Bag interface Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only one plugin currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of rosbag info filename. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VS Code menu bar itself. Parameters in System Status The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph. Joint Visualisation in URDF Previewer While setting up the robot’s URDF, I generally try to test out the movement of each joint specifically the direction and axes of rotation. The current URDF previewer should also support Joint Visualisation for ease of debugging and verification of the robot model. Interactive ROS Graph Visualisation I would love to have an extension that visualizes the ROS graph, displaying nodes, topics like tf, and connections in an interactive graph view. ROS Documentation Integration Another cool to have extension could be a ROS Documentation Integrator. This extension can integrate ROS documentation directly into VS Code. It can allow you to quickly search and access ROS API documentation, tutorials, and examples without leaving the editor. Unit &amp;amp; Integration Tests This is the one I most desperately need. An extension that can enable running and managing unit tests/integration tests (both Google tests and rostest) directly from VS Code. It can provide an intuitive interface for executing tests, viewing test results, and generating test reports. I am really grateful to have installed the plugins available for ROS. If I have to put an estimate on the percentage of the time these plugins have saved, I would say it is about a 40% reduction in the overall development time especially for writing and executing ROS nodes. The ROS plugins aren’t perfectly developed yet as witnessed especially due to the unique challenges of visualization and data formats of ROS. As the robotics community is continuously growing, I have high hopes that the development environments would also improve over time. As of today, I highly recommend using the existing plugins to save time, especially for startups who struggle with maintaining one development process across the organization. If you liked the article, please buy me a ☕️ coffee Resources: https://hiro-group.ronc.one/vscode_urdf_previewer.html https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md https://github.com/lzptr/VS_Code_ROS https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html</summary></entry><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
@@ -22,7 +176,7 @@ But C++ comes with its own set of problems:
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;  
+          width: 45vmax;&quot; /&gt;  
           The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms.
       &lt;/li&gt;
       &lt;li&gt;&lt;i&gt;Slow Compile Time&lt;/i&gt;&lt;br /&gt;
@@ -46,7 +200,7 @@ Rust is based on two principles:&lt;br /&gt;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;  &lt;br /&gt;
+          width: 45vmax;&quot; /&gt;  &lt;br /&gt;
 But why is there a Rust buzz? It will be quite evident soon how all the problems with C++ are magically taken care of by Rust.
   &lt;/p&gt;
 &lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
@@ -81,7 +235,7 @@ But why is there a Rust buzz? It will be quite evident soon how all the problems
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 55%;&quot; /&gt;  
+          width: 45vmax;&quot; /&gt;  
   &lt;/p&gt;
 
 &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Ready to witness Rust&apos;s magic?&lt;/h3&gt;
@@ -90,7 +244,7 @@ But why is there a Rust buzz? It will be quite evident soon how all the problems
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;  
+          width: 45vmax;&quot; /&gt;  
 I declare a mutable raw pointer &lt;code style=&quot;color:orange&quot;&gt;p&lt;/code&gt; as a null pointer in line 2 and I assign &lt;code style=&quot;color:orange&quot;&gt;p&lt;/code&gt; to a new pointer &lt;code style=&quot;color:orange&quot;&gt;q&lt;/code&gt;. 
 Then I free the memory allocated to &lt;code style=&quot;color:orange&quot;&gt;p&lt;/code&gt; using the C free function. &lt;br /&gt;
 This leaves q as a dangling pointer since it still points to the memory location that was just freed.&lt;br /&gt;
@@ -100,7 +254,7 @@ Now, I know nobody would deliberately write such code but dangling pointers can 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
   
   When I try to compile the code in Rust, the compiler throws an error and will not build the code at all. This will never happen in C++ and mostly, I would have to attach the debugger and spend hours finding the crash. &lt;br /&gt;
 That is how amazing is the safety provided by Rust. 
@@ -115,7 +269,7 @@ Below are the Rust-based ROS packages available to begin development of Robotics
           padding: 1px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;  
+          width: 45vmax;&quot; /&gt;  
 Links are available in the Resources section.&lt;/p&gt;
 
 &lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;The wait is over and now I will show you an example of Rust in Robotics.&lt;br /&gt;
@@ -125,7 +279,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
   
   Furthermore, I have added a 2 seconds wait in callback1. This causes the callback2 to be blocked by callback1 and the rate at which callback should be executed is not maintained as evidenced by the execution of the code. From the timestamp, it is seen that the code execution was; callback1 (16824198&lt;b&gt;71&lt;/b&gt;.593) -&amp;gt; wait for 2 seconds -&amp;gt; print the incoming string ‘hey’ (16824198&lt;b&gt;73&lt;/b&gt;.593) when callback2’s ‘oy’ message was blocked.
 
@@ -133,7 +287,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
 
   Now imagine a robot’s camera image callback is blocked by another callback and the robot is operating on an older camera image for object detection. The robot will not have the latest information about the obstacles. Robots operating on delayed and old information can lead to horrible safety-related incidents and collisions.&lt;br /&gt;
   ROS 2 does provide a solution that is &lt;b&gt;&lt;a href=&quot;https://docs.ros.org/en/humble/Concepts/About-Executors.html&quot;&gt;MultiThreadedExecuter&lt;/a&gt;&lt;/b&gt; with callback groups. But it comes with the overhead of deadlocks, manual memory management, race condition, deciding the number of threads, and scheduling execution. All of them being standard problems with C++.
@@ -143,14 +297,14 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
   From the below result, it is evident from the timestamp that callback1 is published after every 2 seconds while callback2 keeps receiving messages.
 
   &lt;img src=&quot;/assets/article4/image10.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
   This example is for a very basic use case of publishing strings. Generally, I would want to extract data from the callbacks and use it elsewhere in the codebase. &lt;br /&gt;
 
   Now, this is where things start getting complicated as there will be a case where one thread would be updating the data while another wants to access it simultaneously. 
@@ -159,7 +313,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
   In Rust, I can create an &lt;code style=&quot;color:orange&quot;&gt;Arc&lt;/code&gt; that allows multiple ownership while ensuring thread safety. Overall, in the first line of the example above, a thread-safe shared string is created that can be accessed and modified by multiple threads simultaneously without causing data races. In the second line, I create a clone of data1 since we need to pass it to another thread inside the callback. In this way, I can easily access the data while printing as well as inside the thread without manually managing and figuring out when to lock and unlock the mutex. 
   &lt;br /&gt;&lt;br /&gt;
   Here are some companies already using Rust.
@@ -167,7 +321,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;&lt;br /&gt;
+          width: 45vmax;&quot; /&gt;&lt;br /&gt;
   As for Robotics, Rust is ready to be used for UI/Frontend, Webhooks, and systems programming.&lt;br /&gt;
   While RUST is safe, efficient, and user-friendly, it is heavily under development, especially for ROS
   Also, C++ has been around for decades whereas Rust has been around only for about 10 years.
@@ -328,7 +482,7 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;  
+          width: 45vmax;&quot; /&gt;  
       NOTE : Windows 10/11 systems are based on the &lt;code style=&quot;color:orange&quot;&gt;AMD64/Intel-64&lt;/code&gt; architecture. Make sure you use the &lt;code style=&quot;color:orange&quot;&gt;AMD&lt;/code&gt; image for a Windows 10/11 system and not an &lt;code style=&quot;color:orange&quot;&gt;ARMv8&lt;/code&gt;  image. This step might take time depending on your internet speed. &lt;/li&gt;
     &lt;/ol&gt;
     &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Download and Install VirtualBox&lt;/h3&gt;
@@ -339,7 +493,7 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;  
+          width: 45vmax;&quot; /&gt;  
       &lt;/li&gt;
       &lt;li&gt;Locate and double-click the VirtualBox installer file from the &lt;code style=&quot;color:orange&quot;&gt;Downloads&lt;/code&gt; folder in your File Explorer and it will launch the VirtualBox 7.0.8 Setup wizard.&lt;/li&gt;
       &lt;li&gt;Click &lt;b&gt;Next&lt;/b&gt; on the welcome screen in the Setup Wizard to begin the process.
@@ -347,42 +501,42 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;  
+          width: 35vmax;&quot; /&gt;  
       &lt;/li&gt;
       &lt;li&gt;
         On the &lt;b&gt;Custom Setup&lt;/b&gt; screen, you can leave the default selections for now so that the installer can set up Wizard to install the features. You can change the installation location by clicking on &lt;b&gt;Browse&lt;/b&gt; or else leave the default location. Click &lt;b&gt;Next&lt;/b&gt; when ready to continue.
         &lt;img src=&quot;/assets/article2/virtualbox3.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         The next screen will show a Warning about the network interfaces. The Setup Wizard will install a virtual network adapter that may reset and temporarily disconnect the network connection. Click on &lt;b&gt;Yes&lt;/b&gt; to process the installation.
         &lt;img src=&quot;/assets/article2/virtualbox4.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         The next screen will ask you to confirm the installation. Click on &lt;b&gt;Install&lt;/b&gt; to begin the installation of VirtualBox 7.0.8. The installation process will begin and it might take several minutes.
         &lt;img src=&quot;/assets/article2/virtualbox5.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         Once the installation is done, click on the &lt;b&gt;Finish&lt;/b&gt; button to exit the Setup Wizard.
         &lt;img src=&quot;/assets/article2/virtualbox7.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         Launch the VirtualBox Manager from the &lt;b&gt;&lt;code style=&quot;color:orange&quot;&gt;Start&lt;/code&gt;&lt;/b&gt; Menu. 
         &lt;img src=&quot;/assets/article2/virtualbox8.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
     &lt;/ol&gt;
     &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Creating Virtual Machine&lt;/h3&gt;
@@ -393,14 +547,14 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
         &lt;img src=&quot;/assets/article2/createvm1.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         On the &lt;b&gt;Virtual Machine Name and Operating System&lt;/b&gt; section, fill in the name, Folder (location to store the Virtual machine files), and select the &lt;b&gt;&lt;code style=&quot;color:orange&quot;&gt;Ubuntu 22.04 ISO Image&lt;/code&gt;&lt;/b&gt; (downloaded in the previous section) in the ISO Image option. &lt;br /&gt;Click on the &lt;b&gt;Next&lt;/b&gt; button to process.
         &lt;img src=&quot;/assets/article2/createvm2.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;On the &lt;b&gt;Unattended Guest OS Install Setup&lt;/b&gt; section, you need to enter your &lt;code style=&quot;color:orange&quot;&gt;username&lt;/code&gt; and &lt;code style=&quot;color:orange&quot;&gt;password&lt;/code&gt; in addition to your machine name so that it can be configured automatically during the first boot.&lt;/li&gt;
       &lt;li&gt;
@@ -408,61 +562,61 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
         &lt;img src=&quot;/assets/article2/createvm3.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         In the next &lt;b&gt;Hardware&lt;/b&gt; section, specify how much of your host machine’s RAM and processors the virtual machine can use. Change the slider position to allocate the correct values. &lt;br /&gt; &lt;b&gt;NOTE:&lt;/b&gt; For using ROS 2 application, it is recommended to use a minimum of &lt;code style=&quot;color:orange&quot;&gt;8 GB RAM&lt;/code&gt; and at least &lt;code style=&quot;color:orange&quot;&gt;6 CPUs&lt;/code&gt;. 
         &lt;img src=&quot;/assets/article2/createvm4.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         Next in the &lt;b&gt;Virtual Hard Disk section&lt;/b&gt;, specify the size of the hard disk for the virtual machine. For ROS 2, it is recommended around &lt;code style=&quot;color:orange&quot;&gt;50 GB&lt;/code&gt; as a minimum.
         &lt;img src=&quot;/assets/article2/createvm5.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         Click &lt;b&gt;Next&lt;/b&gt; to continue and view a summary of your virtual machine setting. After this click &lt;b&gt;Finish&lt;/b&gt; to initialize the machine.
         &lt;img src=&quot;/assets/article2/createvm6.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;        
+          width: 35vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         You will see a message saying &lt;code style=&quot;color:orange&quot;&gt;Powering VM up …&lt;/code&gt; in the VirtualBox manager and a new desktop Window will appear for your Ubuntu 22.04 Virtual machine’s first boot.
         &lt;img src=&quot;/assets/article2/createvm7.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 40%;&quot; /&gt;       
+          width: 35vmax;&quot; /&gt;       
           &lt;br /&gt;
         &lt;img src=&quot;/assets/article2/createvm8.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35%;&quot; /&gt;  
+          width: 30vmax;&quot; /&gt;  
       &lt;/li&gt;
       &lt;li&gt;
         On the first boot, it will begin the unattended installation.
         &lt;img src=&quot;/assets/article2/vm1.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35%;&quot; /&gt;        
+          width: 30vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         Once the installation completes, the machine will automatically reboot to complete the installation.
         &lt;img src=&quot;/assets/article2/vm2.JPG&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35%;&quot; /&gt;        
+          width: 30vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;
         Finally, you will be greeted with the Ubuntu &lt;b&gt;log-in screen&lt;/b&gt; where you can enter your &lt;code style=&quot;color:orange&quot;&gt;username&lt;/code&gt; and &lt;code style=&quot;color:orange&quot;&gt;password&lt;/code&gt; defined during the previous setup.
         &lt;img src=&quot;/assets/article2/vm3.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35%;&quot; /&gt;        
+          width: 30vmax;&quot; /&gt;        
       &lt;/li&gt;
     &lt;/ol&gt;
     &lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Install ROS 2 Humble Hawksbill&lt;/h3&gt;
@@ -531,126 +685,126 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
         &lt;img src=&quot;/assets/simg1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;        
+          width: 45vmax;&quot; /&gt;        
       &lt;/li&gt;
       &lt;li&gt;Go to &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/&quot;&gt; https://cdimage.ubuntu.com/jammy/daily-live/current/&lt;/a&gt; and Download &lt;a href=&quot;https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso&quot;&gt;64-bit ARM (ARMv8/AArch64) desktop image&lt;/a&gt;. A &quot;.iso&quot; desktop image will start downloading. Make sure you use the &lt;code style=&quot;color:orange&quot;&gt;ARM&lt;/code&gt; image for a Macbook with M1/M2 chip and not an &lt;code style=&quot;color:orange&quot;&gt;AMD&lt;/code&gt; image.
       This step might take time depending on your internet speed.
           &lt;img src=&quot;/assets/simg2.png&quot; alt=&quot;article image 2&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Double-click on the &lt;code style=&quot;color:orange&quot;&gt;UTM.dmg&lt;/code&gt; file and drag the icon to the Applications folder. 
           &lt;img src=&quot;/assets/simg3.png&quot; alt=&quot;article image 3&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Search for UTM and Open the UTM app from Launchpad.
           &lt;img src=&quot;/assets/simg4.png&quot; alt=&quot;article image 4&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Once the app is launched, click &lt;code style=&quot;color:orange&quot;&gt;Create a new Virtual Machine&lt;/code&gt;. 
           &lt;img src=&quot;/assets/simg5.png&quot; alt=&quot;article image 5&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Use the &lt;code style=&quot;color:orange&quot;&gt;Virtualize&lt;/code&gt; option to simulate the bare metal performance.
           &lt;img src=&quot;/assets/simg6.png&quot; alt=&quot;article image 6&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Linux&lt;/code&gt; and on the next screen, you will see Boot options. Click &lt;code style=&quot;color:orange&quot;&gt;Browse&lt;/code&gt; and select the &lt;code style=&quot;color:orange&quot;&gt;.iso&lt;/code&gt; image for Ubuntu 22.04 that you download in the above step.
           &lt;img src=&quot;/assets/simg7.png&quot; alt=&quot;article image 7&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
           &lt;br /&gt;
           &lt;img src=&quot;/assets/point_11.png&quot; alt=&quot;article image 8&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;              
+          width: 45vmax;&quot; /&gt;              
       &lt;/li&gt;
      &lt;li&gt;Keep pressing the &lt;code style=&quot;color:orange&quot;&gt;Continue&lt;/code&gt; button with default settings till you reach the summary screen.&lt;/li&gt; 
      &lt;li&gt;Tap on the big Play button to boot Ubuntu 22.04
           &lt;img src=&quot;/assets/simg9.png&quot; alt=&quot;article image 9&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Try to Install Ubuntu&lt;/code&gt;. This takes a minute and you will see a blank screen. 
           &lt;img src=&quot;/assets/simg11.png&quot; alt=&quot;article image 11&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Once you see the Ubuntu 22.04 screen, type in &lt;code style=&quot;color:orange&quot;&gt;ubuntu&lt;/code&gt; to login. 
           &lt;img src=&quot;/assets/simg12.png&quot; alt=&quot;article image 12&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;The system will boot with the live image. On the right side, you will see &lt;code style=&quot;color:orange&quot;&gt;Install Ubuntu&lt;/code&gt;. Continue with the standard installation process.  
           &lt;img src=&quot;/assets/simg13.png&quot; alt=&quot;article image 13&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;            
      &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Install Third Party Software&lt;/code&gt; in the following screen. 
           &lt;img src=&quot;/assets/simg14.png&quot; alt=&quot;article image 14&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Select &lt;code style=&quot;color:orange&quot;&gt;Erase Ubuntu and reinstall&lt;/code&gt; or if you are doing it for the first time, the third option &lt;code style=&quot;color:orange&quot;&gt;Erase disk and install Ubuntu&lt;/code&gt; will be your first one. Choose that. 
           &lt;img src=&quot;/assets/simg15.png&quot; alt=&quot;article image 15&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Save the username and password. You will need this later for login. 
           &lt;img src=&quot;/assets/simg16.png&quot; alt=&quot;article image 16&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Continue with installation. This will take time. 
           &lt;img src=&quot;/assets/simg17.png&quot; alt=&quot;article image 17&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Once Installation is done, You will see an option to restart the screen. Close the dialog box and Power Off the system. 
           &lt;img src=&quot;/assets/simg18.png&quot; alt=&quot;article image 18&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
           &lt;br /&gt;
           &lt;img src=&quot;/assets/simg19.png&quot; alt=&quot;article image 19&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;              
+          width: 45vmax;&quot; /&gt;              
       &lt;/li&gt;
      &lt;li&gt;Now using the virtual machine Navigation bar, choose Drive Image Options and eject the image file.
           &lt;img src=&quot;/assets/simg20.png&quot; alt=&quot;article image 20&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
           &lt;br /&gt;
           &lt;img src=&quot;/assets/simg21.png&quot; alt=&quot;article image 21&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;              
+          width: 45vmax;&quot; /&gt;              
       &lt;/li&gt;
      &lt;li&gt;You can restart the VM now by tapping on the Play Button. Now you will wait for 10 seconds to see the login screen of Ubuntu. 
           &lt;img src=&quot;/assets/simg22.png&quot; alt=&quot;article image 22&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;Congratulations! You have Ubuntu 22.04 running on your Macbook. You can log in now using your password.
       &lt;/li&gt;                                             
@@ -669,7 +823,7 @@ The robotics community is currently transitioning from ROS 1 to ROS 2.&lt;/p&gt;
           &lt;img src=&quot;/assets/simg23.png&quot; alt=&quot;article image 23&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;   
+          width: 45vmax;&quot; /&gt;   
       &lt;/li&gt;
      &lt;li&gt;To be able to copy and paste between your Ubuntu and Mac, run the following command in your terminal
            &lt;code style=&quot;display: block;
@@ -894,7 +1048,7 @@ $ cd ~/ros2_ws&lt;/code&gt;
           &lt;img src=&quot;/assets/simg24.png&quot; alt=&quot;article image 24&quot; style=&quot;display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 50%;&quot; /&gt;
+          width: 45vmax;&quot; /&gt;
         &lt;br /&gt;
         Voila!! You have ROS 2 Humble Running on Ubuntu 22.04 inside a Virtual Machine on Macbook.
       &lt;/li&gt;                                             
