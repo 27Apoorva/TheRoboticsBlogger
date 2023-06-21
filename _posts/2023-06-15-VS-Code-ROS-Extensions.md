@@ -18,7 +18,7 @@ excerpt_separator: <!--more-->
 <p style="margin: 20px 3rem;">  
 In the developers' community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it <a href="https://www.jetbrains.com/idea/">IntelliJ</a>, <a href="https://developer.apple.com/xcode/">Xcode</a>, <a href="https://www.eclipse.org/ide/">Eclipse</a>, <a href="https://atom.en.softonic.com/">Atom</a>, <a href="https://www.sublimetext.com/">Sublime Text</a>, or <a href="https://code.visualstudio.com/">Visual Studios</a>. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier.
 When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code.  
-Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. 
+Until now, I had been utilizing the command-line interface (CLI) to execute various functionalities within ROS.
 </p>
 <!--excerpt.end-->
 
