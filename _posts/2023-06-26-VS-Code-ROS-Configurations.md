@@ -528,15 +528,18 @@ Embracing these configurations will undoubtedly empower ROS developers to unleas
   <h3 style=" margin: 20px 3rem;">Resources:</h3>
   <ul style=" margin: 20px 3rem;">
     <li>
-      <a href="https://hiro-group.ronc.one/vscode_urdf_previewer.html">https://hiro-group.ronc.one/vscode_urdf_previewer.html</a>
+      <a href="https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md">Debug ROS Nodes</a>
     </li>
     <li>
-      <a href="https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md">https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md</a>
+      <a href="https://medium.com/@vasank1958/debugging-ros-node-with-vs-code-a735106c4f9a">Debugging ROS Node with VS-Code.</a>
     </li>
     <li>
-      <a href="https://github.com/lzptr/VS_Code_ROS">https://github.com/lzptr/VS_Code_ROS</a>
+      <a href="https://medium.com/@tahsincankose/a-decent-integration-of-vscode-to-ros-4c1d951c982a">A Decent Integration of VSCode to ROS</a>
     </li>
     <li>
-      <a href="https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html">https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html</a>
+      <a href="https://code.visualstudio.com/docs/editor/debugging">Debugging in VS Code</a>
+    </li>
+    <li>
+      <a href="https://code.visualstudio.com/docs/editor/tasks">Tasks in Visual Studio Code</a>
     </li>
   </ul>
