@@ -132,10 +132,10 @@ In ROS 2, you can create packages using two different build types, i.e., <code s
     "type": "shell",     
     "command": "source /opt/ros/&lt;your_active_ros2_distro&gt;/setup.bash && cd ${workspaceFolder}/src/ && ros2 pkg create &lt;your_new_package_name&gt; --build-type ament_cmake --dependencies rclcpp && cd .. && colcon build --symlink-install && source ${workspaceFolder}/install/setup.bash"
 }
-</code></pre>
+</code></pre><div style="text-align: center; margin:0;">For a C++ package, the build type is specified as ament_cmake</div>
   </li>
 </ul>
-<div style="text-align: center; margin: auto 3rem;">For a C++ package, the build type is specified as ament_cmake</div></p>
+</p>
 
 <p style="text-align: center; margin: auto 3rem;">
 <ul style="margin: 20px 3rem;list-style-type: none;">
@@ -145,10 +145,10 @@ In ROS 2, you can create packages using two different build types, i.e., <code s
     "type": "shell",
     "command": "source /opt/ros/&lt;your_active_ros2_distro&gt;/setup.bash && cd ${workspaceFolder}/src/ && ros2 pkg create &lt;your_new_package_name&gt; --build-type ament_python --dependencies rclpy && cd .. && colcon build --symlink-install && source ${workspaceFolder}/install/setup.bash"
 }
-</code></pre>
+</code></pre><div style="text-align: center; margin:0;">For a Python package, the build type is specified as ament_python</div>
   </li>
 </ul>
-<div style="text-align: center; margin: auto 3rem;">For a Python package, the build type is specified as ament_python</div></p>
+</p>
 
 <p style="text-align: left;margin: 20px 3rem;">
 Change the <code style='color:red'>&lt;your_active_ros2_distro&gt;</code> to your active ROS 2 distro while creating your tasks. <br>
