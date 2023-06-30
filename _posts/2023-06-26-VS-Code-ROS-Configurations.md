@@ -16,7 +16,7 @@ excerpt_separator: <!--more-->
 
 <!--excerpt.start-->
 <p style="margin: 20px 3rem;">  
-In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">previous blog</a>, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of rosbag interface and debug configurations for unit tests. Well, I dig deeper and figured out the process of creating custom configurations to perform various tasks, including playing rosbags. 
+In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">previous blog</a>, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of rosbag interface. Well, I dig deeper and figured out the process of creating custom configurations to perform various tasks, including playing rosbags. 
 </p>
 <!--excerpt.end-->
 
@@ -89,23 +89,23 @@ Now that you have understood the file system, the following Table of Content pro
 For ease of understanding, I am going to demonstrate each configuration using an example of a workspace. I am also providing a <a href="https://github.com/27Apoorva/ros_vscode_config">GitHub repository</a> containing the example for you to clone and try out various custom functionalities. 
 </p>
 
-  <h2 style="text-align: left;margin: 20px 3rem;">TABLE OF CONTENT</h2>
+  <h2 style="text-align: left;margin: 20px 3rem;" id="tableofcontents">TABLE OF CONTENT</h2>
   <ul style=" margin: 20px 3rem;">
-    <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#envsetupconfig">ENVIRONMENT SETUP CONFIGURATIONS</a><br>
+    <li><a href="#envsetupconfig">ENVIRONMENT SETUP CONFIGURATIONS</a><br>
       <ul style="list-style-type: square;">
-        <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#createros2packages">CREATE, BUILD, AND SOURCE ROS 2 PACKAGES</a>
+        <li><a href="#createros2packages">CREATE, BUILD, AND SOURCE ROS 2 PACKAGES</a>
         </li>
       </ul>
     </li>
-    <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#ros2bagplay">ROS 2 BAGS PLAYBACK</a></li>
-    <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#buildconfig">BUILD CONFIGURATIONS</a></li>
-    <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#debugtestconfig">DEBUG TEST CONFIGURATIONS</a><br>
+    <li><a href="#ros2bagplay">ROS 2 BAGS PLAYBACK</a></li>
+    <li><a href="#buildconfig">BUILD CONFIGURATIONS</a></li>
+    <li><a href="#debugtestconfig">DEBUG CONFIGURATIONS</a><br>
       <ul style="list-style-type: square;">
-        <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#debugsinglenode">Debugging Single ROS Node using Launch file ( Supports C++ and Python nodes)</a></li>
-        <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#debugmultiplenodes">Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)</a></li>
+        <li><a href="#debugsinglenode">Debugging Single ROS Node using Launch file ( Supports C++ and Python nodes)</a></li>
+        <li><a href="#debugmultiplenodes">Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)</a></li>
       </ul>
     </li>
-    <li><a href="http://127.0.0.1:4000/blog/VS-Code-ROS-Configurations/#unittestconfig">UNIT TESTS CONFIGURATIONS</a></li>
+    <li><a href="#unittestconfig">UNIT TESTS CONFIGURATIONS</a></li>
   </ul>
 
 <h2 style="text-align: left;margin: 20px 3rem;">ROS 2 Workspace in VS Code</h2>
@@ -324,10 +324,10 @@ To run the different colcon build tasks, use <code style='color:orange'>(CTRL + 
 </p>
 
 
-<h2 style="text-align: left;margin: 20px 3rem;" id="debugtestconfig">DEBUG TEST CONFIGURATIONS </h2>
+<h2 style="text-align: left;margin: 20px 3rem;" id="debugtestconfig">DEBUG CONFIGURATIONS</h2>
 <p style="text-align: left;margin: 20px 3rem;">
-Debugging the code you have written is one of the toughest places to be, especially when there is a segmentation fault. While the initial stage of debugging will begin with using <code style='color:orange'>ROS Loggers</code> and <code style='color:orange'>RViz</code>, using a debugger like <code style='color:orange'>GDB</code> is essential during code crashes or while dealing with an unknown.<br>
-By using the GDB debugger, you can control the flow of execution line by line and have a peek at variables of interest.  
+Debugging the code you have written is one of the toughest places to be, especially when there is a segmentation fault. While the initial stage of debugging will begin with using <code style='color:orange'>ROS Loggers</code> and <code style='color:orange'>RViz</code>, using debuggers like <code style='color:orange'>GDB</code> for C++ and <code style='color:orange'>PDB</code> for Python is essential during code crashes or while dealing with an unknown error.<br>
+By using a debugger, you can control the flow of execution line by line and have a peek at variables of interest.  
   <ul style=" margin: 20px 3rem;">
     <li id="debugsinglenode"><b>Debugging single ROS node using Launch file (Supports C++ and Python nodes)</b>
       <ul>
@@ -431,11 +431,11 @@ By using the GDB debugger, you can control the flow of execution line by line an
 
 
 
-<h3 style="text-align: left;margin: 20px 3rem;" id="unittestconfig">UNIT TEST CONFIGURATIONS </h3>
+<h3 style="text-align: left;margin: 20px 3rem;" id="unittestconfig">UNIT TEST CONFIGURATIONS</h3>
 <p style="text-align: left;margin: 20px 3rem;">
 I can’t stress enough on the <a href="https://docs.ros.org/en/iron/Tutorials/Intermediate/Testing/Testing-Main.html">importance of unit testing</a> for a stable software release process and code maintenance. <br>
 ROS 2 provides <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Cpp.html">gtest</a> for testing C++ nodes and <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Python.html">pytest</a> for testing Python nodes. colcon provides macros for test-aware compilation and verbs dedicated to testing the project in its entirety. You can execute <code style='color:orange'>colcon test</code> to run your unit tests. The test files are generally stored inside a <code style='color:orange'>tests</code> folder.<br>
-To execute the unit tests for a particular package using <code style='color:orange'>colcon test</code> command, give the <code style='color:orange'>tests</code> folder name and the name of the package at <code style='color:red'>&lt;specify_package_name_here&gt;</code> after <code style='color:orange'>--packages-select</code> argument. <br>
+To execute the unit tests for a particular package using <code style='color:orange'>colcon test</code> command, give the <code style='color:orange'>test</code> folder name and the name of the package at <code style='color:red'>&lt;specify_package_name_here&gt;</code> after <code style='color:orange'>--packages-select</code> argument. <br>
 <ul style="margin: 20px 3rem;list-style-type: none;">
   <li>
     <pre><code class="language-html line-numbers"  style=" margin-right: 20px 3rem;">{
@@ -443,7 +443,7 @@ To execute the unit tests for a particular package using <code style='color:oran
   "args": [
     "test",
     "--ctest-args",
-    “tests”,
+    “test”,
     "--packages-select",
     “&lt;specify_package_name_here&gt;”,
   ],
@@ -485,14 +485,16 @@ Testing with pytest framework, you can specify the name of the test function at 
 
 <p style="text-align: left;margin: 20px 3rem;">
 To run the different colcon test tasks, use <code style='color:orange'>(CTRL + Shift + P)</code>, select <code style='color:orange'>Tasks: Run Task</code> and then select the <code style='color:orange'>test task</code> from the available options.
-<img src="/assets/article6/image14.png" alt="article image 1" style="display: block;
+<img src="/assets/article6/image144.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
           width: 45vmax;"/>
 </p>
 
-
+<p style="text-align: left;margin: 20px 3rem;">
+Using a debugger with ROS 2 launch_test using the ROS Extension for VS Code is an active problem and has an <a href="https://github.com/ms-iot/vscode-ros/issues/891">open issue</a> at the official GitHub repository.
+</p>
 
 
 <h3 style="text-align: left;margin: 20px 3rem;">Conclusion</h3>
@@ -502,6 +504,7 @@ As mentioned previously, you can find the entire configurations from my <a href=
 If you want to create a custom configuration, feel free to open a pull request in the <a href="https://github.com/27Apoorva/ros_vscode_config">GitHub repository</a>. You can also create a Feature Request if you want me to implement your ideas. <br>
 Embracing these configurations will undoubtedly empower ROS developers to unleash their full potential and embark on successful robotics projects using the VS Code ecosystem.
 </p>
+
   <p style=" margin: 20px 3rem;">If you liked the article, please buy me a <a style="
                     text-decoration:none;
                     display: inline-block;
