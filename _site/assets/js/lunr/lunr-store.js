@@ -42,7 +42,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions",
-        "excerpt":"Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions In the previous blog, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of ROS bags interface and debug configurations for...","categories": ["Blog"],
+        "excerpt":"Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions In the previous blog, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of rosbag interface and debug configurations for unit...","categories": ["Blog"],
         "tags": ["Post Formats","readability","standard"],
         "url": "/blog/VS-Code-ROS-Configurations/",
         "teaser": null

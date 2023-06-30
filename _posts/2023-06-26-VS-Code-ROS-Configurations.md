@@ -16,11 +16,11 @@ excerpt_separator: <!--more-->
 
 <!--excerpt.start-->
 <p style="margin: 20px 3rem;">  
-In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">previous blog</a>, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of ROS bags interface and debug configurations for unit tests. Well, I dig deeper and figured out the process of creating custom configurations to perform various tasks, including playing rosbags. 
+In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">previous blog</a>, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of rosbag interface and debug configurations for unit tests. Well, I dig deeper and figured out the process of creating custom configurations to perform various tasks, including playing rosbags. 
 </p>
 <!--excerpt.end-->
 
-<p style="margin: 20px 3rem;">  Foremost, you need to ensure that you have installed the <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">ROS Extension for VS Code</a>.  After you have installed the ROS extension, and restarted your VS Code, you will see a <code style='color:orange'>`.vscode`</code> folder in your ROS workspace. This folder primarily consists of the following files:
+<p style="margin: 20px 3rem;">  Foremost, you need to ensure that you have installed the <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">ROS Extension for VS Code</a>.  After you have installed the ROS extension, and restarted your VS Code, you will see a <code style='color:orange'>.vscode</code> folder in your ROS workspace. This folder primarily consists of the following files:
 <img src="/assets/article6/image1.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -36,18 +36,18 @@ In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">p
       </li>
       <li><i>launch.json </i><br>
         <ul>
-          <li>This file is not created by default so, you should create a new file inside <code style='color:orange'>.vscode</code> folder and name it <code style='color:orange'>`launch.json`</code>. The file should have the following content in it: 
+          <li>This file is not created by default so, you should create a new file inside <code style='color:orange'>.vscode</code> folder and name it <code style='color:orange'>launch.json</code>. The file should have the following content in it: 
           <pre><code class="language-html line-numbers">{
   "version": "0.2.0",
   "configurations": [
     
   ]
 }</code></pre>
-          You can add your custom launch configurations inside the <code style='color:orange'>`configurations`</code> key, separated by commas.
+          You can add your custom launch configurations inside the <code style='color:orange'>configurations</code> key, separated by commas.
           </li>
           <li>This file contains debugger settings and helps to specify command-line arguments for debugging. </li>
           <li>We will mostly use this file for executing launch files with the debugger. </li>
-          <li>You can use the <code style='color:orange'>`start debugging`</code> play button in the <code style='color:orange'>Run and Debug</code> section to run the debugging tasks. 
+          <li>You can use the <code style='color:orange'>start debugging</code> play button in the <code style='color:orange'>Run and Debug</code> section to run the debugging tasks. 
           <img src="/assets/article6/image15.gif" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -57,9 +57,7 @@ In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">p
       </li>
       <li><i>tasks.json</i><br>
         <ul>
-          <li>It helps to specify custom build commands and also arbitrary (non-build related) tasks. It can contain multiple tasks separated by (<code style='color:orange'>{ }</code>) curly brackets. Each task has various <code style='color:orange'>key-value pairs</code> inside it that include details about running the task and also the arguments. 
-          </li>
-          <li>This file is not created by default so, you should create a new file inside the <code style='color:orange'>.vscode</code> folder and name it <code style='color:orange'>`tasks.json`</code>. The file should have the following content in it:
+          <li>This file is not created by default so, you should create a new file inside the <code style='color:orange'>.vscode</code> folder and name it <code style='color:orange'>tasks.json</code>. The file should have the following content in it:
           <pre><code class="language-html line-numbers" >{
   "version": "2.0.0",
   "tasks": [
@@ -67,9 +65,11 @@ In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">p
   ]
 }
 </code></pre>
-          You can add your custom task configurations inside the <code style='color:orange'>`tasks`</code> key, separated by commas.
+          You can add your custom task configurations inside the <code style='color:orange'>tasks</code> key, separated by commas.
           </li>
-          <li>To run tasks specified inside the <code style='color:orange'>`tasks.json`</code> file in VS Code, use <code style='color:orange'>(CTRL + Shift + P)</code> , select <code style='color:orange'>Tasks: Run Task</code> and then select the value of the <code style='color:orange'>`label`</code> key to search that particular task and then press <code style='color:orange'>Enter</code> to run it.
+          <li>This file can contain custom build commands and arbitrary (non-build related) tasks where multiple tasks are separated by (<code style='color:orange'>{ }</code>)  curly brackets. Each task has <code style='color:orange'>key-value pairs</code> that include details and the arguments for executing the task. There will be a <code style='color:orange'>label</code> keyword in each configuration that will be used as an identifier for each task.
+          </li>
+          <li>To run tasks specified inside the <code style='color:orange'>tasks.json</code> file in VS Code, use <code style='color:orange'>(CTRL + Shift + P)</code> , select <code style='color:orange'>Tasks: Run Task</code> and then select the value of the <code style='color:orange'>label</code> key to search that particular task and then press <code style='color:orange'>Enter</code> to run it.
           <img src="/assets/article6/image16.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -82,7 +82,7 @@ In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">p
 </p>
 
 <p style="margin: 20px 3rem;">  
-Now that you have understood the file system, the following Table of Content provides you with a list of custom configurations. You can copy-paste the configuration inside the specified <code style='color:orange'>`tasks.json`</code> or <code style='color:orange'>`launch.json`</code> files. 
+Now that you have understood the file system, the following Table of Content provides you with a list of custom configurations. You can copy-paste the configuration inside the specified <code style='color:orange'>tasks.json</code> or <code style='color:orange'>launch.json</code> files. 
 </p>
 
 <p style="margin: 20px 3rem;">  
@@ -110,7 +110,7 @@ For ease of understanding, I am going to demonstrate each configuration using an
 
 <h2 style="text-align: left;margin: 20px 3rem;">ROS 2 Workspace in VS Code</h2>
 <p style="text-align: left;margin: 20px 3rem;">
-When you create a new ROS 2 workspace with the name <code style='color:orange'>`vscode_ros2_test_ws`</code>, you will only have a <code style='color:orange'>`src`</code> folder inside it where you will create your ROS 2 packages. Once you build the workspace, three new folders <code style='color:orange'>`build`</code>, <code style='color:orange'>`install`</code> and <code style='color:orange'>`log`</code> will be created inside the workspace.
+When you create a new ROS 2 workspace with the name <code style='color:orange'>vscode_ros2_test_ws</code>, you will only have a <code style='color:orange'>src</code> folder inside it where you will create your ROS 2 packages. Once you build the workspace, three new folders <code style='color:orange'>build</code>, <code style='color:orange'>install</code> and <code style='color:orange'>log</code> will be created inside the workspace.
 <img src="/assets/article6/image2.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -121,7 +121,7 @@ When you create a new ROS 2 workspace with the name <code style='color:orange'>`
 <h2 style="text-align: left;margin: 20px 3rem;" id="envsetupconfig">ENVIRONMENT SETUP CONFIGURATIONS</h2>
 <h3 style="text-align: left;margin: 20px 3rem;" id="createros2packages">• CREATE, BUILD, AND SOURCE ROS 2 PACKAGES</h3>
 <p style="text-align: left;margin: 20px 3rem;">
-In ROS 2, you can create packages using two different build types, i.e., <code style='color:orange'>`ament_cmake`</code> and <code style='color:orange'>`ament_python`</code>. You need to specify the build type and also additional dependencies while creating a package. After your package is created, you need to build and source the workspace. Instead of typing a bunch of commands one after another in the terminal, you can save yourself some time by copy-pasting the below configurations inside the <code style='color:orange'>`tasks`</code> key, separated by commas in the <code style='color:orange'>`tasks.json`</code> file.
+In ROS 2, you can create packages using two different build types, i.e., <code style='color:orange'>ament_cmake</code> and <code style='color:orange'>ament_python</code>. You need to specify the build type and additional dependencies while creating a package. After your package is created, you need to build and source the workspace. Instead of typing a bunch of commands one after another in the terminal, you can save yourself some time by copy-pasting the below configurations inside the <code style='color:orange'>tasks</code> key, separated by commas in the <code style='color:orange'>tasks.json</code> file.
 </p>
 
 <p style="text-align: center; margin: auto 3rem;">
@@ -166,8 +166,8 @@ To run the tasks for package creation, use <code style='color:orange'>(CTRL + Sh
 
 <h2 style="text-align: left;margin: 20px 3rem;" id="ros2bagplay">ROS 2 BAGS PLAYBACK</h2>
 <p style="text-align: left;margin: 20px 3rem;">
-One of the major shortcomings of the VS Code extension for ROS is that it does not provide any interface for ROS bag files. A seasoned ROS developer knows how often they need to play ROS bag files to tune their algorithms.<br>
-But there is a way out. You can create a task by copy-pasting the below configuration inside the <code style='color:orange'>`tasks`</code> key, in your <code style='color:orange'>`tasks.json`</code> file to play bag files with just a few keystrokes. Just set the path of the bag file at <code style='color:red'>&lt;set-bag-file-path&gt;</code>.
+One of the major shortcomings of the VS Code extension for ROS is that it does not provide any interface for rosbag. A seasoned ROS developer knows how often they need to play rosbag to tune their algorithms.<br>
+But there is a way out. You can create a task by copy-pasting the below configuration inside the <code style='color:orange'>tasks</code> key, in your <code style='color:orange'>tasks.json</code> file to play rosbag. Just set the path of the bag file at <code style='color:red'>&lt;set-bag-file-path&gt;</code>.
 </p>
 <ul style="margin: 20px 3rem;list-style-type: none;">
   <li>
@@ -182,7 +182,7 @@ But there is a way out. You can create a task by copy-pasting the below configur
 
 <p style="text-align: left;margin: 20px 3rem;">
 Change the <code style='color:red'>&lt;your_active_ros2_distro&gt;</code> to your active ROS 2 distro while creating your tasks.<br>
-To run the task for playing the bag file, use <code style='color:orange'>(CTRL + Shift + P)</code>, select <code style='color:orange'>Tasks: Run Task</code> and then select the <code style='color:orange'>`ros-bag-play`</code> task. This will start playing the bag file.
+To run the task for playing the rosbag, use <code style='color:orange'>(CTRL + Shift + P)</code>, select <code style='color:orange'>Tasks: Run Task</code> and then select the <code style='color:orange'>ros-bag-play</code> task. This will start playing the rosbag.
 <img src="/assets/article6/image4.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -192,7 +192,7 @@ To run the task for playing the bag file, use <code style='color:orange'>(CTRL +
 
 <h2 style="text-align: left;margin: 20px 3rem;" id="buildconfig">BUILD CONFIGURATIONS</h2>
 <p style="text-align: left;margin: 20px 3rem;">
-While building a ROS 2 workspace using <code style='color:orange'>`colcon build`</code>, you might be using a combination of arguments. You can add the most commonly used <code style='color:orange'>`colcon build`</code> commands as configurations inside the <code style='color:orange'>`tasks`</code> key in your <code style='color:orange'>`tasks.json`</code> file and execute the build using VS Code.
+While building a ROS 2 workspace using <code style='color:orange'>colcon build</code>, you might be using a combination of arguments. You can add the most commonly used <code style='color:orange'>colcon build</code> commands as configurations inside the <code style='color:orange'>tasks</code> key in your <code style='color:orange'>tasks.json</code> file and execute the build using VS Code.
 
 <ul style=" margin: 20px 3rem;">
       <li>colcon build<br>
@@ -252,7 +252,7 @@ While building a ROS 2 workspace using <code style='color:orange'>`colcon build`
         </ul>
       </li>
       <li>colcon build --packages-select <br>
-        You can build a selected number of packages inside your workspace by specifying the packages (separated by space)  name after the <code style='color:orange'>`--packages-select`</code> argument. 
+        You can build a selected number of packages inside your workspace by specifying the packages (separated by space)  name after the <code style='color:orange'>--packages-select</code> argument. 
         <ul style="list-style-type: none;">
           <li>
             <pre><code class="language-html line-numbers"  style=" margin-right: 20px 3rem;">{
@@ -272,8 +272,8 @@ While building a ROS 2 workspace using <code style='color:orange'>`colcon build`
         </ul>
       </li>
       <li>colcon build (multiple arguments)<br>
-        You can use multiple arguments with <code style='color:orange'>`colcon build`</code> by specifying the arguments inside the <code style='color:orange'>`args`</code> key in the configuration. <br>
-        In the below configuration, you can execute two arguments together that will build a selected number of packages inside your workspace by specifying the packages names (separated by space) after the <code style='color:orange'>`--packages-select`</code> argument and also create symlinks. 
+        You can use multiple arguments with <code style='color:orange'>colcon build</code> by specifying the arguments inside the <code style='color:orange'>args</code> key in the configuration. <br>
+        In the below configuration, you can execute two arguments together that will build a selected number of packages inside your workspace by specifying the packages names (separated by space) after the <code style='color:orange'>--packages-select</code> argument and also create symlinks. 
         <ul style="list-style-type: none;">
           <li>
             <pre><code class="language-html line-numbers"  style=" margin-right: 20px 3rem;">{
@@ -331,7 +331,7 @@ By using the GDB debugger, you can control the flow of execution line by line an
   <ul style=" margin: 20px 3rem;">
     <li id="debugsinglenode"><b>Debugging single ROS node using Launch file (Supports C++ and Python nodes)</b>
       <ul>
-        <li>The following is an example of a launch file for package name <code style='color:orange'>`ros2_cpp_pkg`</code> that launches a single C++ node called <code style='color:orange'>`publisher`</code>. The executables in the launch file can be either C++ or Python.
+        <li>The following is an example of a launch file for package name <code style='color:orange'>ros2_cpp_pkg</code> that launches a single C++ node called <code style='color:orange'>publisher</code>. The executables in the launch file can be either C++ or Python.
         <img src="/assets/article6/image6.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -345,7 +345,7 @@ By using the GDB debugger, you can control the flow of execution line by line an
           margin-right: auto;
           width: 50vmax;"/>
         </li>
-        <li>A new <code style='color:orange'>`.vscode/launch.json`</code> file will be created containing the configuration for the launch file as a target. If you created a <code style='color:orange'>`launch.json`</code> file before, you can add the following launch configuration in the <code style='color:orange'>`configurations’</code> key. Add the name and location of the launch file from inside the <code style='color:orange'>`install`</code> folder in your workspace at <code style='color:red'>&lt;launch_file_location_inside_install_folder&gt;</code>.
+        <li>A new <code style='color:orange'>.vscode/launch.json</code> file will be created containing the configuration for the launch file as a target. If you created a <code style='color:orange'>launch.json</code> file before, you can add the following launch configuration in the <code style='color:orange'>configurations</code> key. 
         </li>
         <ul style="list-style-type: none;">
           <li>
@@ -356,9 +356,15 @@ By using the GDB debugger, you can control the flow of execution line by line an
   "launch": ["rviz", "gz","gzclient","gzserver"],
   "type": "ros"
 }</code></pre>
+        Add the name and location of the launch file from inside the <code style='color:orange'>install</code> folder in your workspace at <code style='color:red'>&lt;launch_file_location_inside_install_folder&gt;</code>. An example of a launch file inside your install folder would be <code style='color:red'>&lt;workspace_folder&gt;/install/&lt;package_name&gt;/share/&lt;package_name&gt;/launch/&lt;.py_launch_file_name&gt;</code>.
+        <img src="/assets/article6/image17.gif" alt="article image 1" style="display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 20vmax;"/>
           </li>
         </ul>
-        <li>Go to the C++/Python code for the executable specified in the launch file and place a <code style='color:orange'>`breakpoint`</code> in the file.
+        <li>Go to the C++/Python code for the executable specified in the launch file and place a <code style='color:orange'>breakpoint</code> in the file.
         <img src="/assets/article6/image8.gif" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -376,14 +382,14 @@ By using the GDB debugger, you can control the flow of execution line by line an
     </li>
     <li id="debugmultiplenodes"><b>Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)</b>
       <ul>
-        <li>The following is an example of a launch file that consists of two nodes named <code style='color:orange'>`talker_node`</code> and <code style='color:orange'>`listener`</code> node. The launch file can have either C++ and/or Python nodes.
+        <li>The following is an example of a launch file that consists of two nodes named <code style='color:orange'>talker_node</code> and <code style='color:orange'>listener</code> node. The launch file can have either C++ and/or Python nodes.
         <img src="/assets/article6/image10.png" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
           margin-right: auto;
           width: 35vmax;"/>
         </li>
-        <li>Add the following configuration in the <code style='color:orange'>`configurations’</code> key to your <code style='color:orange'>`launch.json`</code> file. Add the name and location of the launch file from inside the <code style='color:orange'>`install`</code> folder in your workspace at <code style='color:red'>&lt;launch_file_location_inside_install_folder&gt;</code>.
+        <li>Add the following configuration in the <code style='color:orange'>configurations</code> key to your <code style='color:orange'>launch.json</code> file. Add the name and location of the launch file from inside the <code style='color:orange'>install</code> folder in your workspace at <code style='color:red'>&lt;launch_file_location_inside_install_folder&gt;</code>.
         <ul style="list-style-type: none;">
           <li>
             <pre><code class="language-html line-numbers"  style="margin-right: 20px 3rem;">{
@@ -397,7 +403,7 @@ By using the GDB debugger, you can control the flow of execution line by line an
           </li>
         </ul>
         </li>
-        <li>Go to the C++/Python code for the executables specified in the launch file and place a <code style='color:orange'>`breakpoint`</code> in the required files.
+        <li>Go to the C++/Python code for the executables specified in the launch file and place a <code style='color:orange'>breakpoint</code> in the required files.
         <img src="/assets/article6/image11.gif" alt="article image 1" style="display: block;
           padding: 10px;
           margin-left: auto;
@@ -428,8 +434,8 @@ By using the GDB debugger, you can control the flow of execution line by line an
 <h3 style="text-align: left;margin: 20px 3rem;" id="unittestconfig">UNIT TEST CONFIGURATIONS </h3>
 <p style="text-align: left;margin: 20px 3rem;">
 I can’t stress enough on the <a href="https://docs.ros.org/en/iron/Tutorials/Intermediate/Testing/Testing-Main.html">importance of unit testing</a> for a stable software release process and code maintenance. <br>
-ROS 2 provides <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Cpp.html">gtest</a> for testing C++ nodes and <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Python.html">pytest</a> for testing Python nodes. colcon provides macros for test-aware compilation and verbs dedicated to testing the project in its entirety. You can execute <code style='color:orange'>`colcon test`</code> to run your unit tests. The test files are generally stored inside a <code style='color:orange'>`tests`</code> folder.<br>
-To execute the unit tests for a particular package using <code style='color:orange'>`colcon test`</code> command, give the <code style='color:orange'>`tests`</code> folder name and the name of the package at <code style='color:red'>&lt;specify_package_name_here&gt;</code> after <code style='color:orange'>`--packages-select`</code> argument. <br>
+ROS 2 provides <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Cpp.html">gtest</a> for testing C++ nodes and <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Python.html">pytest</a> for testing Python nodes. colcon provides macros for test-aware compilation and verbs dedicated to testing the project in its entirety. You can execute <code style='color:orange'>colcon test</code> to run your unit tests. The test files are generally stored inside a <code style='color:orange'>tests</code> folder.<br>
+To execute the unit tests for a particular package using <code style='color:orange'>colcon test</code> command, give the <code style='color:orange'>tests</code> folder name and the name of the package at <code style='color:red'>&lt;specify_package_name_here&gt;</code> after <code style='color:orange'>--packages-select</code> argument. <br>
 <ul style="margin: 20px 3rem;list-style-type: none;">
   <li>
     <pre><code class="language-html line-numbers"  style=" margin-right: 20px 3rem;">{
@@ -452,7 +458,7 @@ To execute the unit tests for a particular package using <code style='color:oran
 </ul>
 </p>
 <p style="text-align: left;margin: 20px 3rem;">
-Testing with pytest framework, you can specify the name of the test function at <code style='color:red'>&lt;specify_name_of_specific_test_function&gt;</code>  you created with the <code style='color:orange'>`colcon test`</code> command to test for that specific test function after <code style='color:orange'>`--pytest-args`</code> argument. 
+Testing with pytest framework, you can specify the name of the test function at <code style='color:red'>&lt;specify_name_of_specific_test_function&gt;</code>  you created with the <code style='color:orange'>colcon test</code> command to test for that specific test function after <code style='color:orange'>--pytest-args</code> argument. 
 <ul style="margin: 20px 3rem;list-style-type: none;">
   <li>
     <pre><code class="language-html line-numbers"  style=" margin-right: 20px 3rem;">{
@@ -491,15 +497,11 @@ To run the different colcon test tasks, use <code style='color:orange'>(CTRL + S
 
 <h3 style="text-align: left;margin: 20px 3rem;">Conclusion</h3>
 <p style="text-align: left;margin: 20px 3rem;">
-By leveraging the power of VS Code and ROS extensions, developers can streamline their coding process, improve productivity, and gain more control over their ROS projects. Whether it's setting up a ROS workspace, configuring build tasks, or utilizing ROS-specific features, understanding these configurations opens up new possibilities for efficient and effective ROS development. <br>
+By leveraging the power of VS Code and ROS extension, developers can streamline their coding process, improve productivity, and gain more control over their ROS projects. Whether it's setting up a ROS workspace, configuring build tasks, or utilizing ROS-specific features, understanding these configurations opens up new possibilities for efficient and effective ROS development. <br>
 As mentioned previously, you can find the entire configurations from my <a href="https://github.com/27Apoorva/ros_vscode_config">GitHub repository</a>. <br>
 If you want to create a custom configuration, feel free to open a pull request in the <a href="https://github.com/27Apoorva/ros_vscode_config">GitHub repository</a>. You can also create a Feature Request if you want me to implement your ideas. <br>
 Embracing these configurations will undoubtedly empower ROS developers to unleash their full potential and embark on successful robotics projects using the VS Code ecosystem.
 </p>
-
-
-
-
   <p style=" margin: 20px 3rem;">If you liked the article, please buy me a <a style="
                     text-decoration:none;
                     display: inline-block;
