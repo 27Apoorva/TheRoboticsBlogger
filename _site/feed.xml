@@ -1,10 +1,473 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-21T11:26:48+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Exploration of VS Code Extensions for a ROS Developer</title><link href="http://localhost:4000/blog/VS-Code-ROS-Extensions/" rel="alternate" type="text/html" title="Exploration of VS Code Extensions for a ROS Developer" /><published>2023-06-15T00:00:00+05:30</published><updated>2023-06-15T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Extensions</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Extensions/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Exploration of VS Code extensions for a ROS Developer&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-30T17:11:34+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions</title><link href="http://localhost:4000/blog/VS-Code-ROS-Configurations/" rel="alternate" type="text/html" title="Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions" /><published>2023-06-26T00:00:00+05:30</published><updated>2023-06-26T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Configurations</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Configurations/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions&lt;/h1&gt;
+
+&lt;!--excerpt.start--&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+In the &lt;a href=&quot;https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/&quot;&gt;previous blog&lt;/a&gt;, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of rosbag interface. Well, I dig deeper and figured out the process of creating custom configurations to perform various tasks, including playing rosbags. 
+&lt;/p&gt;
+&lt;!--excerpt.end--&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  Foremost, you need to ensure that you have installed the &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros&quot;&gt;ROS Extension for VS Code&lt;/a&gt;.  After you have installed the ROS extension, and restarted your VS Code, you will see a &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder in your ROS workspace. This folder primarily consists of the following files:
+&lt;img src=&quot;/assets/article6/image1.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 30vmax;&quot; /&gt;
+
+  &lt;ul style=&quot;margin: 20px 3rem;padding-left: 0;padding-top: 0;&quot;&gt;
+      &lt;li&gt;&lt;i&gt;c_cpp_properties.json&lt;/i&gt;&lt;br /&gt;
+      It contains the compiler path, C++ standard, and ROS C++ packages path for Intellisense. This file is created by default.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;settings.json&lt;/i&gt;&lt;br /&gt;
+      It contains project-specific settings like ROS distro, ROS setup script path, and path to ROS Python3 packages for Intellisense. This file is created by default.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;launch.json &lt;/i&gt;&lt;br /&gt;
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;This file is not created by default so, you should create a new file inside &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder and name it &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt;. The file should have the following content in it: 
+          &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;version&quot;: &quot;0.2.0&quot;,
+  &quot;configurations&quot;: [
+    
+  ]
+}&lt;/code&gt;&lt;/pre&gt;
+          You can add your custom launch configurations inside the &lt;code style=&quot;color:orange&quot;&gt;configurations&lt;/code&gt; key, separated by commas.
+          &lt;/li&gt;
+          &lt;li&gt;This file contains debugger settings and helps to specify command-line arguments for debugging. &lt;/li&gt;
+          &lt;li&gt;You will mostly use this file for executing launch files with the debugger. &lt;/li&gt;
+          &lt;li&gt;You can use the &lt;code style=&quot;color:orange&quot;&gt;start debugging&lt;/code&gt; play button in the &lt;code style=&quot;color:orange&quot;&gt;Run and Debug&lt;/code&gt; section to run the debugging tasks. &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;img src=&quot;/assets/article6/image15.gif&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 25vmax;&quot; /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;tasks.json&lt;/i&gt;&lt;br /&gt;
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;This file is not created by default so, you should create a new file inside the &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder and name it &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt;. The file should have the following content in it:
+          &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;tasks&quot;: [
+
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+          You can add your custom task configurations inside the &lt;code style=&quot;color:orange&quot;&gt;tasks&lt;/code&gt; key, separated by commas.
+          &lt;/li&gt;
+          &lt;li&gt;This file can contain custom build commands and arbitrary (non-build related) tasks where multiple tasks are separated by (&lt;code style=&quot;color:orange&quot;&gt;{ }&lt;/code&gt;)  curly brackets. Each task has &lt;code style=&quot;color:orange&quot;&gt;key-value pairs&lt;/code&gt; that include details and the arguments for executing the task. There will be a &lt;code style=&quot;color:orange&quot;&gt;label&lt;/code&gt; keyword in each configuration that will be used as an identifier for each task.
+          &lt;/li&gt;
+          &lt;li&gt;To run tasks specified inside the &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt; file in VS Code, use &lt;code style=&quot;color:orange&quot;&gt;(CTRL + Shift + P)&lt;/code&gt; , select &lt;code style=&quot;color:orange&quot;&gt;Tasks: Run Task&lt;/code&gt; and then select the value of the &lt;code style=&quot;color:orange&quot;&gt;label&lt;/code&gt; key to search that particular task and then press &lt;code style=&quot;color:orange&quot;&gt;Enter&lt;/code&gt; to run it.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;img src=&quot;/assets/article6/image16.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+Now that you have understood the file system, the following Table of Content provides you with a list of custom configurations. You can copy-paste the configuration inside the specified &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt; or &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt; files. 
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+For ease of understanding, I am going to demonstrate each configuration using an example of a workspace. I am also providing a &lt;a href=&quot;https://github.com/27Apoorva/ros_vscode_config&quot;&gt;GitHub repository&lt;/a&gt; containing the example for you to clone and try out various custom functionalities. 
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;tableofcontents&quot;&gt;TABLE OF CONTENT&lt;/h2&gt;
+&lt;ul style=&quot; margin: 10px 3rem;padding-left: 20px;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#envsetupconfig&quot;&gt;ENVIRONMENT SETUP CONFIGURATIONS&lt;/a&gt;&lt;br /&gt;
+      &lt;ul style=&quot;list-style-type: square;padding-left: 15px;&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#createros2packages&quot;&gt;CREATE, BUILD, AND SOURCE ROS 2 PACKAGES&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#ros2bagplay&quot;&gt;ROS 2 BAGS PLAYBACK&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#buildconfig&quot;&gt;BUILD CONFIGURATIONS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#debugtestconfig&quot;&gt;DEBUG CONFIGURATIONS&lt;/a&gt;&lt;br /&gt;
+      &lt;ul style=&quot;list-style-type: square;padding-left: 15px;&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#debugsinglenode&quot;&gt;Debugging Single ROS Node using Launch file ( Supports C++ and Python nodes)&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#debugmultiplenodes&quot;&gt;Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#unittestconfig&quot;&gt;UNIT TESTS CONFIGURATIONS&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;envsetupconfig&quot;&gt;ENVIRONMENT SETUP CONFIGURATIONS&lt;/h2&gt;
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;createros2packages&quot;&gt;• CREATE, BUILD, AND SOURCE ROS 2 PACKAGES&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+In ROS 2, you can create packages using two different build types, i.e., &lt;code style=&quot;color:orange&quot;&gt;ament_cmake&lt;/code&gt; and &lt;code style=&quot;color:orange&quot;&gt;ament_python&lt;/code&gt;. You need to specify the build type and additional dependencies while creating a package. After your package is created, you need to build and source the workspace. Instead of typing a bunch of commands one after another in the terminal, you can save yourself some time by copy-pasting the below configurations inside the &lt;code style=&quot;color:orange&quot;&gt;tasks&lt;/code&gt; key, separated by commas in the &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt; file.
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; margin: auto 3rem;&quot;&gt;
+&lt;ul style=&quot;margin: 20px 3rem;list-style-type: none;list-style: none;padding-left: 0;&quot;&gt;
+  &lt;li&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot; margin-right: 20px 3rem;&quot;&gt;{
+    &quot;label&quot;: &quot;create-package-cmake&quot;,
+    &quot;type&quot;: &quot;shell&quot;,     
+    &quot;command&quot;: &quot;source /opt/ros/&amp;lt;your_active_ros2_distro&amp;gt;/setup.bash &amp;amp;&amp;amp; cd ${workspaceFolder}/src/ &amp;amp;&amp;amp; ros2 pkg create &amp;lt;your_new_package_name&amp;gt; --build-type ament_cmake --dependencies rclcpp &amp;amp;&amp;amp; cd .. &amp;amp;&amp;amp; colcon build --symlink-install &amp;amp;&amp;amp; source ${workspaceFolder}/install/setup.bash&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;div style=&quot;text-align: center; margin:0;&quot;&gt;For a C++ package, the build type is specified as ament_cmake&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; margin: auto 3rem;&quot;&gt;
+&lt;ul style=&quot;margin: 20px 3rem;list-style-type: none;list-style: none;padding-left: 0;&quot;&gt;
+  &lt;li&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot; margin-right: 20px 3rem;&quot;&gt;{
+    &quot;label&quot;: &quot;create-package-python&quot;,
+    &quot;type&quot;: &quot;shell&quot;,
+    &quot;command&quot;: &quot;source /opt/ros/&amp;lt;your_active_ros2_distro&amp;gt;/setup.bash &amp;amp;&amp;amp; cd ${workspaceFolder}/src/ &amp;amp;&amp;amp; ros2 pkg create &amp;lt;your_new_package_name&amp;gt; --build-type ament_python --dependencies rclpy &amp;amp;&amp;amp; cd .. &amp;amp;&amp;amp; colcon build --symlink-install &amp;amp;&amp;amp; source ${workspaceFolder}/install/setup.bash&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;div style=&quot;text-align: center; margin:0;&quot;&gt;For a Python package, the build type is specified as ament_python&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+Change the &lt;code style=&quot;color:red&quot;&gt;&amp;lt;your_active_ros2_distro&amp;gt;&lt;/code&gt; to your active ROS 2 distro while creating your tasks. &lt;br /&gt;
+Now each time, you want to create a new package, change the &lt;code style=&quot;color:red&quot;&gt;&amp;lt;your_new_package_name&amp;gt;&lt;/code&gt; to the name of the new package you want to create. &lt;br /&gt;
+Also, you can add more dependencies like std_msgs after &lt;code style=&quot;color:orange&quot;&gt;--dependencies&lt;/code&gt; , if required. &lt;br /&gt;
+
+To run the tasks for package creation, use &lt;code style=&quot;color:orange&quot;&gt;(CTRL + Shift + P)&lt;/code&gt;, select &lt;code style=&quot;color:orange&quot;&gt;Tasks: Run Task&lt;/code&gt; and then select the &lt;code style=&quot;color:orange&quot;&gt;task&lt;/code&gt; from the labels. This will create a new package inside your src folder and then build and source the workspace.  
+&lt;img src=&quot;/assets/article6/image3.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55vmax;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;ros2bagplay&quot;&gt;ROS 2 BAGS PLAYBACK&lt;/h2&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+One of the major shortcomings of the VS Code extension for ROS is that it does not provide any interface for rosbag. A seasoned ROS developer knows how often they need to play rosbag to tune their algorithms.&lt;br /&gt;
+But there is a way out. You can create a task by copy-pasting the below configuration inside the &lt;code style=&quot;color:orange&quot;&gt;tasks&lt;/code&gt; key, in your &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt; file to play rosbag. Just set the path of the bag file at &lt;code style=&quot;color:red&quot;&gt;&amp;lt;set-bag-file-path&amp;gt;&lt;/code&gt;.
+&lt;/p&gt;
+&lt;ul style=&quot;margin: 20px 3rem;list-style-type: none;list-style: none;padding-left: 0;&quot;&gt;
+  &lt;li&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot; margin-right: 20px 3rem;&quot;&gt;{
+    &quot;label&quot;: &quot;ros-bag-play&quot;,
+    &quot;type&quot;: &quot;shell&quot;,
+    &quot;command&quot;: &quot;source /opt/ros/&amp;lt;your_active_ros2_distro&amp;gt;/setup.bash &amp;amp;&amp;amp; cd ${workspaceFolder}/src/ &amp;amp;&amp;amp; ros2 bag play &amp;lt;set-bag-file-path&amp;gt;&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+Change the &lt;code style=&quot;color:red&quot;&gt;&amp;lt;your_active_ros2_distro&amp;gt;&lt;/code&gt; to your active ROS 2 distro while creating your tasks.&lt;br /&gt;
+To run the task for playing the rosbag, use &lt;code style=&quot;color:orange&quot;&gt;(CTRL + Shift + P)&lt;/code&gt;, select &lt;code style=&quot;color:orange&quot;&gt;Tasks: Run Task&lt;/code&gt; and then select the &lt;code style=&quot;color:orange&quot;&gt;ros-bag-play&lt;/code&gt; task. This will start playing the rosbag.
+&lt;img src=&quot;/assets/article6/image4.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 60vmax;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;buildconfig&quot;&gt;BUILD CONFIGURATIONS&lt;/h2&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+While building a ROS 2 workspace using &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt;, you might be using a combination of arguments. You can add the most commonly used &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt; commands as configurations inside the &lt;code style=&quot;color:orange&quot;&gt;tasks&lt;/code&gt; key in your &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt; file and execute the build using VS Code.
+
+&lt;ul style=&quot;margin: 20px 3rem;padding-left: 20px;&quot;&gt;
+      &lt;li&gt;colcon build&lt;br /&gt;
+        This will build the workspace using colcon build.
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+      &quot;build&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+      &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon build&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;colcon build –symlink-install&lt;br /&gt;
+        This creates symlink of the executables instead of copying files from the source and build directories where possible. This is especially useful for Python nodes. 
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+      &quot;build&quot;,
+      &quot;--symlink-install&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+      &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon build --symlink-install&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;colcon build --merge-install&lt;br /&gt;
+        Use &lt;code style=&quot;color:orange&quot;&gt;${workspace}/install&lt;/code&gt; as a prefix for all packages instead of a package specific subdirectory in the install base.
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+      &quot;build&quot;,
+      &quot;--merge--install&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+      &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon build --merge--install&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;colcon build --packages-select &lt;br /&gt;
+        You can build a selected number of packages inside your workspace by specifying the packages (separated by space)  name after the &lt;code style=&quot;color:orange&quot;&gt;--packages-select&lt;/code&gt; argument. 
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+    &quot;build&quot;,
+    &quot;--packages-select&quot;,
+    &quot;&amp;lt;specify_packages_name_here&amp;gt;&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+    &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon build --packages-select&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;colcon build (multiple arguments)&lt;br /&gt;
+        You can use multiple arguments with &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt; by specifying the arguments inside the &lt;code style=&quot;color:orange&quot;&gt;args&lt;/code&gt; key in the configuration. &lt;br /&gt;
+        In the below configuration, you can execute two arguments together that will build a selected number of packages inside your workspace by specifying the packages names (separated by space) after the &lt;code style=&quot;color:orange&quot;&gt;--packages-select&lt;/code&gt; argument and also create symlinks. 
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+    &quot;build&quot;,
+    &quot;--symlink-install&quot;,
+    &quot;--packages-select&quot;,
+    &quot;&amp;lt;specify_packages_name_here&amp;gt;&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+    &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon build custom 1&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+        The below configuration builds the workspace by creating symlinks and aborts the build process after it gets the first package with any errors.
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+    &quot;build&quot;,
+    &quot;--symlink-install&quot;,
+    &quot;--abort-on-error&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+    &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon build custom 2&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+To run the different colcon build tasks, use &lt;code style=&quot;color:orange&quot;&gt;(CTRL + Shift + P)&lt;/code&gt;, select &lt;code style=&quot;color:orange&quot;&gt;Tasks: Run Task&lt;/code&gt; and then select the &lt;code style=&quot;color:orange&quot;&gt;build task&lt;/code&gt; from the available options.
+&lt;img src=&quot;/assets/article6/image5.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 60vmax;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;debugtestconfig&quot;&gt;DEBUG CONFIGURATIONS&lt;/h2&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+Debugging the code you have written is one of the toughest places to be, especially when there is a segmentation fault. While the initial stage of debugging will begin with using &lt;code style=&quot;color:orange&quot;&gt;ROS Loggers&lt;/code&gt; and &lt;code style=&quot;color:orange&quot;&gt;RViz&lt;/code&gt;, using debuggers like &lt;code style=&quot;color:orange&quot;&gt;GDB&lt;/code&gt; for C++ and &lt;code style=&quot;color:orange&quot;&gt;PDB&lt;/code&gt; for Python is essential during code crashes or while dealing with an unknown error.&lt;br /&gt;
+By using a debugger, you can control the flow of execution line by line and have a peek at variables of interest.  
+  &lt;ul style=&quot;list-style-type: none;list-style: none;padding-left: 0;margin: 20px 3rem;&quot;&gt;
+    &lt;li id=&quot;debugsinglenode&quot;&gt;&lt;b&gt;• Debugging single ROS node using Launch file (Supports C++ and Python nodes)&lt;/b&gt;
+      &lt;ul style=&quot;padding-left: 20px;&quot;&gt;
+        &lt;li&gt;The following is an example of a launch file for package name &lt;code style=&quot;color:orange&quot;&gt;ros2_cpp_pkg&lt;/code&gt; that launches a single C++ node called &lt;code style=&quot;color:orange&quot;&gt;publisher&lt;/code&gt;. The executables in the launch file can be either C++ or Python.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image6.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+        &lt;li&gt;Go to the &lt;code style=&quot;color:orange&quot;&gt;Run and Debug Tab&lt;/code&gt; on the left sidebar of VS Code and then click on &lt;code style=&quot;color:orange&quot;&gt;create a launch.json file&lt;/code&gt; -&amp;gt; &lt;code style=&quot;color:orange&quot;&gt;ROS&lt;/code&gt; -&amp;gt; &lt;code style=&quot;color:orange&quot;&gt;ROS: Launch&lt;/code&gt; -&amp;gt; &lt;code style=&quot;color:orange&quot;&gt;Choose a ROS package&lt;/code&gt; -&amp;gt; &lt;code style=&quot;color:orange&quot;&gt;Choose a ROS launch file&lt;/code&gt; created in the previous step. This step will add the location of the launch file from inside the &lt;code style=&quot;color:orange&quot;&gt;install&lt;/code&gt; folder in your workspace. &lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image7.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;
+        &lt;li&gt;A new &lt;code style=&quot;color:orange&quot;&gt;.vscode/launch.json&lt;/code&gt; file will be created containing the configuration for the launch file as a target. If you created a &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt; file before, you can add the following launch configuration in the &lt;code style=&quot;color:orange&quot;&gt;configurations&lt;/code&gt; key. 
+        &lt;/li&gt;
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot;margin-right: 20px 3rem;&quot;&gt;{ 
+  &quot;name&quot;: &quot;ROS: Launch&quot;,
+  &quot;request&quot;: &quot;launch&quot;,
+  &quot;target&quot;: &quot;&amp;lt;launch_file_location _inside_install_folder&amp;gt;&quot;,
+  &quot;launch&quot;: [&quot;rviz&quot;, &quot;gz&quot;,&quot;gzclient&quot;,&quot;gzserver&quot;],
+  &quot;type&quot;: &quot;ros&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+        Add the name and location of the launch file from inside the &lt;code style=&quot;color:orange&quot;&gt;install&lt;/code&gt; folder in your workspace at &lt;code style=&quot;color:red&quot;&gt;&amp;lt;launch_file_location _inside_install_folder&amp;gt;&lt;/code&gt;. An example of a launch file inside your install folder would be &lt;code style=&quot;color:red&quot;&gt;&amp;lt;workspace_folder&amp;gt; /install/&amp;lt;package_name&amp;gt;/share/&amp;lt;package_name&amp;gt;/launch/&amp;lt;.py_launch_file_name&amp;gt;&lt;/code&gt;.
+        &lt;img src=&quot;/assets/article6/image17.gif&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 20vmax;&quot; /&gt;
+        &lt;li&gt;Go to the C++/Python code for the executable specified in the launch file and place a &lt;code style=&quot;color:orange&quot;&gt;breakpoint&lt;/code&gt; in the file.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image8.gif&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 30vmax;&quot; /&gt;
+        &lt;li&gt;Now go to the &lt;code style=&quot;color:orange&quot;&gt;Run and Debug Tab&lt;/code&gt; on the left sidebar of VS Code , select the launch configuration from the top drop down menu and click the &lt;code style=&quot;color:orange&quot;&gt;Play&lt;/code&gt; button to begin debugging.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image9.gif&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 30vmax;&quot; /&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;debugmultiplenodes&quot;&gt;&lt;b&gt;• Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)&lt;/b&gt;
+      &lt;ul style=&quot;padding-left: 20px;&quot;&gt;
+        &lt;li&gt;The following is an example of a launch file that consists of two nodes named &lt;code style=&quot;color:orange&quot;&gt;talker_node&lt;/code&gt; and &lt;code style=&quot;color:orange&quot;&gt;listener&lt;/code&gt; node. The launch file can have either C++ and/or Python nodes.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image10.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+        &lt;li&gt;Add the following configuration in the &lt;code style=&quot;color:orange&quot;&gt;configurations&lt;/code&gt; key to your &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt; file. Add the name and location of the launch file from inside the &lt;code style=&quot;color:orange&quot;&gt;install&lt;/code&gt; folder in your workspace at &lt;code style=&quot;color:red&quot;&gt;&amp;lt;launch_file_location _inside_install_folder&amp;gt;&lt;/code&gt;.
+            &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot;margin-right: 20px 3rem;&quot;&gt;{
+  &quot;name&quot;: &quot;ROS: Launch Multiple&quot;,
+  &quot;request&quot;: &quot;launch&quot;,
+  &quot;target&quot;: &quot;&amp;lt;launch_file_location_inside_install_folder&amp;gt;&quot;,
+  &quot;launch&quot;: [&quot;rviz&quot;, &quot;gz&quot;,&quot;gzclient&quot;,&quot;gzserver&quot;],
+  &quot;type&quot;: &quot;ros&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/li&gt;
+        &lt;li&gt;Go to the C++/Python code for the executables specified in the launch file and place a &lt;code style=&quot;color:orange&quot;&gt;breakpoint&lt;/code&gt; in the required files.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image11.gif&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 30vmax;&quot; /&gt;
+        &lt;li&gt;Now go to the &lt;code style=&quot;color:orange&quot;&gt;Run and Debug Tab&lt;/code&gt; on the left sidebar of VS Code , select the launch configuration from the top drop-down menu and click the &lt;code style=&quot;color:orange&quot;&gt;Play&lt;/code&gt; button to begin debugging.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image12.gif&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 30vmax;&quot; /&gt;
+        &lt;li&gt;You can switch between different executables from the &lt;code style=&quot;color:orange&quot;&gt;debugger menu&lt;/code&gt;.&lt;/li&gt;
+        &lt;img src=&quot;/assets/article6/image133.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 30vmax;&quot; /&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;unittestconfig&quot;&gt;UNIT TEST CONFIGURATIONS&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+I can’t stress enough on the &lt;a href=&quot;https://docs.ros.org/en/iron/Tutorials/Intermediate/Testing/Testing-Main.html&quot;&gt;importance of unit testing&lt;/a&gt; for a stable software release process and code maintenance. &lt;br /&gt;
+ROS 2 provides &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Cpp.html&quot;&gt;gtest&lt;/a&gt; for testing C++ nodes and &lt;a href=&quot;https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Python.html&quot;&gt;pytest&lt;/a&gt; for testing Python nodes. colcon provides macros for test-aware compilation and verbs dedicated to testing the project in its entirety. You can execute &lt;code style=&quot;color:orange&quot;&gt;colcon test&lt;/code&gt; to run your unit tests. The test files are generally stored inside a &lt;code style=&quot;color:orange&quot;&gt;tests&lt;/code&gt; folder.&lt;br /&gt;
+To execute the unit tests for a particular package using &lt;code style=&quot;color:orange&quot;&gt;colcon test&lt;/code&gt; command, give the &lt;code style=&quot;color:orange&quot;&gt;test&lt;/code&gt; folder name and the name of the package at &lt;code style=&quot;color:red&quot;&gt;&amp;lt;specify_package_name_here&amp;gt;&lt;/code&gt; after &lt;code style=&quot;color:orange&quot;&gt;--packages-select&lt;/code&gt; argument. &lt;br /&gt;
+&lt;ul style=&quot;margin: 20px 3rem;list-style-type: none;list-style: none;padding-left: 0;&quot;&gt;
+  &lt;li&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot; margin-right: 20px 3rem;&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+    &quot;test&quot;,
+    &quot;--ctest-args&quot;,
+    “test”,
+    &quot;--packages-select&quot;,
+    “&amp;lt;specify_package_name_here&amp;gt;”,
+  ],
+  &quot;problemMatcher&quot;: [
+    &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon_test&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+Testing with pytest framework, you can specify the name of the test function at &lt;code style=&quot;color:red&quot;&gt;&amp;lt;specify_name_of_ specific_test_function&amp;gt;&lt;/code&gt;  you created with the &lt;code style=&quot;color:orange&quot;&gt;colcon test&lt;/code&gt; command to test for that specific test function after &lt;code style=&quot;color:orange&quot;&gt;--pytest-args&lt;/code&gt; argument. 
+&lt;ul style=&quot;margin: 20px 3rem;list-style-type: none;list-style: none;padding-left: 0;&quot;&gt;
+  &lt;li&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot; style=&quot; margin-right: 20px 3rem;&quot;&gt;{
+  &quot;type&quot;: &quot;colcon&quot;,
+  &quot;args&quot;: [
+    &quot;test&quot;,
+    &quot;--packages-select&quot;,
+    “&amp;lt;specify_packages_name_here&amp;gt;”,
+    &quot;--pytest-args&quot;,
+    &quot;-k&quot;,
+    &quot;&amp;lt;specify_name_of_specific_test_function&amp;gt;&quot;,
+  ],
+  &quot;problemMatcher&quot;: [
+    &quot;$catkin-gcc&quot;
+  ],
+  &quot;group&quot;: &quot;build&quot;,
+  &quot;label&quot;: &quot;colcon_pytest&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+To run the different colcon test tasks, use &lt;code style=&quot;color:orange&quot;&gt;(CTRL + Shift + P)&lt;/code&gt;, select &lt;code style=&quot;color:orange&quot;&gt;Tasks: Run Task&lt;/code&gt; and then select the &lt;code style=&quot;color:orange&quot;&gt;test task&lt;/code&gt; from the available options.
+&lt;img src=&quot;/assets/article6/image144.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
+          padding: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50vmax;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+Using a debugger with ROS 2 launch_test using the ROS Extension for VS Code is an active problem and has an &lt;a href=&quot;https://github.com/ms-iot/vscode-ros/issues/891&quot;&gt;open issue&lt;/a&gt; at the official GitHub repository.
+&lt;/p&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+By leveraging the power of VS Code and ROS extension, developers can streamline their coding process, improve productivity, and gain more control over their ROS projects. Whether it&apos;s setting up a ROS workspace, configuring build tasks, or utilizing ROS-specific features, understanding these configurations opens up new possibilities for efficient and effective ROS development. &lt;br /&gt;
+As mentioned previously, you can find the entire configurations from my &lt;a href=&quot;https://github.com/27Apoorva/ros_vscode_config&quot;&gt;GitHub repository&lt;/a&gt;. &lt;br /&gt;
+If you want to create a custom configuration, feel free to open a pull request in the &lt;a href=&quot;https://github.com/27Apoorva/ros_vscode_config&quot;&gt;GitHub repository&lt;/a&gt;. You can also create a Feature Request if you want me to implement your ideas. &lt;br /&gt;
+Embracing these configurations will undoubtedly empower ROS developers to unleash their full potential and embark on successful robotics projects using the VS Code ecosystem.
+&lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;If you liked the article, please buy me a &lt;a style=&quot;
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                &quot; href=&quot;https://www.buymeacoffee.com/roboticsspace&quot;&gt;☕️ coffee&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot; margin: 20px 3rem;&quot;&gt;Resources:&lt;/h3&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md&quot;&gt;Debug ROS Nodes&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://medium.com/@vasank1958/debugging-ros-node-with-vs-code-a735106c4f9a&quot;&gt;Debugging ROS Node with VS-Code.&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://medium.com/@tahsincankose/a-decent-integration-of-vscode-to-ros-4c1d951c982a&quot;&gt;A Decent Integration of VSCode to ROS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://code.visualstudio.com/docs/editor/debugging&quot;&gt;Debugging in VS Code&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://code.visualstudio.com/docs/editor/tasks&quot;&gt;Tasks in Visual Studio Code&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions In the previous blog, I shared my experience of using VS Code Extensions for ROS development. I also discussed some missing functionalities in the VS Code ROS extension, especially the lack of rosbag interface. Well, I dig deeper and figured out the process of creating custom configurations to perform various tasks, including playing rosbags. Foremost, you need to ensure that you have installed the ROS Extension for VS Code. After you have installed the ROS extension, and restarted your VS Code, you will see a .vscode folder in your ROS workspace. This folder primarily consists of the following files: c_cpp_properties.json It contains the compiler path, C++ standard, and ROS C++ packages path for Intellisense. This file is created by default. settings.json It contains project-specific settings like ROS distro, ROS setup script path, and path to ROS Python3 packages for Intellisense. This file is created by default. launch.json This file is not created by default so, you should create a new file inside .vscode folder and name it launch.json. The file should have the following content in it: { &quot;version&quot;: &quot;0.2.0&quot;, &quot;configurations&quot;: [ ] } You can add your custom launch configurations inside the configurations key, separated by commas. This file contains debugger settings and helps to specify command-line arguments for debugging. You will mostly use this file for executing launch files with the debugger. You can use the start debugging play button in the Run and Debug section to run the debugging tasks. tasks.json This file is not created by default so, you should create a new file inside the .vscode folder and name it tasks.json. The file should have the following content in it: { &quot;version&quot;: &quot;2.0.0&quot;, &quot;tasks&quot;: [ ] } You can add your custom task configurations inside the tasks key, separated by commas. This file can contain custom build commands and arbitrary (non-build related) tasks where multiple tasks are separated by ({ }) curly brackets. Each task has key-value pairs that include details and the arguments for executing the task. There will be a label keyword in each configuration that will be used as an identifier for each task. To run tasks specified inside the tasks.json file in VS Code, use (CTRL + Shift + P) , select Tasks: Run Task and then select the value of the label key to search that particular task and then press Enter to run it. Now that you have understood the file system, the following Table of Content provides you with a list of custom configurations. You can copy-paste the configuration inside the specified tasks.json or launch.json files. For ease of understanding, I am going to demonstrate each configuration using an example of a workspace. I am also providing a GitHub repository containing the example for you to clone and try out various custom functionalities. TABLE OF CONTENT ENVIRONMENT SETUP CONFIGURATIONS CREATE, BUILD, AND SOURCE ROS 2 PACKAGES ROS 2 BAGS PLAYBACK BUILD CONFIGURATIONS DEBUG CONFIGURATIONS Debugging Single ROS Node using Launch file ( Supports C++ and Python nodes) Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes) UNIT TESTS CONFIGURATIONS ENVIRONMENT SETUP CONFIGURATIONS • CREATE, BUILD, AND SOURCE ROS 2 PACKAGES In ROS 2, you can create packages using two different build types, i.e., ament_cmake and ament_python. You need to specify the build type and additional dependencies while creating a package. After your package is created, you need to build and source the workspace. Instead of typing a bunch of commands one after another in the terminal, you can save yourself some time by copy-pasting the below configurations inside the tasks key, separated by commas in the tasks.json file. { &quot;label&quot;: &quot;create-package-cmake&quot;, &quot;type&quot;: &quot;shell&quot;, &quot;command&quot;: &quot;source /opt/ros/&amp;lt;your_active_ros2_distro&amp;gt;/setup.bash &amp;amp;&amp;amp; cd ${workspaceFolder}/src/ &amp;amp;&amp;amp; ros2 pkg create &amp;lt;your_new_package_name&amp;gt; --build-type ament_cmake --dependencies rclcpp &amp;amp;&amp;amp; cd .. &amp;amp;&amp;amp; colcon build --symlink-install &amp;amp;&amp;amp; source ${workspaceFolder}/install/setup.bash&quot; } For a C++ package, the build type is specified as ament_cmake { &quot;label&quot;: &quot;create-package-python&quot;, &quot;type&quot;: &quot;shell&quot;, &quot;command&quot;: &quot;source /opt/ros/&amp;lt;your_active_ros2_distro&amp;gt;/setup.bash &amp;amp;&amp;amp; cd ${workspaceFolder}/src/ &amp;amp;&amp;amp; ros2 pkg create &amp;lt;your_new_package_name&amp;gt; --build-type ament_python --dependencies rclpy &amp;amp;&amp;amp; cd .. &amp;amp;&amp;amp; colcon build --symlink-install &amp;amp;&amp;amp; source ${workspaceFolder}/install/setup.bash&quot; } For a Python package, the build type is specified as ament_python Change the &amp;lt;your_active_ros2_distro&amp;gt; to your active ROS 2 distro while creating your tasks. Now each time, you want to create a new package, change the &amp;lt;your_new_package_name&amp;gt; to the name of the new package you want to create. Also, you can add more dependencies like std_msgs after --dependencies , if required. To run the tasks for package creation, use (CTRL + Shift + P), select Tasks: Run Task and then select the task from the labels. This will create a new package inside your src folder and then build and source the workspace. ROS 2 BAGS PLAYBACK One of the major shortcomings of the VS Code extension for ROS is that it does not provide any interface for rosbag. A seasoned ROS developer knows how often they need to play rosbag to tune their algorithms. But there is a way out. You can create a task by copy-pasting the below configuration inside the tasks key, in your tasks.json file to play rosbag. Just set the path of the bag file at &amp;lt;set-bag-file-path&amp;gt;. { &quot;label&quot;: &quot;ros-bag-play&quot;, &quot;type&quot;: &quot;shell&quot;, &quot;command&quot;: &quot;source /opt/ros/&amp;lt;your_active_ros2_distro&amp;gt;/setup.bash &amp;amp;&amp;amp; cd ${workspaceFolder}/src/ &amp;amp;&amp;amp; ros2 bag play &amp;lt;set-bag-file-path&amp;gt;&quot; } Change the &amp;lt;your_active_ros2_distro&amp;gt; to your active ROS 2 distro while creating your tasks. To run the task for playing the rosbag, use (CTRL + Shift + P), select Tasks: Run Task and then select the ros-bag-play task. This will start playing the rosbag. BUILD CONFIGURATIONS While building a ROS 2 workspace using colcon build, you might be using a combination of arguments. You can add the most commonly used colcon build commands as configurations inside the tasks key in your tasks.json file and execute the build using VS Code. colcon build This will build the workspace using colcon build. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;build&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon build&quot; } colcon build –symlink-install This creates symlink of the executables instead of copying files from the source and build directories where possible. This is especially useful for Python nodes. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;build&quot;, &quot;--symlink-install&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon build --symlink-install&quot; } colcon build --merge-install Use ${workspace}/install as a prefix for all packages instead of a package specific subdirectory in the install base. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;build&quot;, &quot;--merge--install&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon build --merge--install&quot; } colcon build --packages-select You can build a selected number of packages inside your workspace by specifying the packages (separated by space) name after the --packages-select argument. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;build&quot;, &quot;--packages-select&quot;, &quot;&amp;lt;specify_packages_name_here&amp;gt;&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon build --packages-select&quot; } colcon build (multiple arguments) You can use multiple arguments with colcon build by specifying the arguments inside the args key in the configuration. In the below configuration, you can execute two arguments together that will build a selected number of packages inside your workspace by specifying the packages names (separated by space) after the --packages-select argument and also create symlinks. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;build&quot;, &quot;--symlink-install&quot;, &quot;--packages-select&quot;, &quot;&amp;lt;specify_packages_name_here&amp;gt;&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon build custom 1&quot; } The below configuration builds the workspace by creating symlinks and aborts the build process after it gets the first package with any errors. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;build&quot;, &quot;--symlink-install&quot;, &quot;--abort-on-error&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon build custom 2&quot; } To run the different colcon build tasks, use (CTRL + Shift + P), select Tasks: Run Task and then select the build task from the available options. DEBUG CONFIGURATIONS Debugging the code you have written is one of the toughest places to be, especially when there is a segmentation fault. While the initial stage of debugging will begin with using ROS Loggers and RViz, using debuggers like GDB for C++ and PDB for Python is essential during code crashes or while dealing with an unknown error. By using a debugger, you can control the flow of execution line by line and have a peek at variables of interest. • Debugging single ROS node using Launch file (Supports C++ and Python nodes) The following is an example of a launch file for package name ros2_cpp_pkg that launches a single C++ node called publisher. The executables in the launch file can be either C++ or Python. Go to the Run and Debug Tab on the left sidebar of VS Code and then click on create a launch.json file -&amp;gt; ROS -&amp;gt; ROS: Launch -&amp;gt; Choose a ROS package -&amp;gt; Choose a ROS launch file created in the previous step. This step will add the location of the launch file from inside the install folder in your workspace. A new .vscode/launch.json file will be created containing the configuration for the launch file as a target. If you created a launch.json file before, you can add the following launch configuration in the configurations key. { &quot;name&quot;: &quot;ROS: Launch&quot;, &quot;request&quot;: &quot;launch&quot;, &quot;target&quot;: &quot;&amp;lt;launch_file_location _inside_install_folder&amp;gt;&quot;, &quot;launch&quot;: [&quot;rviz&quot;, &quot;gz&quot;,&quot;gzclient&quot;,&quot;gzserver&quot;], &quot;type&quot;: &quot;ros&quot; } Add the name and location of the launch file from inside the install folder in your workspace at &amp;lt;launch_file_location _inside_install_folder&amp;gt;. An example of a launch file inside your install folder would be &amp;lt;workspace_folder&amp;gt; /install/&amp;lt;package_name&amp;gt;/share/&amp;lt;package_name&amp;gt;/launch/&amp;lt;.py_launch_file_name&amp;gt;. Go to the C++/Python code for the executable specified in the launch file and place a breakpoint in the file. Now go to the Run and Debug Tab on the left sidebar of VS Code , select the launch configuration from the top drop down menu and click the Play button to begin debugging. • Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes) The following is an example of a launch file that consists of two nodes named talker_node and listener node. The launch file can have either C++ and/or Python nodes. Add the following configuration in the configurations key to your launch.json file. Add the name and location of the launch file from inside the install folder in your workspace at &amp;lt;launch_file_location _inside_install_folder&amp;gt;. { &quot;name&quot;: &quot;ROS: Launch Multiple&quot;, &quot;request&quot;: &quot;launch&quot;, &quot;target&quot;: &quot;&amp;lt;launch_file_location_inside_install_folder&amp;gt;&quot;, &quot;launch&quot;: [&quot;rviz&quot;, &quot;gz&quot;,&quot;gzclient&quot;,&quot;gzserver&quot;], &quot;type&quot;: &quot;ros&quot; } Go to the C++/Python code for the executables specified in the launch file and place a breakpoint in the required files. Now go to the Run and Debug Tab on the left sidebar of VS Code , select the launch configuration from the top drop-down menu and click the Play button to begin debugging. You can switch between different executables from the debugger menu. UNIT TEST CONFIGURATIONS I can’t stress enough on the importance of unit testing for a stable software release process and code maintenance. ROS 2 provides gtest for testing C++ nodes and pytest for testing Python nodes. colcon provides macros for test-aware compilation and verbs dedicated to testing the project in its entirety. You can execute colcon test to run your unit tests. The test files are generally stored inside a tests folder. To execute the unit tests for a particular package using colcon test command, give the test folder name and the name of the package at &amp;lt;specify_package_name_here&amp;gt; after --packages-select argument. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;test&quot;, &quot;--ctest-args&quot;, “test”, &quot;--packages-select&quot;, “&amp;lt;specify_package_name_here&amp;gt;”, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon_test&quot; } Testing with pytest framework, you can specify the name of the test function at &amp;lt;specify_name_of_ specific_test_function&amp;gt; you created with the colcon test command to test for that specific test function after --pytest-args argument. { &quot;type&quot;: &quot;colcon&quot;, &quot;args&quot;: [ &quot;test&quot;, &quot;--packages-select&quot;, “&amp;lt;specify_packages_name_here&amp;gt;”, &quot;--pytest-args&quot;, &quot;-k&quot;, &quot;&amp;lt;specify_name_of_specific_test_function&amp;gt;&quot;, ], &quot;problemMatcher&quot;: [ &quot;$catkin-gcc&quot; ], &quot;group&quot;: &quot;build&quot;, &quot;label&quot;: &quot;colcon_pytest&quot; } To run the different colcon test tasks, use (CTRL + Shift + P), select Tasks: Run Task and then select the test task from the available options. Using a debugger with ROS 2 launch_test using the ROS Extension for VS Code is an active problem and has an open issue at the official GitHub repository. Conclusion By leveraging the power of VS Code and ROS extension, developers can streamline their coding process, improve productivity, and gain more control over their ROS projects. Whether it&apos;s setting up a ROS workspace, configuring build tasks, or utilizing ROS-specific features, understanding these configurations opens up new possibilities for efficient and effective ROS development. As mentioned previously, you can find the entire configurations from my GitHub repository. If you want to create a custom configuration, feel free to open a pull request in the GitHub repository. You can also create a Feature Request if you want me to implement your ideas. Embracing these configurations will undoubtedly empower ROS developers to unleash their full potential and embark on successful robotics projects using the VS Code ecosystem. If you liked the article, please buy me a ☕️ coffee Resources: Debug ROS Nodes Debugging ROS Node with VS-Code. A Decent Integration of VSCode to ROS Debugging in VS Code Tasks in Visual Studio Code</summary></entry><entry><title type="html">Exploration of VS Code Extensions for a ROS Developer</title><link href="http://localhost:4000/blog/VS-Code-ROS-Extensions/" rel="alternate" type="text/html" title="Exploration of VS Code Extensions for a ROS Developer" /><published>2023-06-15T00:00:00+05:30</published><updated>2023-06-15T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Extensions</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Extensions/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Exploration of VS Code extensions for a ROS Developer&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
 In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it &lt;a href=&quot;https://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt;, &lt;a href=&quot;https://developer.apple.com/xcode/&quot;&gt;Xcode&lt;/a&gt;, &lt;a href=&quot;https://www.eclipse.org/ide/&quot;&gt;Eclipse&lt;/a&gt;, &lt;a href=&quot;https://atom.en.softonic.com/&quot;&gt;Atom&lt;/a&gt;, &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;, or &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studios&lt;/a&gt;. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier.
 When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code.  
-Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. 
+Until now, I had been utilizing the command-line interface (CLI) to execute various functionalities within ROS.
 &lt;/p&gt;
 &lt;!--excerpt.end--&gt;
 
@@ -152,7 +615,7 @@ The very first &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemN
     &lt;li&gt;
       &lt;a href=&quot;https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html&quot;&gt;https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html&lt;/a&gt;
     &lt;/li&gt;
-  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Exploration of VS Code extensions for a ROS Developer In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier. When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code. Even though the ROS extension provided by Microsoft was first published in 2019, I was getting by till now executing all the ROS functionalities using the command line terminal. This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. While doing research for this blog, the first thing I did was simply type ROS in the search bar for extensions in VS Code. The very first Visual Studio Code extension for ROS was by Microsoft which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions marketplace and can be installed with a single click. Some cool functionalities that you can enjoy after installing this extension are: URDF Previewer Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and RViz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in RViz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster. Multiple ROS Nodes Execution Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution. Build Configurations Say goodbye to the days when you needed to type the colcon build command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the .vscode/tasks.json file, you can simply run the colcon: build command to build the workspace. Debug Configurations Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration (launch.json) to the .vscode folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as launch.json can take an array of nodes. System Status The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services. IntelliSense The ROS VS Code extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types. Another plugin that I found useful was CMake by twxs: Syntax Formatting You can use this CMake extension in VS Code to get syntax highlighting and code completion for your CMakeLists.txt files. Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing. ROS Bag interface Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only one plugin currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of rosbag info filename. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VS Code menu bar itself. Parameters in System Status The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph. Joint Visualisation in URDF Previewer While setting up the robot’s URDF, I generally try to test out the movement of each joint specifically the direction and axes of rotation. The current URDF previewer should also support Joint Visualisation for ease of debugging and verification of the robot model. Interactive ROS Graph Visualisation I would love to have an extension that visualizes the ROS graph, displaying nodes, topics like tf, and connections in an interactive graph view. ROS Documentation Integration Another cool to have extension could be a ROS Documentation Integrator. This extension can integrate ROS documentation directly into VS Code. It can allow you to quickly search and access ROS API documentation, tutorials, and examples without leaving the editor. Unit &amp;amp; Integration Tests This is the one I most desperately need. An extension that can enable running and managing unit tests/integration tests (both Google tests and rostest) directly from VS Code. It can provide an intuitive interface for executing tests, viewing test results, and generating test reports. I am really grateful to have installed the plugins available for ROS. If I have to put an estimate on the percentage of the time these plugins have saved, I would say it is about a 40% reduction in the overall development time especially for writing and executing ROS nodes. The ROS plugins aren’t perfectly developed yet as witnessed especially due to the unique challenges of visualization and data formats of ROS. As the robotics community is continuously growing, I have high hopes that the development environments would also improve over time. As of today, I highly recommend using the existing plugins to save time, especially for startups who struggle with maintaining one development process across the organization. If you liked the article, please buy me a ☕️ coffee Resources: https://hiro-group.ronc.one/vscode_urdf_previewer.html https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md https://github.com/lzptr/VS_Code_ROS https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html</summary></entry><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Exploration of VS Code extensions for a ROS Developer In the developers&apos; community, there will always be an ongoing debate about the best IDE (Integrated Development Environment) out there, be it IntelliJ, Xcode, Eclipse, Atom, Sublime Text, or Visual Studios. But this blog isn’t about choosing the best IDE. I personally love to code in VS Code as a Robotics (ROS) developer. Being a ROS developer is way different than let’s say being a Web developer, especially in terms of the infrastructure available to make development easier. When I first started coding, my VS Code setup was very minimal and the only extensions I used were specific to writing C++/Python code. Until now, I had been utilizing the command-line interface (CLI) to execute various functionalities within ROS. This is my experience of exploring the extensions available for ROS development and comprehension of the missing functionalities. While doing research for this blog, the first thing I did was simply type ROS in the search bar for extensions in VS Code. The very first Visual Studio Code extension for ROS was by Microsoft which provides ROS developers with a long list of features and functionalities like information about the ROS status and active topics, creating a ROS environment with sourced terminal, running ROS executables and launch files, and much more. This extension is readily available in the VS Code extensions marketplace and can be installed with a single click. Some cool functionalities that you can enjoy after installing this extension are: URDF Previewer Developing a robot’s URDF in ROS is tedious as you need to write the URDF file as well as a launch file for the robot state publisher, joint state publisher, and RViz to then visualize the robot model. Every time you make changes to the URDF code, you need to execute the launch file and review it in RViz. This process is time-consuming, repetitive and adds frustration for the developer. ROS VS Code extension is there to make this process easier by providing a URDF previewer. URDF previewer functionality enables the visualization of the robot model alongside the .urdf file as shown below. You can make the edits to the URDF file and automatically see the live update of the robot model making development much faster. Multiple ROS Nodes Execution Traditionally, ROS developers have to open a new terminal tab to run multiple ROS nodes separately or even for running multiple ROS launch files. This also requires you to know the package name, executable names, etc. I have generally ended up trying to do tab completion to find the correct name of the node. The ROS VS Code extension makes this so much easier by automatically detecting and running the selected ROS packages via the executables or launch files. It will also take care of sourcing terminals with the correct path for successful execution. Build Configurations Say goodbye to the days when you needed to type the colcon build command for building ROS workspace along with numerous arguments over and over again. ROS VS Code plugin provides a smoother process to build ROS workspaces. By specifying catkin/colcon commands and arguments inside the .vscode/tasks.json file, you can simply run the colcon: build command to build the workspace. Debug Configurations Finding bugs in the codebase is always much more painful than actually writing a new node. But with ROS VS Code extension, setting up a working debugging session is pretty straightforward. All you need to do is add a launch configuration (launch.json) to the .vscode folder in the ROS workspace then you can set a breakpoint for the node you want to debug. This extension also works with attaching the debugger to multiple nodes as launch.json can take an array of nodes. System Status The ROS Status page functionality provides information about the ROS Core/ROS 2 Deamon, active nodes, topics, and services. IntelliSense The ROS VS Code extension provides IntelliSense syntax highlighting and code completion for URDF/Xacro files, .msg files, .srv files, and almost all other ROS-related file types. Another plugin that I found useful was CMake by twxs: Syntax Formatting You can use this CMake extension in VS Code to get syntax highlighting and code completion for your CMakeLists.txt files. Although the current extensions for VS Code for Robotics provide tons of features for a faster, better development process, as an experienced and active ROS developer, I find some essential features still missing. ROS Bag interface Even for the most basic use case of let’s say tuning Slam Toolbox, I would look at the rosbag and play it several times to tune the algorithm to my satisfaction. ROS Bags are an essential block for any robotics system. There is only one plugin currently available for ROS 1 that can list the timestamps and the topics of the messages stored in the rosbag file. And the output of rosbag info filename. For starters, I would like to at least have the ability to play rosbag using a click-on Play Button from the VS Code menu bar itself. Parameters in System Status The change in the robot’s environment might create the need to update a few ROS parameters or maybe the customer wants the robots to operate at maximum speed compared to another customer. Maintaining and managing ROS Parameters can quickly become very painful. Although the ROS system status functionality can display active nodes, topics, and services, it does not show any information on active parameters in the computation graph. Joint Visualisation in URDF Previewer While setting up the robot’s URDF, I generally try to test out the movement of each joint specifically the direction and axes of rotation. The current URDF previewer should also support Joint Visualisation for ease of debugging and verification of the robot model. Interactive ROS Graph Visualisation I would love to have an extension that visualizes the ROS graph, displaying nodes, topics like tf, and connections in an interactive graph view. ROS Documentation Integration Another cool to have extension could be a ROS Documentation Integrator. This extension can integrate ROS documentation directly into VS Code. It can allow you to quickly search and access ROS API documentation, tutorials, and examples without leaving the editor. Unit &amp;amp; Integration Tests This is the one I most desperately need. An extension that can enable running and managing unit tests/integration tests (both Google tests and rostest) directly from VS Code. It can provide an intuitive interface for executing tests, viewing test results, and generating test reports. I am really grateful to have installed the plugins available for ROS. If I have to put an estimate on the percentage of the time these plugins have saved, I would say it is about a 40% reduction in the overall development time especially for writing and executing ROS nodes. The ROS plugins aren’t perfectly developed yet as witnessed especially due to the unique challenges of visualization and data formats of ROS. As the robotics community is continuously growing, I have high hopes that the development environments would also improve over time. As of today, I highly recommend using the existing plugins to save time, especially for startups who struggle with maintaining one development process across the organization. If you liked the article, please buy me a ☕️ coffee Resources: https://hiro-group.ronc.one/vscode_urdf_previewer.html https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md https://github.com/lzptr/VS_Code_ROS https://docs.ros.org/en/foxy/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html</summary></entry><entry><title type="html">Rust For Robotics</title><link href="http://localhost:4000/blog/Rust-For-Robotics/" rel="alternate" type="text/html" title="Rust For Robotics" /><published>2023-06-13T00:00:00+05:30</published><updated>2023-06-13T00:00:00+05:30</updated><id>http://localhost:4000/blog/Rust-For-Robotics</id><content type="html" xml:base="http://localhost:4000/blog/Rust-For-Robotics/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Rust For Robotics&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
@@ -162,7 +625,7 @@ I was inspired by &lt;a href=&quot;https://www.tangramvision.com/&quot;&gt;Tangr
 
 &lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;So, I will start with asking a simple question. &lt;/p&gt;
 
-&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Why are Roboticists looking for a new programming language?&lt;/h3&gt;
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Why are Roboticist looking for a new programming language?&lt;/h3&gt;
 
 &lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;As a Roboticist, my preferable coding language is C++ as this is the language that runs on the actual robots. Generally, Python-based ROS nodes suffer performance issues on hardware. Python and in some cases, Matlab are generally used for research and proof of concept purposes. &lt;br /&gt;
 C++ is well suited for embedded platforms as it can get &lt;b&gt;“Close to the metal”&lt;/b&gt;.&lt;br /&gt;
@@ -180,7 +643,7 @@ But C++ comes with its own set of problems:
           The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms.
       &lt;/li&gt;
       &lt;li&gt;&lt;i&gt;Slow Compile Time&lt;/i&gt;&lt;br /&gt;
-      Based on my experience, for about 20 ROS C++ Packges, the code compile time was anywhere between 45 mins to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead.
+      Based on my experience, for about 20 ROS C++ packages, the code compile time was anywhere between 45 minutes to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead.
       &lt;/li&gt;
       &lt;li&gt;&lt;i&gt;Cyclic Dependency&lt;/i&gt;&lt;br /&gt;
       In ROS, Node 1 can depend on Node 2 for a .msg file. Node 2 depends on Node 3. Node 3 depends on Node 1 for a .msg file. This can lead to cyclic dependencies if the developer is not careful. 
@@ -395,7 +858,7 @@ I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 
     &lt;li&gt;
       &lt;a href=&quot;https://roboticsbackend.com/ros-asyncspinner-example/&quot;&gt;https://roboticsbackend.com/ros-asyncspinner-example/&lt;/a&gt;
     &lt;/li&gt;
-  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Rust For Robotics This blog is a written presentation of the talk I gave at ROS Meetup Delhi, India in April 2023. I was inspired by Tangram Vision’s work on Rust for Robotics and the blogs, and talks by Brandon Minor, CEO. So, I will start with asking a simple question. Why are Roboticists looking for a new programming language? As a Roboticist, my preferable coding language is C++ as this is the language that runs on the actual robots. Generally, Python-based ROS nodes suffer performance issues on hardware. Python and in some cases, Matlab are generally used for research and proof of concept purposes. C++ is well suited for embedded platforms as it can get “Close to the metal”. But C++ comes with its own set of problems: Portability between different platforms and operating systems In a real-world scenario, my development system and deployment system would be quite different from each other as shown below. The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms. Slow Compile Time Based on my experience, for about 20 ROS C++ Packges, the code compile time was anywhere between 45 mins to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead. Cyclic Dependency In ROS, Node 1 can depend on Node 2 for a .msg file. Node 2 depends on Node 3. Node 3 depends on Node 1 for a .msg file. This can lead to cyclic dependencies if the developer is not careful. Manual Memory Management causes leaks and crashes In C++, a developer needs to figure out when and where to use the mutex to prevent multiple threads from accessing the same data. There is no built-in memory safety Hello, Rust! Rust is an open Source Systems Programming Language created by Mozilla Research Project. Fun Fact: It was voted as the most loved language by StackOverflow four years in a row. It is developed with an emphasis on Safety, Speed, and Concurrency. It provides High-Level Abstraction and Low-Level control over system resources. Rust is based on two principles: But why is there a Rust buzz? It will be quite evident soon how all the problems with C++ are magically taken care of by Rust. Portability Rust is a cross-platform language and performance is consistent across different operating systems. Performance There is zero cost for abstraction, and move semantics, leading to potentially faster code resolving the problem of slow compile times with C++. Painless Packaging and Dependency Management Rust provides Cargo and Xargo for package management that can prevent cyclic dependency. Concurrency Rust prevents data races and deadlocks. There is no need for manual management of mutexes and locks. Memory Safety Null pointers and dangling pointers are not allowed to prevent memory leaks. Type Inference and Efficient C Bindings In short, if a function asks for degrees and you provide radians, Rust can automatically infer that type conversion is needed. And it will use the type conversion function from radians to degrees if it has been defined. How cool is that? Safety It is very hard to write code with undefined behavior in Rust. Community The Rust User Forum, internal forum, and chat platforms are heavily active to contribute, develop, and learn Rust. For more information, visit https://www.rust-lang.org/community. Before looking at Rust code, it is important to understand the basic Rust Terminologies. Ready to witness Rust&apos;s magic? In the below code, I have defined a dangling pointer. A dangling pointer is a pointer that doesn’t point to a valid object. I declare a mutable raw pointer p as a null pointer in line 2 and I assign p to a new pointer q. Then I free the memory allocated to p using the C free function. This leaves q as a dangling pointer since it still points to the memory location that was just freed. Finally, I attempt to print the value at q, which leads to undefined behavior since the memory location it points to has been freed. Now, I know nobody would deliberately write such code but dangling pointers can exist under certain unknown circumstances in a fairly large codebase. When I try to compile the code in Rust, the compiler throws an error and will not build the code at all. This will never happen in C++ and mostly, I would have to attach the debugger and spend hours finding the crash. That is how amazing is the safety provided by Rust. ROS and Rust Let’s take a turn and see how ROS and Rust interact with each other. Below are the Rust-based ROS packages available to begin development of Robotics code in Rust. Links are available in the Resources section. The wait is over and now I will show you an example of Rust in Robotics. I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 2 C++ callbacks are sequential and not parallel. In this example, I have set up two string callbacks in ROS 2 both printing the incoming string from the topic. Furthermore, I have added a 2 seconds wait in callback1. This causes the callback2 to be blocked by callback1 and the rate at which callback should be executed is not maintained as evidenced by the execution of the code. From the timestamp, it is seen that the code execution was; callback1 (1682419871.593) -&amp;gt; wait for 2 seconds -&amp;gt; print the incoming string ‘hey’ (1682419873.593) when callback2’s ‘oy’ message was blocked. Now imagine a robot’s camera image callback is blocked by another callback and the robot is operating on an older camera image for object detection. The robot will not have the latest information about the obstacles. Robots operating on delayed and old information can lead to horrible safety-related incidents and collisions. ROS 2 does provide a solution that is MultiThreadedExecuter with callback groups. But it comes with the overhead of deadlocks, manual memory management, race condition, deciding the number of threads, and scheduling execution. All of them being standard problems with C++. Fortunately, there is Rust to the rescue. The next code is an example of the same use case written in Rust where I have created two threads that can run each callback parallelly without blocking each other. From the below result, it is evident from the timestamp that callback1 is published after every 2 seconds while callback2 keeps receiving messages. This example is for a very basic use case of publishing strings. Generally, I would want to extract data from the callbacks and use it elsewhere in the codebase. Now, this is where things start getting complicated as there will be a case where one thread would be updating the data while another wants to access it simultaneously. In Rust, I can create an Arc that allows multiple ownership while ensuring thread safety. Overall, in the first line of the example above, a thread-safe shared string is created that can be accessed and modified by multiple threads simultaneously without causing data races. In the second line, I create a clone of data1 since we need to pass it to another thread inside the callback. In this way, I can easily access the data while printing as well as inside the thread without manually managing and figuring out when to lock and unlock the mutex. Here are some companies already using Rust. As for Robotics, Rust is ready to be used for UI/Frontend, Webhooks, and systems programming. While RUST is safe, efficient, and user-friendly, it is heavily under development, especially for ROS Also, C++ has been around for decades whereas Rust has been around only for about 10 years. In my opinion, Rust is very promising as witnessed in the blog but it will take time for Rust to become mainstream for Robotics. If you liked the article, please buy me a ☕️ coffee Resources: rosrust ros2_rust roslibrust r2r RustDDS rclrust rosbag rustros_tf optimization-engine https://robotics.rs/ https://www.tangramvision.com/blog/why-rust-for-robots https://medium.com/luos/why-rust-is-the-future-of-robotics-81d7fb68fe37 https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html https://roboticsbackend.com/ros-asyncspinner-example/</summary></entry><entry><title type="html">ROS 2 Commands Cheat Sheet</title><link href="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/" rel="alternate" type="text/html" title="ROS 2 Commands Cheat Sheet" /><published>2023-05-31T00:00:00+05:30</published><updated>2023-05-31T00:00:00+05:30</updated><id>http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet</id><content type="html" xml:base="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;ROS 2 Commands Cheat Sheet&lt;/h1&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Rust For Robotics This blog is a written presentation of the talk I gave at ROS Meetup Delhi, India in April 2023. I was inspired by Tangram Vision’s work on Rust for Robotics and the blogs, and talks by Brandon Minor, CEO. So, I will start with asking a simple question. Why are Roboticist looking for a new programming language? As a Roboticist, my preferable coding language is C++ as this is the language that runs on the actual robots. Generally, Python-based ROS nodes suffer performance issues on hardware. Python and in some cases, Matlab are generally used for research and proof of concept purposes. C++ is well suited for embedded platforms as it can get “Close to the metal”. But C++ comes with its own set of problems: Portability between different platforms and operating systems In a real-world scenario, my development system and deployment system would be quite different from each other as shown below. The performance of the C++ code gets affected by the number of threads, and different operating systems, and isn’t consistent across different platforms. Slow Compile Time Based on my experience, for about 20 ROS C++ packages, the code compile time was anywhere between 45 minutes to 1 hour. Of course, you can build only one package at a time during debugging but for verification and sanity checks, you will build the entire codebase with integration tests and if the bug is still present, the compile time adds up quickly to be very painful and could easily become an overhead. Cyclic Dependency In ROS, Node 1 can depend on Node 2 for a .msg file. Node 2 depends on Node 3. Node 3 depends on Node 1 for a .msg file. This can lead to cyclic dependencies if the developer is not careful. Manual Memory Management causes leaks and crashes In C++, a developer needs to figure out when and where to use the mutex to prevent multiple threads from accessing the same data. There is no built-in memory safety Hello, Rust! Rust is an open Source Systems Programming Language created by Mozilla Research Project. Fun Fact: It was voted as the most loved language by StackOverflow four years in a row. It is developed with an emphasis on Safety, Speed, and Concurrency. It provides High-Level Abstraction and Low-Level control over system resources. Rust is based on two principles: But why is there a Rust buzz? It will be quite evident soon how all the problems with C++ are magically taken care of by Rust. Portability Rust is a cross-platform language and performance is consistent across different operating systems. Performance There is zero cost for abstraction, and move semantics, leading to potentially faster code resolving the problem of slow compile times with C++. Painless Packaging and Dependency Management Rust provides Cargo and Xargo for package management that can prevent cyclic dependency. Concurrency Rust prevents data races and deadlocks. There is no need for manual management of mutexes and locks. Memory Safety Null pointers and dangling pointers are not allowed to prevent memory leaks. Type Inference and Efficient C Bindings In short, if a function asks for degrees and you provide radians, Rust can automatically infer that type conversion is needed. And it will use the type conversion function from radians to degrees if it has been defined. How cool is that? Safety It is very hard to write code with undefined behavior in Rust. Community The Rust User Forum, internal forum, and chat platforms are heavily active to contribute, develop, and learn Rust. For more information, visit https://www.rust-lang.org/community. Before looking at Rust code, it is important to understand the basic Rust Terminologies. Ready to witness Rust&apos;s magic? In the below code, I have defined a dangling pointer. A dangling pointer is a pointer that doesn’t point to a valid object. I declare a mutable raw pointer p as a null pointer in line 2 and I assign p to a new pointer q. Then I free the memory allocated to p using the C free function. This leaves q as a dangling pointer since it still points to the memory location that was just freed. Finally, I attempt to print the value at q, which leads to undefined behavior since the memory location it points to has been freed. Now, I know nobody would deliberately write such code but dangling pointers can exist under certain unknown circumstances in a fairly large codebase. When I try to compile the code in Rust, the compiler throws an error and will not build the code at all. This will never happen in C++ and mostly, I would have to attach the debugger and spend hours finding the crash. That is how amazing is the safety provided by Rust. ROS and Rust Let’s take a turn and see how ROS and Rust interact with each other. Below are the Rust-based ROS packages available to begin development of Robotics code in Rust. Links are available in the Resources section. The wait is over and now I will show you an example of Rust in Robotics. I have a simple multi-threading model in ROS 2 shown below. By default, the ROS 2 C++ callbacks are sequential and not parallel. In this example, I have set up two string callbacks in ROS 2 both printing the incoming string from the topic. Furthermore, I have added a 2 seconds wait in callback1. This causes the callback2 to be blocked by callback1 and the rate at which callback should be executed is not maintained as evidenced by the execution of the code. From the timestamp, it is seen that the code execution was; callback1 (1682419871.593) -&amp;gt; wait for 2 seconds -&amp;gt; print the incoming string ‘hey’ (1682419873.593) when callback2’s ‘oy’ message was blocked. Now imagine a robot’s camera image callback is blocked by another callback and the robot is operating on an older camera image for object detection. The robot will not have the latest information about the obstacles. Robots operating on delayed and old information can lead to horrible safety-related incidents and collisions. ROS 2 does provide a solution that is MultiThreadedExecuter with callback groups. But it comes with the overhead of deadlocks, manual memory management, race condition, deciding the number of threads, and scheduling execution. All of them being standard problems with C++. Fortunately, there is Rust to the rescue. The next code is an example of the same use case written in Rust where I have created two threads that can run each callback parallelly without blocking each other. From the below result, it is evident from the timestamp that callback1 is published after every 2 seconds while callback2 keeps receiving messages. This example is for a very basic use case of publishing strings. Generally, I would want to extract data from the callbacks and use it elsewhere in the codebase. Now, this is where things start getting complicated as there will be a case where one thread would be updating the data while another wants to access it simultaneously. In Rust, I can create an Arc that allows multiple ownership while ensuring thread safety. Overall, in the first line of the example above, a thread-safe shared string is created that can be accessed and modified by multiple threads simultaneously without causing data races. In the second line, I create a clone of data1 since we need to pass it to another thread inside the callback. In this way, I can easily access the data while printing as well as inside the thread without manually managing and figuring out when to lock and unlock the mutex. Here are some companies already using Rust. As for Robotics, Rust is ready to be used for UI/Frontend, Webhooks, and systems programming. While RUST is safe, efficient, and user-friendly, it is heavily under development, especially for ROS Also, C++ has been around for decades whereas Rust has been around only for about 10 years. In my opinion, Rust is very promising as witnessed in the blog but it will take time for Rust to become mainstream for Robotics. If you liked the article, please buy me a ☕️ coffee Resources: rosrust ros2_rust roslibrust r2r RustDDS rclrust rosbag rustros_tf optimization-engine https://robotics.rs/ https://www.tangramvision.com/blog/why-rust-for-robots https://medium.com/luos/why-rust-is-the-future-of-robotics-81d7fb68fe37 https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html https://roboticsbackend.com/ros-asyncspinner-example/</summary></entry><entry><title type="html">ROS 2 Commands Cheat Sheet</title><link href="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/" rel="alternate" type="text/html" title="ROS 2 Commands Cheat Sheet" /><published>2023-05-31T00:00:00+05:30</published><updated>2023-05-31T00:00:00+05:30</updated><id>http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet</id><content type="html" xml:base="http://localhost:4000/blog/ROS2-Commands-Cheat-Sheet/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;ROS 2 Commands Cheat Sheet&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
