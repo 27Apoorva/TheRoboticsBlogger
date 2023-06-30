@@ -162,7 +162,7 @@ In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">p
       It contains project-specific settings like ROS distro, ROS setup script path, and path to ROS Python3 packages for Intellisense. This file is created by default.
       </li>
       <li><i>launch.json </i><br />
-        <ul style="padding-left: 1;padding-top: 0;">
+        <ul style="padding-left: 10px;padding-top: 0;">
           <li>This file is not created by default so, you should create a new file inside <code style="color:orange">.vscode</code> folder and name it <code style="color:orange">launch.json</code>. The file should have the following content in it: 
           <pre><code class="language-html line-numbers">{
   "version": "0.2.0",
@@ -182,7 +182,7 @@ In the <a href="https://www.theroboticsspace.com/blog/VS-Code-ROS-Extensions/">p
           width: 25vmax;" />
       </li>
       <li><i>tasks.json</i><br />
-        <ul style="padding-left: 1;padding-top: 0;">
+        <ul style="padding-left: 10px;padding-top: 0;">
           <li>This file is not created by default so, you should create a new file inside the <code style="color:orange">.vscode</code> folder and name it <code style="color:orange">tasks.json</code>. The file should have the following content in it:
           <pre><code class="language-html line-numbers">{
   "version": "2.0.0",
@@ -214,9 +214,9 @@ For ease of understanding, I am going to demonstrate each configuration using an
 </p>
 
 <h2 style="text-align: left;margin: 20px 3rem;" id="tableofcontents">TABLE OF CONTENT</h2>
-<ul style=" margin: 20px 3rem;">
+<ul style=" margin: 10px 3rem;padding-left: 20px;">
     <li><a href="#envsetupconfig">ENVIRONMENT SETUP CONFIGURATIONS</a><br />
-      <ul style="list-style-type: square;">
+      <ul style="list-style-type: square;padding-left: 15px;">
         <li><a href="#createros2packages">CREATE, BUILD, AND SOURCE ROS 2 PACKAGES</a>
         </li>
       </ul>
@@ -224,7 +224,7 @@ For ease of understanding, I am going to demonstrate each configuration using an
     <li><a href="#ros2bagplay">ROS 2 BAGS PLAYBACK</a></li>
     <li><a href="#buildconfig">BUILD CONFIGURATIONS</a></li>
     <li><a href="#debugtestconfig">DEBUG CONFIGURATIONS</a><br />
-      <ul style="list-style-type: square;">
+      <ul style="list-style-type: square;padding-left: 15px;">
         <li><a href="#debugsinglenode">Debugging Single ROS Node using Launch file ( Supports C++ and Python nodes)</a></li>
         <li><a href="#debugmultiplenodes">Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)</a></li>
       </ul>
@@ -307,7 +307,7 @@ To run the task for playing the rosbag, use <code style="color:orange">(CTRL + S
 <p style="text-align: left;margin: 20px 3rem;">
 While building a ROS 2 workspace using <code style="color:orange">colcon build</code>, you might be using a combination of arguments. You can add the most commonly used <code style="color:orange">colcon build</code> commands as configurations inside the <code style="color:orange">tasks</code> key in your <code style="color:orange">tasks.json</code> file and execute the build using VS Code.
 
-<ul style="margin: 20px 3rem;">
+<ul style="margin: 20px 3rem;padding-left: 20px;">
       <li>colcon build<br />
         This will build the workspace using colcon build.
             <pre><code class="language-html line-numbers">{
@@ -418,7 +418,7 @@ Debugging the code you have written is one of the toughest places to be, especia
 By using a debugger, you can control the flow of execution line by line and have a peek at variables of interest.  
   <ul style="list-style-type: none;list-style: none;padding-left: 0;margin: 20px 3rem;">
     <li id="debugsinglenode"><b>• Debugging single ROS node using Launch file (Supports C++ and Python nodes)</b>
-      <ul style="padding-left: 1;">
+      <ul style="padding-left: 20px;">
         <li>The following is an example of a launch file for package name <code style="color:orange">ros2_cpp_pkg</code> that launches a single C++ node called <code style="color:orange">publisher</code>. The executables in the launch file can be either C++ or Python.</li>
         <img src="/assets/article6/image6.png" alt="article image 1" style="display: block;
           margin-left: auto;
@@ -456,7 +456,7 @@ By using a debugger, you can control the flow of execution line by line and have
       </ul>
     </li>
     <li id="debugmultiplenodes"><b>• Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)</b>
-      <ul style="padding-left: 1;">
+      <ul style="padding-left: 20px;">
         <li>The following is an example of a launch file that consists of two nodes named <code style="color:orange">talker_node</code> and <code style="color:orange">listener</code> node. The launch file can have either C++ and/or Python nodes.</li>
         <img src="/assets/article6/image10.png" alt="article image 1" style="display: block;
           margin-left: auto;

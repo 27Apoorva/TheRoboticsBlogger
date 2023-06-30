@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-30T17:02:24+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions</title><link href="http://localhost:4000/blog/VS-Code-ROS-Configurations/" rel="alternate" type="text/html" title="Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions" /><published>2023-06-26T00:00:00+05:30</published><updated>2023-06-26T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Configurations</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Configurations/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-30T17:11:34+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions</title><link href="http://localhost:4000/blog/VS-Code-ROS-Configurations/" rel="alternate" type="text/html" title="Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions" /><published>2023-06-26T00:00:00+05:30</published><updated>2023-06-26T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Configurations</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Configurations/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
@@ -21,7 +21,7 @@ In the &lt;a href=&quot;https://www.theroboticsspace.com/blog/VS-Code-ROS-Extens
       It contains project-specific settings like ROS distro, ROS setup script path, and path to ROS Python3 packages for Intellisense. This file is created by default.
       &lt;/li&gt;
       &lt;li&gt;&lt;i&gt;launch.json &lt;/i&gt;&lt;br /&gt;
-        &lt;ul style=&quot;padding-left: 1;padding-top: 0;&quot;&gt;
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
           &lt;li&gt;This file is not created by default so, you should create a new file inside &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder and name it &lt;code style=&quot;color:orange&quot;&gt;launch.json&lt;/code&gt;. The file should have the following content in it: 
           &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
   &quot;version&quot;: &quot;0.2.0&quot;,
@@ -41,7 +41,7 @@ In the &lt;a href=&quot;https://www.theroboticsspace.com/blog/VS-Code-ROS-Extens
           width: 25vmax;&quot; /&gt;
       &lt;/li&gt;
       &lt;li&gt;&lt;i&gt;tasks.json&lt;/i&gt;&lt;br /&gt;
-        &lt;ul style=&quot;padding-left: 1;padding-top: 0;&quot;&gt;
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
           &lt;li&gt;This file is not created by default so, you should create a new file inside the &lt;code style=&quot;color:orange&quot;&gt;.vscode&lt;/code&gt; folder and name it &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt;. The file should have the following content in it:
           &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
   &quot;version&quot;: &quot;2.0.0&quot;,
@@ -73,9 +73,9 @@ For ease of understanding, I am going to demonstrate each configuration using an
 &lt;/p&gt;
 
 &lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;tableofcontents&quot;&gt;TABLE OF CONTENT&lt;/h2&gt;
-&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+&lt;ul style=&quot; margin: 10px 3rem;padding-left: 20px;&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;#envsetupconfig&quot;&gt;ENVIRONMENT SETUP CONFIGURATIONS&lt;/a&gt;&lt;br /&gt;
-      &lt;ul style=&quot;list-style-type: square;&quot;&gt;
+      &lt;ul style=&quot;list-style-type: square;padding-left: 15px;&quot;&gt;
         &lt;li&gt;&lt;a href=&quot;#createros2packages&quot;&gt;CREATE, BUILD, AND SOURCE ROS 2 PACKAGES&lt;/a&gt;
         &lt;/li&gt;
       &lt;/ul&gt;
@@ -83,7 +83,7 @@ For ease of understanding, I am going to demonstrate each configuration using an
     &lt;li&gt;&lt;a href=&quot;#ros2bagplay&quot;&gt;ROS 2 BAGS PLAYBACK&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#buildconfig&quot;&gt;BUILD CONFIGURATIONS&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#debugtestconfig&quot;&gt;DEBUG CONFIGURATIONS&lt;/a&gt;&lt;br /&gt;
-      &lt;ul style=&quot;list-style-type: square;&quot;&gt;
+      &lt;ul style=&quot;list-style-type: square;padding-left: 15px;&quot;&gt;
         &lt;li&gt;&lt;a href=&quot;#debugsinglenode&quot;&gt;Debugging Single ROS Node using Launch file ( Supports C++ and Python nodes)&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=&quot;#debugmultiplenodes&quot;&gt;Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
@@ -166,7 +166,7 @@ To run the task for playing the rosbag, use &lt;code style=&quot;color:orange&qu
 &lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
 While building a ROS 2 workspace using &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt;, you might be using a combination of arguments. You can add the most commonly used &lt;code style=&quot;color:orange&quot;&gt;colcon build&lt;/code&gt; commands as configurations inside the &lt;code style=&quot;color:orange&quot;&gt;tasks&lt;/code&gt; key in your &lt;code style=&quot;color:orange&quot;&gt;tasks.json&lt;/code&gt; file and execute the build using VS Code.
 
-&lt;ul style=&quot;margin: 20px 3rem;&quot;&gt;
+&lt;ul style=&quot;margin: 20px 3rem;padding-left: 20px;&quot;&gt;
       &lt;li&gt;colcon build&lt;br /&gt;
         This will build the workspace using colcon build.
             &lt;pre&gt;&lt;code class=&quot;language-html line-numbers&quot;&gt;{
@@ -277,7 +277,7 @@ Debugging the code you have written is one of the toughest places to be, especia
 By using a debugger, you can control the flow of execution line by line and have a peek at variables of interest.  
   &lt;ul style=&quot;list-style-type: none;list-style: none;padding-left: 0;margin: 20px 3rem;&quot;&gt;
     &lt;li id=&quot;debugsinglenode&quot;&gt;&lt;b&gt;• Debugging single ROS node using Launch file (Supports C++ and Python nodes)&lt;/b&gt;
-      &lt;ul style=&quot;padding-left: 1;&quot;&gt;
+      &lt;ul style=&quot;padding-left: 20px;&quot;&gt;
         &lt;li&gt;The following is an example of a launch file for package name &lt;code style=&quot;color:orange&quot;&gt;ros2_cpp_pkg&lt;/code&gt; that launches a single C++ node called &lt;code style=&quot;color:orange&quot;&gt;publisher&lt;/code&gt;. The executables in the launch file can be either C++ or Python.&lt;/li&gt;
         &lt;img src=&quot;/assets/article6/image6.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
@@ -315,7 +315,7 @@ By using a debugger, you can control the flow of execution line by line and have
       &lt;/ul&gt;
     &lt;/li&gt;
     &lt;li id=&quot;debugmultiplenodes&quot;&gt;&lt;b&gt;• Debugging Multiple ROS Nodes using Launch files (Supports C++ and Python nodes)&lt;/b&gt;
-      &lt;ul style=&quot;padding-left: 1;&quot;&gt;
+      &lt;ul style=&quot;padding-left: 20px;&quot;&gt;
         &lt;li&gt;The following is an example of a launch file that consists of two nodes named &lt;code style=&quot;color:orange&quot;&gt;talker_node&lt;/code&gt; and &lt;code style=&quot;color:orange&quot;&gt;listener&lt;/code&gt; node. The launch file can have either C++ and/or Python nodes.&lt;/li&gt;
         &lt;img src=&quot;/assets/article6/image10.png&quot; alt=&quot;article image 1&quot; style=&quot;display: block;
           margin-left: auto;
