@@ -46,4 +46,10 @@ var store = [{
         "tags": ["Post Formats","readability","standard"],
         "url": "/blog/VS-Code-ROS-Configurations/",
         "teaser": null
+      },{
+        "title": "Kinematic Modelling for Mobile Robots",
+        "excerpt":"Kinematic Modelling for Mobile Robots The concept of kinematic modeling is very well studied be it for the AMRs or robotic arms. Being an expert in mobile robotics, I have spent years in the exploration of planners and controllers of differential drive robots. Although there is always a limitation in...","categories": ["Blog"],
+        "tags": ["Post Formats","readability","standard"],
+        "url": "/blog/Kinematic-Modelling-for-Mobile-Robots/",
+        "teaser": null
       }]
