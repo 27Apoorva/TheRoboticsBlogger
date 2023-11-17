@@ -259,7 +259,7 @@ For my tests with various planners present in the Navigation Stack in ROS 2, I p
         <ul style="padding-left: 10px;padding-top: 0;">
           <li><b>Suitability for Holonomic Robots:</b> RPP is not commonly used with holonomic robots as it's more oriented toward grid-based path planning.
           </li>
-          <li><b>Suitability for Non-Holonomic Robots:</b> IWhile RPP is generally used for non-holonomic robots, its applicability depends on specific use cases.<br>
+          <li><b>Suitability for Non-Holonomic Robots:</b> While RPP is generally used for non-holonomic robots, its applicability depends on specific use cases.<br>
           </li>
         </ul>
       </li>
@@ -334,5 +334,10 @@ As I conclude this journey, remember that the world of robotics is dynamic and e
     <li>
       <a href="https://en.wikibooks.org/wiki/Robotics/Types_of_Robots/Wheeled">Robotics/Types of Robots/Wheeled - Wikibooks</a>
     </li>
-    
+    <li>
+      <a href="https://navigation.ros.org/configuration/packages/configuring-planner-server.html">Planner Server - Nav2</a>
+    </li>
+    <li>
+      <a href="https://navigation.ros.org/configuration/packages/configuring-controller-server.html">Controller Server - Nav2</a>
+    </li>
   </ul>
