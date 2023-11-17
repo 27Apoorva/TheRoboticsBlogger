@@ -17,7 +17,7 @@ excerpt_separator: <!--more-->
 <!--excerpt.start-->
 <p style="margin: 20px 3rem;">  
 The concept of kinematic modeling is very well studied be it for the AMRs or robotic arms.
-Being an expert in mobile robotics, I have spent years in the exploration of planners and controllers of differential drive robots. Although there is always a limitation in the motion range, differential drive is still the most common kinematic model so far. I have recently started seeing a shift and the adaptation of holonomic robots coming up.<br>
+Being an expert in mobile robotics, I have spent years in the exploration of planners and controllers of differential-drive robots. Although there is always a limitation in the motion range, differential-drive is still the most common kinematic model so far. I have recently started seeing a shift and the adaptation of holonomic robots coming up.<br>
 In this blog, I wanted to list the kinematics for both non-holonomic and holonomic robots, along with recommended controllers and planners.
 </p>
 <!--excerpt.end-->
@@ -33,35 +33,39 @@ I would use the open-source <a href="https://github.com/linorobot/linorobot2">Li
       <li><b style="font-size: 28px;">Non-Holonomic Wheels</b><br>
       Non-holonomic wheels are known for their stability and simplicity. They allow the robot to move in a limited set of directions, making them less agile than their holonomic counterparts. The common types of non-holonomic wheels are:
         <ul style="padding-left: 10px;padding-top: 0;">
-          <li><b>Differential Drive Wheels</b><br>
-          The defining characteristic of a differential drive robot is its wheel configuration. These robots typically have two fixed wheels placed on a common axis and a caster wheel. The two fixed wheels are responsible for propelling the robot forward and backward, while the caster wheel allows the robot to maintain stability and freely rotate about its central point.<br>
+          <li><b>Differential-Drive Wheels</b><br>
+          The defining characteristic of a differential-drive robot is its wheel configuration. These robots typically have two fixed wheels placed on a common axis and a caster wheel. The two fixed wheels are responsible for propelling the robot forward and backward, while the caster wheel allows the robot to maintain stability and freely rotate about its central point.<br>
           <img src="/assets/article7/Differential 1.jpeg" alt="Differential 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35vmax;"/><br>
+          width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Differential-Drive Wheels Model</div><br>
           <img src="/assets/article7/Differential 2.jpeg" alt="Differential 2" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Robot Motions based on wheel velocity and direction for Differential-Drive Wheels Model</div>
           </li>
-          <li><b>Skid steer Wheels</b><br>
-          The defining characteristic of a differential drive robot is its wheel configuration. These robots typically have two fixed wheels placed on a common axis and a caster wheel. The two fixed wheels are responsible for propelling the robot forward and backward, while the caster wheel allows the robot to maintain stability and freely rotate about its central point.<br>
+          <li><b>Skid-Steer Wheels</b><br>
+          A skid-steer robot is characterized by its mobility configuration, featuring two sets of wheels on either side of the robot, each set independently driven. These robots achieve movement and directional control by varying the speed and direction of rotation of the wheels on each side. Unlike a differential-drive robot, a skid-steer robot lacks a dedicated caster wheel. Instead, changes in velocity and wheel rotation enable the robot to turn in place, making it highly maneuverable. Skid-steer robots are commonly employed in applications where precise control of movement and the ability to turn within a confined space are crucial, such as in industrial settings and certain types of mobile robotic platforms.<br>
           <img src="/assets/article7/Skid steer 1.jpeg" alt="Skid steer 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35vmax;"/><br>
+          width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Skid-Steer Wheels Model</div><br>
           <img src="/assets/article7/Skid steer 2.jpeg" alt="Skid steer 2" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Robot Motions based on wheel velocity and direction for Skid-Steer Wheels Model</div>
           </li>
         </ul>
       </li><br>
       <li><b style="font-size: 28px;">Kinematic Model for Non-Holonomic Robots</b><br>
-      The Differential Drive Kinematic Model is a fundamental concept in mobile robotics, especially for non-holonomic robots. It describes the motion of a robot with two fixed wheels and a caster wheel or a single free caster wheel. The Differential Drive Kinematic Model allows control of the robot's linear and angular velocities, enabling precise motion planning and control.
+      The Differential-Drive Kinematic Model is a fundamental concept in mobile robotics, especially for non-holonomic robots. It describes the motion of a robot with two fixed wheels and a caster wheel or a single free caster wheel. The Differential-Drive Kinematic Model allows control of the robot's linear and angular velocities, enabling precise motion planning and control.
         <ul style="padding-left: 13px;padding-top: 0;">
-          <li><b>Assumptions of the Differential Drive Kinematic Model</b><br>
-          The Differential Drive Kinematic Model is based on a few assumptions:
+          <li><b>Assumptions of the-Differential Drive Kinematic Model</b><br>
+          The Differential-Drive Kinematic Model is based on a few assumptions:
           <ol>
             <li><b>No Slippage:</b> The model assumes that there is no slippage between the wheels and the ground. In reality, some slippage may occur, but this assumption simplifies the kinematic calculations.</li>
             <li><b>Pure Rotation:</b> The model assumes that the robot can only perform pure rotations, meaning it can only turn about a central point without any lateral movement during the rotation.</li>
@@ -72,14 +76,15 @@ I would use the open-source <a href="https://github.com/linorobot/linorobot2">Li
           <img src="/assets/article7/Kinematic 1.JPG" alt="Kinematic 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35vmax;"/><br>
+          width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Kinematic Model for Differential-Drive Model</div><br>
             X and Y represent the global coordinate system and XB and YB represent the local coordinate system of the robot. <br><br>
-            In the Differential Drive Kinematic Model, two main parameters are considered:
+            In the Differential-Drive Kinematic Model, two main parameters are considered:
             <ul>
               <li><b>Linear velocity (V):</b> The robot's forward or backward speed.</li>
               <li><b>Angular velocity (ω):</b> The robot's rate of rotation about a central point.</li>
             </ul>
-            The kinematic equations for the differential drive model are as follows:
+            The kinematic equations for the differential-drive model are as follows:
             <ul>
               <li><b>V = (v_left + v_right) / 2</b></li>
               <li><b>ω = (v_right - v_left) / L</b></li>
@@ -91,27 +96,31 @@ I would use the open-source <a href="https://github.com/linorobot/linorobot2">Li
       <li><b style="font-size: 28px;">Holonomic Wheels</b><br>
       Holonomic wheels provide exceptional maneuverability, allowing mobile robots to move in any direction within a 2D plane without changing their orientation. They are ideal for applications that require precise positioning and navigation. Two common types of holonomic wheels are:
         <ul style="padding-left: 10px;padding-top: 0;">
-          <li><b>Omni-Wheels</b><br>
+          <li><b>Omni Wheels</b><br>
           Omni-wheels have rollers around their circumference, allowing them to move not only forward and backward but also sideways. This unique feature provides holonomic motion capabilities.<br>
           <img src="/assets/article7/Omni 1.jpeg" alt="Omni 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35vmax;"/><br>
+          width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Omni Wheels Model</div><br>
           <img src="/assets/article7/Omni 2.jpeg" alt="Omni 2" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Robot Motions based on wheel velocity and direction for Omni Wheels Model</div>
           </li>
           <li><b>Mecanum Wheels</b><br>
           Mecanum wheels have rollers mounted at an angle to the wheel's rotation axis. By controlling the speeds and directions of the mecanum wheels, a robot can move in any direction without altering its orientation.<br>
           <img src="/assets/article7/Mecanum 1.jpeg" alt="Mecanum 1" style="display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 35vmax;"/><br>
+          width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Mecanum Wheels Model</div><br>
           <img src="/assets/article7/Mecanum 2.jpeg" alt="Mecanum 2" style="display: block;
           margin-left: auto;
           margin-right: auto;
           width: 35vmax;"/>
+          <div style="text-align: center; margin:0;">Robot Motions based on wheel velocity and direction for Mecanum Wheels Model</div>
           </li>
         </ul>
       </li>
@@ -189,6 +198,7 @@ I would use the open-source <a href="https://github.com/linorobot/linorobot2">Li
           margin-left: auto;
           margin-right: auto;
           width: 35vmax;"/>
+  <div style="text-align: center; margin:0;">Nav2 Path from Start to Goal</div>
 </p>
 
 <p style="margin: 20px 3rem;">
@@ -222,7 +232,7 @@ For my tests with various planners present in the Navigation Stack in ROS 2, I p
         <ul style="padding-left: 10px;padding-top: 0;">
           <li><b>Suitability for Holonomic Robots:</b> The DWA controller is highly suitable for holonomic robots, such as omnidirectional or mecanum wheel robots. It leverages their ability to move in any direction without changing their orientation.
           </li>
-          <li><b>Suitability for Non-Holonomic Robots:</b> It's not the best choice for non-holonomic robots, like differential drive or car-like robots. These robots have constraints on instantaneous velocity changes and turning.<br>
+          <li><b>Suitability for Non-Holonomic Robots:</b> It's not the best choice for non-holonomic robots, like differential-drive or car-like robots. These robots have constraints on instantaneous velocity changes and turning.<br>
           </li>
         </ul>
       </li>
@@ -279,7 +289,7 @@ For my tests with various planners present in the Navigation Stack in ROS 2, I p
 
 <h3 style="text-align: left;margin: 20px 3rem;">Conclusion</h3>
 <p style="text-align: left;margin: 20px 3rem;">
-In the ever-evolving realm of robotics, my choice of wheel type, kinematic model, and navigation tools holds the key to unlocking the full potential of my robot. I've embarked on a journey through the diverse landscape of wheel configurations, from the nimble holonomic mecanum wheels to the versatile differential drive. I've delved into the intricacies of their kinematic models, understanding how they enable robots to move and navigate.
+In the ever-evolving realm of robotics, my choice of wheel type, kinematic model, and navigation tools holds the key to unlocking the full potential of my robot. I've embarked on a journey through the diverse landscape of wheel configurations, from the nimble holonomic mecanum wheels to the versatile differential-drive. I've delved into the intricacies of their kinematic models, understanding how they enable robots to move and navigate.
 </p>
 <p style="text-align: left;margin: 20px 3rem;">
 However, my quest doesn't end with theoretical knowledge alone. In the practical realm of robotics, I've put these theories to the test. Through rigorous experimentation, I've identified the NavFn Planner as my swift companion for holonomic robots, while the DWB Controller emerges as the pinnacle of precision for holonomic navigation in ROS 2 Navigation. For non-holonomic robots, the NavFn Planner offers a robust choice, complemented by the agility and obstacle-handling prowess of the TEB Controller.
@@ -316,18 +326,13 @@ As I conclude this journey, remember that the world of robotics is dynamic and e
   <h3 style=" margin: 20px 3rem;">Resources:</h3>
   <ul style=" margin: 20px 3rem;">
     <li>
-      <a href="https://github.com/ms-iot/vscode-ros/blob/master/doc/debug-support.md">Debug ROS Nodes</a>
+      <a href="https://en.wikipedia.org/wiki/Differential_wheeled_robot">Differential wheeled robot - Wikipedia</a>
     </li>
     <li>
-      <a href="https://medium.com/@vasank1958/debugging-ros-node-with-vs-code-a735106c4f9a">Debugging ROS Node with VS-Code.</a>
+      <a href="http://www.robotplatform.com/knowledge/Classification_of_Robots/wheel_control_theory.html">Wheel Control Theory - Robot Platform </a>
     </li>
     <li>
-      <a href="https://medium.com/@tahsincankose/a-decent-integration-of-vscode-to-ros-4c1d951c982a">A Decent Integration of VSCode to ROS</a>
+      <a href="https://en.wikibooks.org/wiki/Robotics/Types_of_Robots/Wheeled">Robotics/Types of Robots/Wheeled - Wikibooks</a>
     </li>
-    <li>
-      <a href="https://code.visualstudio.com/docs/editor/debugging">Debugging in VS Code</a>
-    </li>
-    <li>
-      <a href="https://code.visualstudio.com/docs/editor/tasks">Tasks in Visual Studio Code</a>
-    </li>
+    
   </ul>
