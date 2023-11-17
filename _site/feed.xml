@@ -1,4 +1,327 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-30T17:11:34+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions</title><link href="http://localhost:4000/blog/VS-Code-ROS-Configurations/" rel="alternate" type="text/html" title="Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions" /><published>2023-06-26T00:00:00+05:30</published><updated>2023-06-26T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Configurations</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Configurations/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-17T12:09:50+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Robotics Space</title><author><name>Apoorva Gupta</name></author><entry><title type="html">Kinematic Modelling for Mobile Robots</title><link href="http://localhost:4000/blog/Kinematic-Modelling-for-Mobile-Robots/" rel="alternate" type="text/html" title="Kinematic Modelling for Mobile Robots" /><published>2023-11-10T00:00:00+05:30</published><updated>2023-11-10T00:00:00+05:30</updated><id>http://localhost:4000/blog/Kinematic-Modelling-for-Mobile-Robots</id><content type="html" xml:base="http://localhost:4000/blog/Kinematic-Modelling-for-Mobile-Robots/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Kinematic Modelling for Mobile Robots&lt;/h1&gt;
+
+&lt;!--excerpt.start--&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+The concept of kinematic modeling is very well studied be it for the AMRs or robotic arms.
+Being an expert in mobile robotics, I have spent years in the exploration of planners and controllers of differential-drive robots. Although there is always a limitation in the motion range, differential-drive is still the most common kinematic model so far. I have recently started seeing a shift and the adaptation of holonomic robots coming up.&lt;br /&gt;
+In this blog, I wanted to list the kinematics for both non-holonomic and holonomic robots, along with recommended controllers and planners.
+&lt;/p&gt;
+&lt;!--excerpt.end--&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+I would use the open-source &lt;a href=&quot;https://github.com/linorobot/linorobot2&quot;&gt;Linorobot2&lt;/a&gt; package in GitHub, which provides a robust simulation environment complete with Nav2. The sensor configurations I would use for testing the planners are 2D LIDAR, 6-DOF IMU, and Encoders. 
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;envsetupconfig&quot;&gt;Wheel Types in Mobile Robots&lt;/h2&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  Mobile robots come in various configurations, and their movement heavily relies on the type of wheels they use. Let&apos;s begin by categorizing the wheels into two main types: Holonomic and Non-Holonomic wheels.
+
+  &lt;ul style=&quot;margin: 20px 3rem;padding-left: 0;padding-top: 0;&quot;&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 28px;&quot;&gt;Non-Holonomic Wheels&lt;/b&gt;&lt;br /&gt;
+      Non-holonomic wheels are known for their stability and simplicity. They allow the robot to move in a limited set of directions, making them less agile than their holonomic counterparts. The common types of non-holonomic wheels are:
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Differential-Drive Wheels&lt;/b&gt;&lt;br /&gt;
+          The defining characteristic of a differential-drive robot is its wheel configuration. These robots typically have two fixed wheels placed on a common axis and a caster wheel. The two fixed wheels are responsible for propelling the robot forward and backward, while the caster wheel allows the robot to maintain stability and freely rotate about its central point.&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Differential 1.jpeg&quot; alt=&quot;Differential 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Differential-Drive Wheels Model&lt;/div&gt;&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Differential 2.jpeg&quot; alt=&quot;Differential 2&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Robot Motions based on wheel velocity and direction for Differential-Drive Wheels Model&lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Skid-Steer Wheels&lt;/b&gt;&lt;br /&gt;
+          A skid-steer robot is characterized by its mobility configuration, featuring two sets of wheels on either side of the robot, each set independently driven. These robots achieve movement and directional control by varying the speed and direction of rotation of the wheels on each side. Unlike a differential-drive robot, a skid-steer robot lacks a dedicated caster wheel. Instead, changes in velocity and wheel rotation enable the robot to turn in place, making it highly maneuverable. Skid-steer robots are commonly employed in applications where precise control of movement and the ability to turn within a confined space are crucial, such as in industrial settings and certain types of mobile robotic platforms.&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Skid steer 1.jpeg&quot; alt=&quot;Skid steer 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Skid-Steer Wheels Model&lt;/div&gt;&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Skid steer 2.jpeg&quot; alt=&quot;Skid steer 2&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Robot Motions based on wheel velocity and direction for Skid-Steer Wheels Model&lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;&lt;br /&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 28px;&quot;&gt;Kinematic Model for Non-Holonomic Robots&lt;/b&gt;&lt;br /&gt;
+      The Differential-Drive Kinematic Model is a fundamental concept in mobile robotics, especially for non-holonomic robots. It describes the motion of a robot with two fixed wheels and a caster wheel or a single free caster wheel. The Differential-Drive Kinematic Model allows control of the robot&apos;s linear and angular velocities, enabling precise motion planning and control.
+        &lt;ul style=&quot;padding-left: 13px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Assumptions of the-Differential Drive Kinematic Model&lt;/b&gt;&lt;br /&gt;
+          The Differential-Drive Kinematic Model is based on a few assumptions:
+          &lt;ol&gt;
+            &lt;li&gt;&lt;b&gt;No Slippage:&lt;/b&gt; The model assumes that there is no slippage between the wheels and the ground. In reality, some slippage may occur, but this assumption simplifies the kinematic calculations.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Pure Rotation:&lt;/b&gt; The model assumes that the robot can only perform pure rotations, meaning it can only turn about a central point without any lateral movement during the rotation.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;No Skidding:&lt;/b&gt; The model assumes that there is no skidding between the wheels and the ground during turning.&lt;/li&gt;
+          &lt;/ol&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Kinematic Equations&lt;/b&gt;&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Kinematic 1.JPG&quot; alt=&quot;Kinematic 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Kinematic Model for Differential-Drive Model&lt;/div&gt;&lt;br /&gt;
+            X and Y represent the global coordinate system and XB and YB represent the local coordinate system of the robot. &lt;br /&gt;&lt;br /&gt;
+            In the Differential-Drive Kinematic Model, two main parameters are considered:
+            &lt;ul&gt;
+              &lt;li&gt;&lt;b&gt;Linear velocity (V):&lt;/b&gt; The robot&apos;s forward or backward speed.&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Angular velocity (ω):&lt;/b&gt; The robot&apos;s rate of rotation about a central point.&lt;/li&gt;
+            &lt;/ul&gt;
+            The kinematic equations for the differential-drive model are as follows:
+            &lt;ul&gt;
+              &lt;li&gt;&lt;b&gt;V = (v_left + v_right) / 2&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;ω = (v_right - v_left) / L&lt;/b&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            where v_left and v_right are the linear velocities of the left and right wheels, respectively, and L is the distance between the two drive wheels.
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 28px;&quot;&gt;Holonomic Wheels&lt;/b&gt;&lt;br /&gt;
+      Holonomic wheels provide exceptional maneuverability, allowing mobile robots to move in any direction within a 2D plane without changing their orientation. They are ideal for applications that require precise positioning and navigation. Two common types of holonomic wheels are:
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Omni Wheels&lt;/b&gt;&lt;br /&gt;
+          Omni-wheels have rollers around their circumference, allowing them to move not only forward and backward but also sideways. This unique feature provides holonomic motion capabilities.&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Omni 1.jpeg&quot; alt=&quot;Omni 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Omni Wheels Model&lt;/div&gt;&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Omni 2.jpeg&quot; alt=&quot;Omni 2&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Robot Motions based on wheel velocity and direction for Omni Wheels Model&lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Mecanum Wheels&lt;/b&gt;&lt;br /&gt;
+          Mecanum wheels have rollers mounted at an angle to the wheel&apos;s rotation axis. By controlling the speeds and directions of the mecanum wheels, a robot can move in any direction without altering its orientation.&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Mecanum 1.jpeg&quot; alt=&quot;Mecanum 1&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Mecanum Wheels Model&lt;/div&gt;&lt;br /&gt;
+          &lt;img src=&quot;/assets/article7/Mecanum 2.jpeg&quot; alt=&quot;Mecanum 2&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+          &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Robot Motions based on wheel velocity and direction for Mecanum Wheels Model&lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 28px;&quot;&gt;Kinematic Model for Holonomic Robots&lt;/b&gt;&lt;br /&gt;
+      The Mecanum Drive Kinematic Model is specifically designed for holonomic robots equipped with Mecanum wheels. These wheels have rollers mounted at an angle to the wheel&apos;s rotation axis, allowing them to exhibit unique motion characteristics. By independently controlling the speeds and directions of the Mecanum wheels, the robot can move in any direction without altering its orientation.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Assumptions of the Mecanum Drive Kinematic Model&lt;/b&gt;&lt;br /&gt;
+          The Mecanum Drive Kinematic Model is based on several assumptions to simplify the mathematical representation of the robot&apos;s motion. These assumptions include:
+          &lt;ol&gt;
+            &lt;li&gt;&lt;b&gt;Ideal Wheels:&lt;/b&gt;The model assumes ideal Mecanum wheels with no slippage or friction, allowing for accurate motion predictions.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;No Vertical Motion:&lt;/b&gt;The model operates in a 2D plane and does not consider any vertical motion of the robot.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Small Angles:&lt;/b&gt;The angles between the rollers and the wheel&apos;s rotation axis are assumed to be small, enabling linear approximations for velocity calculations.&lt;/li&gt;
+          &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;envsetupconfig&quot;&gt;Planners for wheeled robots&lt;/h2&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;In the domain of robotics and autonomous navigation, the choice of planners is a pivotal decision that influences a robot&apos;s path-planning capabilities. Whether dealing with holonomic or non-holonomic robots, selecting the right planner is essential. Here, I will delve into the characteristics and applicability of various planners, considering both holonomic and non-holonomic robots.
+  &lt;ul style=&quot;margin: 20px 3rem;padding-left: 0;padding-top: 0;&quot;&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;NavFn Planner&lt;/b&gt;&lt;br /&gt;
+      NavFn is excellent for holonomic robots that can follow paths precisely, but it may lead to suboptimal paths for non-holonomic robots due to its grid-based approach.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; NavFn is well-suited for holonomic robots. It provides global path planning by treating the environment as a grid and using the Fast Marching Method.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; While NavFn can be used with non-holonomic robots, there are better choices than this one. It might generate paths that require complex maneuvers.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;Smac Planner 2D (Sparse Multi-Modal Asynchronous Planner)&lt;/b&gt;&lt;br /&gt;
+      Smac Planner 2D balances path optimality and computation speed, making it a solid choice for holonomic robots, and it can still be effective for non-holonomic robots.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt;  Smac Planner 2D is suitable for holonomic robots. It uses a sparse sampling approach, making it computationally efficient.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It can be used with non-holonomic robots, but its efficiency may vary depending on the robot&apos;s constraints.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+       &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;Smac Lattice Planner&lt;/b&gt;&lt;br /&gt;
+      Smac Lattice Planner offers a balance of optimality and flexibility, making it a practical choice for holonomic robots. For non-holonomic robots, it can be adapted to suit the needs.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; Smac Lattice Planner is a versatile choice for holonomic robots. It uses lattice-based planning and is effective for various scenarios.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It can work for non-holonomic robots, but it may require additional adaptability for the robot&apos;s constraints.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+       &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;Pure Pursuit&lt;/b&gt;&lt;br /&gt;
+      Pure Pursuit offers simplicity and efficiency for holonomic robots, making it an intuitive choice for direct goal-reaching tasks.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; Pure Pursuit is a natural fit for holonomic robots. It is designed for guiding robots directly toward a goal point.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It can work with non-holonomic robots, but it may not fully utilize their capabilities.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+       &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;SBPL Lattice Planner (Search-Based Planning Library)&lt;/b&gt;&lt;br /&gt;
+      SBPL Lattice Planner is known for its path optimality and is a strong candidate for holonomic robots. It can also serve non-holonomic robots but with potential customization.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; SBPL Lattice Planner is suitable for holonomic robots. It uses a search-based approach to generate paths and is effective in complex environments.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It can be applied to non-holonomic robots, although it may require additional adaptations and configurations.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+  After conducting thorough tests and measurements with various planners available in Nav2 for non-holonomic robots and holonomic robots, I have gained valuable insights into their performance. Here are my findings based on extensive testing using the Linorobot2 simulation. &lt;br /&gt;
+  &lt;img src=&quot;/assets/article7/nav2_path.png&quot; alt=&quot;nav2_path&quot; style=&quot;display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 35vmax;&quot; /&gt;
+  &lt;div style=&quot;text-align: center; margin:0;&quot;&gt;Nav2 Path from Start to Goal&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;
+For my tests with various planners present in the Navigation Stack in ROS 2, I provided a common navigation goal, which had an approximate distance of 21 meters. I carefully measured the time taken by each planner to complete the given task. Here are the results:
+  &lt;ul style=&quot;margin: 20px 3rem;padding-left: 0;padding-top: 0;&quot;&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;NavFn Planner&lt;/b&gt;&lt;br /&gt;
+      The NavFn Planner took approximately 92 seconds to compute a path for a common navigation goal for a non-holonomic robot. For a holonomic robot, the NavFn Planner took approximately 97 seconds to navigate, through a common goal situated approximately 21 meters away. It demonstrated reasonable performance within this setup.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;Smac Planner 2D&lt;/b&gt;&lt;br /&gt;
+      The Smac Planner 2D required around 107 seconds to generate a path for a non-holonomic robot. It offers more advanced features than the NavFn Planner but at the cost of increased computation time. The Smac Planner 2D exhibited slower performance, requiring around 115 seconds to complete the same navigation task for a holonomic robot. It was the slowest among the tested planners for holonomic robots.
+      &lt;/li&gt;
+       &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;Smac Lattice Planner&lt;/b&gt;&lt;br /&gt;
+      The Smac Lattice Planner performed relatively well, taking about 94 seconds to find a path for a non-holonomic robot. It leverages lattice-based planning techniques, which can lead to efficient paths. For a holonomic robot, the Smac Lattice Planner delivered competitive performance, taking roughly 101 seconds to reach the designated goal. It showcased good potential for holonomic robot planning.
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+  Based on the results, the NavFn Planner appears to be the fastest among the tested planners, taking 92 seconds for non-holonomic robots and 97 seconds for non-holonomic robots respectively. However, its performance may vary depending on the environment&apos;s complexity. While all the planners are capable of achieving the navigation goal, the NavFn  Planner demonstrated slightly better performance by completing the task in the shortest amount of time (92 seconds).
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+  It&apos;s important to note that planner performance can vary based on the specific robot&apos;s characteristics, environment, and the nature of the navigation task. Therefore, I recommend further fine-tuning and testing the selected planner to ensure optimal performance in your real-world applications.
+&lt;/p&gt;
+
+&lt;h2 style=&quot;text-align: left;margin: 20px 3rem;&quot; id=&quot;envsetupconfig&quot;&gt;Controllers for wheeled robots&lt;/h2&gt;
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;Several controllers cater to the diverse needs of both holonomic and non-holonomic robots. These controllers are essential components that help robots navigate through environments efficiently. I will explain the characteristics and suitability of these controllers for different types of robots.
+  &lt;ul style=&quot;margin: 20px 3rem;padding-left: 0;padding-top: 0;&quot;&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;DWA (Dynamic-Window Approach) Controller&lt;/b&gt;&lt;br /&gt;
+      DWA excels in providing quick and agile navigation for robots capable of sudden velocity changes and complex motion patterns, as is common with holonomic robots.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; The DWA controller is highly suitable for holonomic robots, such as omnidirectional or mecanum wheel robots. It leverages their ability to move in any direction without changing their orientation.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It&apos;s not the best choice for non-holonomic robots, like differential-drive or car-like robots. These robots have constraints on instantaneous velocity changes and turning.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;DWB (Dynamic-Window Based) Controller&lt;/b&gt;&lt;br /&gt;
+      DWB&apos;s dynamic window search is particularly useful for real-time obstacle avoidance and goal-reaching tasks, making it versatile for various robot types.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; DWB can work well with holonomic robots, thanks to its dynamic window search, which adapts to a robot&apos;s instantaneous motion capabilities.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It is also suitable for non-holonomic robots, although not as ideal as for holonomic robots.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+       &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;TEB (Trajectory Rollout) Controller&lt;/b&gt;&lt;br /&gt;
+      TEB&apos;s focus on trajectory optimization is excellent for robots capable of complex motion planning but may be overkill for non-holonomic robots.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; TEB is a great choice for holonomic robots as it plans and optimizes feasible trajectories considering the robot&apos;s kinematics.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; It can be used with non-holonomic robots, but its performance may be less optimal compared to holonomic robots.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;RPP (Recursive Pyramid Planner)&lt;/b&gt;&lt;br /&gt;
+      RPP&apos;s hierarchical path planning can suit non-holonomic robots in certain scenarios, but it may not be the first choice.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; RPP is not commonly used with holonomic robots as it&apos;s more oriented toward grid-based path planning.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; While RPP is generally used for non-holonomic robots, its applicability depends on specific use cases.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;b style=&quot;font-size: 24px;&quot;&gt;MPPI (Model Predictive Path Integral) Controller&lt;/b&gt;&lt;br /&gt;
+      MPPI is designed for robots that benefit from probabilistic path optimization, which is often the case for non-holonomic robots dealing with complex environments.
+        &lt;ul style=&quot;padding-left: 10px;padding-top: 0;&quot;&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Holonomic Robots:&lt;/b&gt; MPPI is generally not chosen for holonomic robots due to their more direct and efficient path-planning capabilities.
+          &lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Suitability for Non-Holonomic Robots:&lt;/b&gt; MPPI is better suited for non-holonomic robots. It&apos;s especially useful in scenarios that require predictive and probabilistic path planning.&lt;br /&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+  For non-holonomic robots, I would recommend considering the DWB Controller. It&apos;s known for its stable performance, simplicity, and relatively fast computation times. It should complement the faster NavFn Planner effectively. 
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+  For more advanced trajectory planning and can tolerate slightly longer computation times, the TEB Controller might be suitable, especially if the robot needs to navigate dynamic environments with obstacles.
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
+  Given these assessments, the DWB Controller emerges as the top recommendation for holonomic robots in Nav2 due to its remarkable precision and efficiency, which are crucial for responsive and accurate navigation in various environments.
+&lt;/p&gt;
+
+&lt;h3 style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+In the ever-evolving realm of robotics, my choice of wheel type, kinematic model, and navigation tools holds the key to unlocking the full potential of my robot. I&apos;ve embarked on a journey through the diverse landscape of wheel configurations, from the nimble holonomic mecanum wheels to the versatile differential-drive. I&apos;ve delved into the intricacies of their kinematic models, understanding how they enable robots to move and navigate.
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+However, my quest doesn&apos;t end with theoretical knowledge alone. In the practical realm of robotics, I&apos;ve put these theories to the test. Through rigorous experimentation, I&apos;ve identified the NavFn Planner as my swift companion for holonomic robots, while the DWB Controller emerges as the pinnacle of precision for holonomic navigation in ROS 2 Navigation. For non-holonomic robots, the NavFn Planner offers a robust choice, complemented by the agility and obstacle-handling prowess of the TEB Controller.
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;margin: 20px 3rem;&quot;&gt;
+As I conclude this journey, remember that the world of robotics is dynamic and ever-changing. While these recommendations serve as a compass, my robot&apos;s unique characteristics and the complexities of its operational environment will always guide my final decision. So, I&apos;ll harness this knowledge, embrace the possibilities, and let my robot embark on its path to innovation and discovery.
+&lt;/p&gt;
+
+&lt;p style=&quot; margin: 20px 3rem;&quot;&gt;If you liked the article, please buy me a &lt;a style=&quot;
+                    text-decoration:none;
+                    display: inline-block;
+                    outline: 0;
+                    cursor: pointer;
+                    text-align: center;
+                    border: 0;
+                    padding: 7px 16px;
+                    min-height: 36px;
+                    min-width: 36px;
+                    color: #ffffff;
+                    background: #11999e;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+                    :hover {
+                        background: #006e52;
+                    }
+                &quot; href=&quot;https://www.buymeacoffee.com/roboticsspace&quot;&gt;☕️ coffee&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot; margin: 20px 3rem;&quot;&gt;Resources:&lt;/h3&gt;
+&lt;ul style=&quot; margin: 20px 3rem;&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://en.wikipedia.org/wiki/Differential_wheeled_robot&quot;&gt;Differential wheeled robot - Wikipedia&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;http://www.robotplatform.com/knowledge/Classification_of_Robots/wheel_control_theory.html&quot;&gt;Wheel Control Theory - Robot Platform &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://en.wikibooks.org/wiki/Robotics/Types_of_Robots/Wheeled&quot;&gt;Robotics/Types of Robots/Wheeled - Wikibooks&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://navigation.ros.org/configuration/packages/configuring-planner-server.html&quot;&gt;Planner Server - Nav2&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://navigation.ros.org/configuration/packages/configuring-controller-server.html&quot;&gt;Controller Server - Nav2&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</content><author><name>Apoorva Gupta</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">Kinematic Modelling for Mobile Robots The concept of kinematic modeling is very well studied be it for the AMRs or robotic arms. Being an expert in mobile robotics, I have spent years in the exploration of planners and controllers of differential-drive robots. Although there is always a limitation in the motion range, differential-drive is still the most common kinematic model so far. I have recently started seeing a shift and the adaptation of holonomic robots coming up. In this blog, I wanted to list the kinematics for both non-holonomic and holonomic robots, along with recommended controllers and planners. I would use the open-source Linorobot2 package in GitHub, which provides a robust simulation environment complete with Nav2. The sensor configurations I would use for testing the planners are 2D LIDAR, 6-DOF IMU, and Encoders. Wheel Types in Mobile Robots Mobile robots come in various configurations, and their movement heavily relies on the type of wheels they use. Let&apos;s begin by categorizing the wheels into two main types: Holonomic and Non-Holonomic wheels. Non-Holonomic Wheels Non-holonomic wheels are known for their stability and simplicity. They allow the robot to move in a limited set of directions, making them less agile than their holonomic counterparts. The common types of non-holonomic wheels are: Differential-Drive Wheels The defining characteristic of a differential-drive robot is its wheel configuration. These robots typically have two fixed wheels placed on a common axis and a caster wheel. The two fixed wheels are responsible for propelling the robot forward and backward, while the caster wheel allows the robot to maintain stability and freely rotate about its central point. Differential-Drive Wheels Model Robot Motions based on wheel velocity and direction for Differential-Drive Wheels Model Skid-Steer Wheels A skid-steer robot is characterized by its mobility configuration, featuring two sets of wheels on either side of the robot, each set independently driven. These robots achieve movement and directional control by varying the speed and direction of rotation of the wheels on each side. Unlike a differential-drive robot, a skid-steer robot lacks a dedicated caster wheel. Instead, changes in velocity and wheel rotation enable the robot to turn in place, making it highly maneuverable. Skid-steer robots are commonly employed in applications where precise control of movement and the ability to turn within a confined space are crucial, such as in industrial settings and certain types of mobile robotic platforms. Skid-Steer Wheels Model Robot Motions based on wheel velocity and direction for Skid-Steer Wheels Model Kinematic Model for Non-Holonomic Robots The Differential-Drive Kinematic Model is a fundamental concept in mobile robotics, especially for non-holonomic robots. It describes the motion of a robot with two fixed wheels and a caster wheel or a single free caster wheel. The Differential-Drive Kinematic Model allows control of the robot&apos;s linear and angular velocities, enabling precise motion planning and control. Assumptions of the-Differential Drive Kinematic Model The Differential-Drive Kinematic Model is based on a few assumptions: No Slippage: The model assumes that there is no slippage between the wheels and the ground. In reality, some slippage may occur, but this assumption simplifies the kinematic calculations. Pure Rotation: The model assumes that the robot can only perform pure rotations, meaning it can only turn about a central point without any lateral movement during the rotation. No Skidding: The model assumes that there is no skidding between the wheels and the ground during turning. Kinematic Equations Kinematic Model for Differential-Drive Model X and Y represent the global coordinate system and XB and YB represent the local coordinate system of the robot. In the Differential-Drive Kinematic Model, two main parameters are considered: Linear velocity (V): The robot&apos;s forward or backward speed. Angular velocity (ω): The robot&apos;s rate of rotation about a central point. The kinematic equations for the differential-drive model are as follows: V = (v_left + v_right) / 2 ω = (v_right - v_left) / L where v_left and v_right are the linear velocities of the left and right wheels, respectively, and L is the distance between the two drive wheels. Holonomic Wheels Holonomic wheels provide exceptional maneuverability, allowing mobile robots to move in any direction within a 2D plane without changing their orientation. They are ideal for applications that require precise positioning and navigation. Two common types of holonomic wheels are: Omni Wheels Omni-wheels have rollers around their circumference, allowing them to move not only forward and backward but also sideways. This unique feature provides holonomic motion capabilities. Omni Wheels Model Robot Motions based on wheel velocity and direction for Omni Wheels Model Mecanum Wheels Mecanum wheels have rollers mounted at an angle to the wheel&apos;s rotation axis. By controlling the speeds and directions of the mecanum wheels, a robot can move in any direction without altering its orientation. Mecanum Wheels Model Robot Motions based on wheel velocity and direction for Mecanum Wheels Model Kinematic Model for Holonomic Robots The Mecanum Drive Kinematic Model is specifically designed for holonomic robots equipped with Mecanum wheels. These wheels have rollers mounted at an angle to the wheel&apos;s rotation axis, allowing them to exhibit unique motion characteristics. By independently controlling the speeds and directions of the Mecanum wheels, the robot can move in any direction without altering its orientation. Assumptions of the Mecanum Drive Kinematic Model The Mecanum Drive Kinematic Model is based on several assumptions to simplify the mathematical representation of the robot&apos;s motion. These assumptions include: Ideal Wheels:The model assumes ideal Mecanum wheels with no slippage or friction, allowing for accurate motion predictions. No Vertical Motion:The model operates in a 2D plane and does not consider any vertical motion of the robot. Small Angles:The angles between the rollers and the wheel&apos;s rotation axis are assumed to be small, enabling linear approximations for velocity calculations. Planners for wheeled robots In the domain of robotics and autonomous navigation, the choice of planners is a pivotal decision that influences a robot&apos;s path-planning capabilities. Whether dealing with holonomic or non-holonomic robots, selecting the right planner is essential. Here, I will delve into the characteristics and applicability of various planners, considering both holonomic and non-holonomic robots. NavFn Planner NavFn is excellent for holonomic robots that can follow paths precisely, but it may lead to suboptimal paths for non-holonomic robots due to its grid-based approach. Suitability for Holonomic Robots: NavFn is well-suited for holonomic robots. It provides global path planning by treating the environment as a grid and using the Fast Marching Method. Suitability for Non-Holonomic Robots: While NavFn can be used with non-holonomic robots, there are better choices than this one. It might generate paths that require complex maneuvers. Smac Planner 2D (Sparse Multi-Modal Asynchronous Planner) Smac Planner 2D balances path optimality and computation speed, making it a solid choice for holonomic robots, and it can still be effective for non-holonomic robots. Suitability for Holonomic Robots: Smac Planner 2D is suitable for holonomic robots. It uses a sparse sampling approach, making it computationally efficient. Suitability for Non-Holonomic Robots: It can be used with non-holonomic robots, but its efficiency may vary depending on the robot&apos;s constraints. Smac Lattice Planner Smac Lattice Planner offers a balance of optimality and flexibility, making it a practical choice for holonomic robots. For non-holonomic robots, it can be adapted to suit the needs. Suitability for Holonomic Robots: Smac Lattice Planner is a versatile choice for holonomic robots. It uses lattice-based planning and is effective for various scenarios. Suitability for Non-Holonomic Robots: It can work for non-holonomic robots, but it may require additional adaptability for the robot&apos;s constraints. Pure Pursuit Pure Pursuit offers simplicity and efficiency for holonomic robots, making it an intuitive choice for direct goal-reaching tasks. Suitability for Holonomic Robots: Pure Pursuit is a natural fit for holonomic robots. It is designed for guiding robots directly toward a goal point. Suitability for Non-Holonomic Robots: It can work with non-holonomic robots, but it may not fully utilize their capabilities. SBPL Lattice Planner (Search-Based Planning Library) SBPL Lattice Planner is known for its path optimality and is a strong candidate for holonomic robots. It can also serve non-holonomic robots but with potential customization. Suitability for Holonomic Robots: SBPL Lattice Planner is suitable for holonomic robots. It uses a search-based approach to generate paths and is effective in complex environments. Suitability for Non-Holonomic Robots: It can be applied to non-holonomic robots, although it may require additional adaptations and configurations. After conducting thorough tests and measurements with various planners available in Nav2 for non-holonomic robots and holonomic robots, I have gained valuable insights into their performance. Here are my findings based on extensive testing using the Linorobot2 simulation. Nav2 Path from Start to Goal For my tests with various planners present in the Navigation Stack in ROS 2, I provided a common navigation goal, which had an approximate distance of 21 meters. I carefully measured the time taken by each planner to complete the given task. Here are the results: NavFn Planner The NavFn Planner took approximately 92 seconds to compute a path for a common navigation goal for a non-holonomic robot. For a holonomic robot, the NavFn Planner took approximately 97 seconds to navigate, through a common goal situated approximately 21 meters away. It demonstrated reasonable performance within this setup. Smac Planner 2D The Smac Planner 2D required around 107 seconds to generate a path for a non-holonomic robot. It offers more advanced features than the NavFn Planner but at the cost of increased computation time. The Smac Planner 2D exhibited slower performance, requiring around 115 seconds to complete the same navigation task for a holonomic robot. It was the slowest among the tested planners for holonomic robots. Smac Lattice Planner The Smac Lattice Planner performed relatively well, taking about 94 seconds to find a path for a non-holonomic robot. It leverages lattice-based planning techniques, which can lead to efficient paths. For a holonomic robot, the Smac Lattice Planner delivered competitive performance, taking roughly 101 seconds to reach the designated goal. It showcased good potential for holonomic robot planning. Based on the results, the NavFn Planner appears to be the fastest among the tested planners, taking 92 seconds for non-holonomic robots and 97 seconds for non-holonomic robots respectively. However, its performance may vary depending on the environment&apos;s complexity. While all the planners are capable of achieving the navigation goal, the NavFn Planner demonstrated slightly better performance by completing the task in the shortest amount of time (92 seconds). It&apos;s important to note that planner performance can vary based on the specific robot&apos;s characteristics, environment, and the nature of the navigation task. Therefore, I recommend further fine-tuning and testing the selected planner to ensure optimal performance in your real-world applications. Controllers for wheeled robots Several controllers cater to the diverse needs of both holonomic and non-holonomic robots. These controllers are essential components that help robots navigate through environments efficiently. I will explain the characteristics and suitability of these controllers for different types of robots. DWA (Dynamic-Window Approach) Controller DWA excels in providing quick and agile navigation for robots capable of sudden velocity changes and complex motion patterns, as is common with holonomic robots. Suitability for Holonomic Robots: The DWA controller is highly suitable for holonomic robots, such as omnidirectional or mecanum wheel robots. It leverages their ability to move in any direction without changing their orientation. Suitability for Non-Holonomic Robots: It&apos;s not the best choice for non-holonomic robots, like differential-drive or car-like robots. These robots have constraints on instantaneous velocity changes and turning. DWB (Dynamic-Window Based) Controller DWB&apos;s dynamic window search is particularly useful for real-time obstacle avoidance and goal-reaching tasks, making it versatile for various robot types. Suitability for Holonomic Robots: DWB can work well with holonomic robots, thanks to its dynamic window search, which adapts to a robot&apos;s instantaneous motion capabilities. Suitability for Non-Holonomic Robots: It is also suitable for non-holonomic robots, although not as ideal as for holonomic robots. TEB (Trajectory Rollout) Controller TEB&apos;s focus on trajectory optimization is excellent for robots capable of complex motion planning but may be overkill for non-holonomic robots. Suitability for Holonomic Robots: TEB is a great choice for holonomic robots as it plans and optimizes feasible trajectories considering the robot&apos;s kinematics. Suitability for Non-Holonomic Robots: It can be used with non-holonomic robots, but its performance may be less optimal compared to holonomic robots. RPP (Recursive Pyramid Planner) RPP&apos;s hierarchical path planning can suit non-holonomic robots in certain scenarios, but it may not be the first choice. Suitability for Holonomic Robots: RPP is not commonly used with holonomic robots as it&apos;s more oriented toward grid-based path planning. Suitability for Non-Holonomic Robots: While RPP is generally used for non-holonomic robots, its applicability depends on specific use cases. MPPI (Model Predictive Path Integral) Controller MPPI is designed for robots that benefit from probabilistic path optimization, which is often the case for non-holonomic robots dealing with complex environments. Suitability for Holonomic Robots: MPPI is generally not chosen for holonomic robots due to their more direct and efficient path-planning capabilities. Suitability for Non-Holonomic Robots: MPPI is better suited for non-holonomic robots. It&apos;s especially useful in scenarios that require predictive and probabilistic path planning. For non-holonomic robots, I would recommend considering the DWB Controller. It&apos;s known for its stable performance, simplicity, and relatively fast computation times. It should complement the faster NavFn Planner effectively. For more advanced trajectory planning and can tolerate slightly longer computation times, the TEB Controller might be suitable, especially if the robot needs to navigate dynamic environments with obstacles. Given these assessments, the DWB Controller emerges as the top recommendation for holonomic robots in Nav2 due to its remarkable precision and efficiency, which are crucial for responsive and accurate navigation in various environments. Conclusion In the ever-evolving realm of robotics, my choice of wheel type, kinematic model, and navigation tools holds the key to unlocking the full potential of my robot. I&apos;ve embarked on a journey through the diverse landscape of wheel configurations, from the nimble holonomic mecanum wheels to the versatile differential-drive. I&apos;ve delved into the intricacies of their kinematic models, understanding how they enable robots to move and navigate. However, my quest doesn&apos;t end with theoretical knowledge alone. In the practical realm of robotics, I&apos;ve put these theories to the test. Through rigorous experimentation, I&apos;ve identified the NavFn Planner as my swift companion for holonomic robots, while the DWB Controller emerges as the pinnacle of precision for holonomic navigation in ROS 2 Navigation. For non-holonomic robots, the NavFn Planner offers a robust choice, complemented by the agility and obstacle-handling prowess of the TEB Controller. As I conclude this journey, remember that the world of robotics is dynamic and ever-changing. While these recommendations serve as a compass, my robot&apos;s unique characteristics and the complexities of its operational environment will always guide my final decision. So, I&apos;ll harness this knowledge, embrace the possibilities, and let my robot embark on its path to innovation and discovery. If you liked the article, please buy me a ☕️ coffee Resources: Differential wheeled robot - Wikipedia Wheel Control Theory - Robot Platform Robotics/Types of Robots/Wheeled - Wikibooks Planner Server - Nav2 Controller Server - Nav2</summary></entry><entry><title type="html">Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions</title><link href="http://localhost:4000/blog/VS-Code-ROS-Configurations/" rel="alternate" type="text/html" title="Unlocking Enhanced Development Experience: Creating Custom Configurations for VSCode Extensions" /><published>2023-06-26T00:00:00+05:30</published><updated>2023-06-26T00:00:00+05:30</updated><id>http://localhost:4000/blog/VS-Code-ROS-Configurations</id><content type="html" xml:base="http://localhost:4000/blog/VS-Code-ROS-Configurations/">&lt;h1 style=&quot;text-align: center;margin-top:20px;margin-bottom-20px;&quot;&gt;Unlocking Enhanced Development Experience: Creating Custom Configurations for VS Code Extensions&lt;/h1&gt;
 
 &lt;!--excerpt.start--&gt;
 &lt;p style=&quot;margin: 20px 3rem;&quot;&gt;  
